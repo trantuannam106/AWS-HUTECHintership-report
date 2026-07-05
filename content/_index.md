@@ -13,13 +13,13 @@ chapter: false
 {{% /notice %}}
 
 ### Student Information:
-&emsp; **Full Name:** Nguyen Van A
+&emsp; **Full Name:** Tran Khanh Dong
 
-&emsp; **Phone Number:** 0989888999 
+&emsp; **Phone Number:** 0818767448
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** trankhhanhdongkl@gmail.com
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **University:** Ho Chi Minh City University of Technology 
 
 &emsp; **Major:** Information Technology
 
@@ -29,9 +29,9 @@ chapter: false
 
 &emsp; **Internship Position:** FCJ Cloud Intern
 
-&emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
+&emsp; **Internship Duration:** From 20/04/2026 to 20/07/2026
 
-![Your profile picture](/images/avatar.png)
+![Your profile picture](/static/images/avatar.png)
 
 ### Report Content
 

@@ -7,13 +7,14 @@ chapter: false
 
 # Báo cáo thực tập
 ### Thông tin sinh viên:
-&emsp; **Họ và tên:** Nguyễn Văn A
 
-&emsp; **Số điện thoại:** 0989888999
+&emsp; **Họ và tên:** Trần Khánh Đông
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Phone Number:** 0818767448
 
-&emsp; **Trường:** Đại học Sư phạm Kỹ thuật TP.HCM
+&emsp; **Email:** trankhhanhdongkl@gmail.com
+
+&emsp; **Trường:** Đại học Công nghệ TP.HCM (HUTECH) 
 
 &emsp; **Ngành:** Công nghệ thông tin
 
@@ -23,9 +24,9 @@ chapter: false
 
 &emsp; **Vị trí thực tập:** FCJ Cloud Intern
 
-&emsp; **Thời gian thực tập:** Từ ngày 12/08/2025 đến ngày 12/11/2025
+&emsp; **Thời gian thực tập:** Từ ngày 20/04/2026 đến ngày 20/07/2026
 
-![Ảnh đại diện của bạn](/images/avatar.png)
+![Ảnh đại diện của bạn](/static/images/avatar.png)
 
 
 

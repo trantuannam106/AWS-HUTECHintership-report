@@ -31,7 +31,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 20/04/2026 to 20/07/2026
 
-![Your profile picture](/static/images/avatar.png)
+![Your profile picture](/AWS-HUTECHintership-report/images/avatar.png)
 
 ### Report Content
 

@@ -1,6 +1,6 @@
 ---
 title: "Feedback"
-date: 2026-07-07
+date: 2026-07-01
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "

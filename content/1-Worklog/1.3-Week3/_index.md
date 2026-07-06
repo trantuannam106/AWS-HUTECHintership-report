@@ -1,6 +1,6 @@
 ---
 title: "Week 3 Worklog"
-date: 2026-05-11
+date: 2026-05-04
 weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
@@ -22,13 +22,13 @@ pre: " <b> 1.3. </b> "
 
 | Day | Tasks | Start Date | Completion Date | Reference |
 | --- | --- | --- | --- | --- |
-| Monday | - Read the Introduction to Amazon EC2 section <br> - Understand the workshop overview and hands-on architecture <br> - Prepare AWS account, Region, Key Pair, and connection environment | 11/05/2026 | 11/05/2026 | https://000004.awsstudygroup.com/ |
-| Tuesday | - Module 2.1: Create a Linux VPC <br> - Module 2.2: Create VPC for Windows Instance <br> - Module 2.3: Create Security Group for Linux Instance <br> - Module 2.4: Create Security Group for Windows Instance | 12/05/2026 | 12/05/2026 | https://000004.awsstudygroup.com/ |
-| Wednesday | - Module 3.1: Launch Microsoft Windows Server 2022 Instance <br> - Module 3.2: Connect from Computer to Windows Instance <br> - Verify Remote Desktop and Windows key pair login | 13/05/2026 | 13/05/2026 | https://000004.awsstudygroup.com/ |
-| Thursday | - Module 4.1: Launch Amazon Linux Instance <br> - Module 4.2: Connect to Amazon Linux Instance <br> - Practice SSH connection to Linux Instance using key pair | 14/05/2026 | 14/05/2026 | https://000004.awsstudygroup.com/ |
-| Friday | - Module 5.1: Modify EC2 Instance Type <br> - Module 5.2: Create and Manage EBS Snapshots <br> - Module 5.3: Create Custom AMI <br> - Module 5.4: Launch Instance from Custom AMI <br> - Module 5.5 - 5.7: Recover access and Remote Desktop to Ubuntu | 15/05/2026 | 15/05/2026 | https://000004.awsstudygroup.com/ |
-| Saturday | - Module 6: Deploy AWS User Management Application on Amazon Linux <br> - Install LAMP Server, configure database, phpMyAdmin, Node.js, and deploy the application | 16/05/2026 | 16/05/2026 | https://000004.awsstudygroup.com/ |
-| Sunday | - Module 7: Deploy Node.js Application on Windows EC2 <br> - Module 8: Cost & Usage Governance with IAM <br> - Module 9: Clean up resources | 17/05/2026 | 17/05/2026 | https://000004.awsstudygroup.com/ |
+| Monday | - Read the Introduction to Amazon EC2 section <br> - Understand the workshop overview and hands-on architecture <br> - Prepare AWS account, Region, Key Pair, and connection environment | 04/05/2026 | 04/05/2026 | https://000004.awsstudygroup.com/ |
+| Tuesday | - Module 2.1: Create a Linux VPC <br> - Module 2.2: Create VPC for Windows Instance <br> - Module 2.3: Create Security Group for Linux Instance <br> - Module 2.4: Create Security Group for Windows Instance | 05/05/2026 | 05/05/2026 | https://000004.awsstudygroup.com/ |
+| Wednesday | - Module 3.1: Launch Microsoft Windows Server 2022 Instance <br> - Module 3.2: Connect from Computer to Windows Instance <br> - Verify Remote Desktop and Windows key pair login | 06/05/2026 | 06/05/2026 | https://000004.awsstudygroup.com/ |
+| Thursday | - Module 4.1: Launch Amazon Linux Instance <br> - Module 4.2: Connect to Amazon Linux Instance <br> - Practice SSH connection to Linux Instance using key pair | 07/05/2026 | 07/05/2026 | https://000004.awsstudygroup.com/ |
+| Friday | - Module 5.1: Modify EC2 Instance Type <br> - Module 5.2: Create and Manage EBS Snapshots <br> - Module 5.3: Create Custom AMI <br> - Module 5.4: Launch Instance from Custom AMI <br> - Module 5.5 - 5.7: Recover access and Remote Desktop to Ubuntu | 08/05/2026 | 08/05/2026 | https://000004.awsstudygroup.com/ |
+| Saturday | - Module 6: Deploy AWS User Management Application on Amazon Linux <br> - Install LAMP Server, configure database, phpMyAdmin, Node.js, and deploy the application | 09/05/2026 | 09/05/2026 | https://000004.awsstudygroup.com/ |
+| Sunday | - Module 7: Deploy Node.js Application on Windows EC2 <br> - Module 8: Cost & Usage Governance with IAM <br> - Module 9: Clean up resources | 10/05/2026 | 10/05/2026 | https://000004.awsstudygroup.com/ |
 
 ---
 

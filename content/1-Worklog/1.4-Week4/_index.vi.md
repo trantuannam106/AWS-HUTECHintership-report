@@ -1,6 +1,6 @@
 ---
 title: "Worklog Tuần 4"
-date: 2026-05-18
+date: 2026-05-11
 weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
@@ -24,13 +24,13 @@ pre: " <b> 1.4. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Đọc phần Introduction về Amazon RDS <br> - Tìm hiểu RDS là gì, OLTP, DB Instance, Endpoint <br> - Nắm các database engine được hỗ trợ như MySQL, PostgreSQL, MariaDB, SQL Server, Oracle, Aurora | 18/05/2026 | 18/05/2026 | https://000005.awsstudygroup.com/ |
-| 3 | - Module 2.1: Create a VPC <br> - Tạo VPC, Public Subnet, Private Subnet <br> - Cấu hình nhiều Availability Zone để chuẩn bị cho RDS | 19/05/2026 | 19/05/2026 | https://000005.awsstudygroup.com/ |
-| 4 | - Module 2.2: Create EC2 Security Group <br> - Module 2.3: Create RDS Security Group <br> - Mở các port cần thiết cho EC2 và giới hạn RDS chỉ nhận kết nối từ EC2 Security Group | 20/05/2026 | 20/05/2026 | https://000005.awsstudygroup.com/ |
-| 5 | - Module 2.4: Create DB Subnet Group <br> - Module 3: Create EC2 Instance <br> - Launch Amazon Linux EC2, gán Key Pair và kết nối SSH bằng MobaXterm | 21/05/2026 | 21/05/2026 | https://000005.awsstudygroup.com/ |
-| 6 | - Module 4: Create RDS Database Instance <br> - Tạo database instance, cấu hình engine, username, password, VPC, Security Group <br> - Kiểm tra trạng thái Available, Endpoint và Port của RDS | 22/05/2026 | 22/05/2026 | https://000005.awsstudygroup.com/ |
-| 7 | - Module 5: Application Deployment <br> - Clone source code AWS FCJ Management <br> - Cài Node.js, npm package, MySQL client <br> - Tạo database, table user và chạy ứng dụng qua port 5000 | 23/05/2026 | 23/05/2026 | https://000005.awsstudygroup.com/ |
-| CN | - Module 6: Backup and Restore <br> - Kiểm tra backup, snapshot và restore RDS <br> - Module 7: Clean up resources <br> - Xóa EC2, RDS, Snapshot, Subnet Group, Security Group, VPC để tránh phát sinh phí | 24/05/2026 | 24/05/2026 | https://000005.awsstudygroup.com/ |
+| 2 | - Đọc phần Introduction về Amazon RDS <br> - Tìm hiểu RDS là gì, OLTP, DB Instance, Endpoint <br> - Nắm các database engine được hỗ trợ như MySQL, PostgreSQL, MariaDB, SQL Server, Oracle, Aurora | 11/05/2026 | 11/05/2026 | https://000005.awsstudygroup.com/ |
+| 3 | - Module 2.1: Create a VPC <br> - Tạo VPC, Public Subnet, Private Subnet <br> - Cấu hình nhiều Availability Zone để chuẩn bị cho RDS | 12/05/2026 | 12/05/2026 | https://000005.awsstudygroup.com/ |
+| 4 | - Module 2.2: Create EC2 Security Group <br> - Module 2.3: Create RDS Security Group <br> - Mở các port cần thiết cho EC2 và giới hạn RDS chỉ nhận kết nối từ EC2 Security Group | 13/05/2026 | 13/05/2026 | https://000005.awsstudygroup.com/ |
+| 5 | - Module 2.4: Create DB Subnet Group <br> - Module 3: Create EC2 Instance <br> - Launch Amazon Linux EC2, gán Key Pair và kết nối SSH bằng MobaXterm | 14/05/2026 | 14/05/2026 | https://000005.awsstudygroup.com/ |
+| 6 | - Module 4: Create RDS Database Instance <br> - Tạo database instance, cấu hình engine, username, password, VPC, Security Group <br> - Kiểm tra trạng thái Available, Endpoint và Port của RDS | 15/05/2026 | 15/05/2026 | https://000005.awsstudygroup.com/ |
+| 7 | - Module 5: Application Deployment <br> - Clone source code AWS FCJ Management <br> - Cài Node.js, npm package, MySQL client <br> - Tạo database, table user và chạy ứng dụng qua port 5000 | 16/05/2026 | 16/05/2026 | https://000005.awsstudygroup.com/ |
+| CN | - Module 6: Backup and Restore <br> - Kiểm tra backup, snapshot và restore RDS <br> - Module 7: Clean up resources <br> - Xóa EC2, RDS, Snapshot, Subnet Group, Security Group, VPC để tránh phát sinh phí | 17/05/2026 | 17/05/2026 | https://000005.awsstudygroup.com/ |
 
 ---
 
@@ -221,4 +221,4 @@ pre: " <b> 1.4. </b> "
 - Chạy ứng dụng bằng lệnh:
 
 ```bash
-chmod 400 first-kp.pem
+npm start

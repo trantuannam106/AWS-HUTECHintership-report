@@ -1,208 +1,106 @@
 ---
-title: "Event 2"
-date: 2026-05-23
-weight: 2
+title: "Event 3"
+date: 2026-06-13
+weight: 3
 chapter: false
 pre: " <b> 4.3. </b> "
 ---
 
-
-
-# Bài thu hoạch “AI, CloudFront and Multi-Agent System Event”
+# Bài thu hoạch “FCAJ Community Day - June 2026 Edition”
 
 ### Mục Đích Của Sự Kiện
+- **Thiết kế hệ thống chịu tải cao (High-scale Architecture)**: Giới thiệu kiến trúc dịch vụ rút gọn liên kết (URL Shortener) có khả năng mở rộng linh hoạt trên hệ sinh thái AWS.
+* **Định hướng phát triển năng lực dữ liệu**: Phân tích thực tế công việc, bộ kỹ năng cốt lõi và lộ trình tư duy dành cho một kỹ sư phân tích dữ liệu (Data Analytics Engineer) trong các tập đoàn đa quốc gia (MNCs).
+- **Giải mã vai trò DevOps thực chiến**: Đánh giá bức tranh thị trường, mức thu nhập, nhu cầu tuyển dụng và các bộ kỹ năng nền tảng không thể thay đổi của một kỹ sư DevOps chuyên nghiệp.
+- **Kết nối chuỗi giá trị và tư duy công dân**: Chia sẻ hành trình từ một sinh viên tò mò đến đối tác công nghệ của AWS, kết hợp triết lý "Đúng việc" đóng góp vào huyết mạch số quốc gia.
 
-- Tìm hiểu cách AI hoạt động hiệu quả hơn khi được cung cấp đầy đủ ngữ cảnh.
-- Hiểu vai trò của context, memory và khái niệm Second AI Brain trong quá trình sử dụng AI.
-- Lắng nghe chia sẻ thực tế về quá trình xây dựng sản phẩm trong cuộc thi hackathon.
-- Tìm hiểu cách Amazon CloudFront hỗ trợ tối ưu hiệu năng, chi phí, bảo mật và độ tin cậy cho hệ thống.
-- Khám phá các công cụ AI assistant và workflow thông minh trong hệ sinh thái Amazon Quick.
-- Hiểu rõ hơn về tính không xác định của LLM ngay cả khi thiết lập deterministic.
-- Tìm hiểu mô hình multi-agent system trong bài toán credit scoring cho startup.
+### Danh Sách Diễn Giả
 
----
-
-### Lịch Trình Sự Kiện
-
-| Thời gian | Nội dung |
-| --- | --- |
-| 8:30 - 9:00 AM | Settle into your seat |
-| 9:00 - 9:30 AM | Context Is Everything: Making AI Actually Work for You |
-| 9:30 - 10:00 AM | 36 hrs with LotusHacks – Building UTMorpho from Idea to Reality |
-| 10:00 - 10:40 AM | From Edge To Origin: CloudFront as Your Foundation |
-| 10:40 - 10:55 AM | Friendly AI Assistant with Amazon Quick |
-| 10:55 - 11:00 AM | Break |
-| 11:00 - 11:30 AM | Non-Determinism of "Deterministic" LLM Settings |
-| 11:30 - 12:00 PM | Enterprise-Grade Multi-Agent System: The Case of Startup Credit Scoring |
+- **Anh Đinh Trung Kiên** - Lead Developer tại Startup.
+- **Bạn Nguyễn Minh Thọ** - Student & Cloud Contributor.
+- **Anh Dat Pham** - Data Analytics Engineer tại Tập đoàn Đa quốc gia.
+- **Anh Cường Nguyễn** - Process Engineer.
+- **Anh Trong H.Truong** - DevOps Engineer tại Endava Vietnam.
+- **Anh Danh Hoàng Hiếu Nghị** - AI Engineer, AWS Community Builder & SBG Leader.
 
 ---
 
 ### Nội Dung Nổi Bật
 
-#### Context Is Everything: Making AI Actually Work for You
+#### 1.Kiến trúc hệ thống rút gọn URL quy mô lớn (Scalable URL Shortener) trên AWS
+- **Nỗi đau hệ thống truyền thống (Naive Flow)**: Quy trình tạo mã rút gọn On-demand truyền thống thường gặp các vấn đề lớn về độ trễ đọc dữ liệu (Read Latency), lỗ hổng bảo mật, điểm nghẽn đơn nhất (Single Point of Failure), và rất khó để mở rộng quy mô khi lưu lượng truy cập đột biến.
+- **Kiến trúc Key Generation Service (KGS) tiên tiến**:
+- *Tách biệt luồng xử lý (Separation of Concerns)*: Nhánh Đọc (Read path) và Nhánh Ghi (Write path) hoạt động hoàn toàn độc lập, tối ưu hóa riêng biệt theo từng đặc điểm traffic.
+- *Tiền tính toán (Pre-computation over On-demand)*: Sử dụng các Container trên **Amazon ECS** để tính toán và sinh sẵn các mã rút gọn (Short codes) trước khi có yêu cầu từ người dùng. Các mã này sau đó được đẩy liên tục vào hàng đợi của **Amazon ElastiCache for Redis** thông qua lệnh `LPUSH key_queue`.
+- *Quy trình khởi tạo siêu tốc*: Khi người dùng gửi yêu cầu rút gọn link, dịch vụ Backend (SpringBoot chạy trên ECS) chỉ cần thực hiện lệnh `RPOP` để lấy ngay mã đã sinh sẵn trong Redis và ghi thông tin vào **Amazon DynamoDB** làm khóa chính (Primary Key - PK). Quá trình này diễn ra ngay lập tức và loại bỏ hoàn toàn rủi ro xung đột mã (Collision-free).
+- *Mô hình Cache-aside Pattern*: Luồng chuyển hướng (Forward flow) sẽ ưu tiên tra cứu trong bộ nhớ đệm Redis Server trước (Cache hit). Hệ thống chỉ truy vấn xuống cơ sở dữ liệu DynamoDB khi xảy ra hiện tượng Cache miss, giúp giảm thiểu tối đa áp lực tải và giữ độ trễ ở mức thấp nhất.
+- *Phòng ngự tại vùng biên (Defense at the Edge)*: Đẩy toàn bộ lớp bảo mật **AWS WAF** và lớp bộ nhớ đệm phân phối tĩnh của **Amazon CloudFront** ra sát người dùng nhất có thể, chặn đứng các mối đe dọa trước khi chúng chạm vào vùng lõi hệ thống.
 
-Phiên chia sẻ đầu tiên tập trung vào vai trò của **context** trong việc sử dụng AI hiệu quả. Một trong những lý do khiến AI đưa ra kết quả chưa tốt là do người dùng cung cấp thiếu ngữ cảnh hoặc mô tả vấn đề chưa rõ ràng.
+#### 2.Công việc thực tế và Tư duy phát triển của Data Analytics Engineer tại MNCs
 
-Các nội dung chính gồm:
+- **Sự khác biệt về domain công việc**:
+- Tại các công ty Tech/E-commerce (như Kamereo): Tập trung xây dựng báo cáo định kỳ để theo dõi hiệu suất vận hành, thiết kế Dashboard quản lý xu hướng dữ liệu để phát hiện bất thường và phối hợp đa phòng ban tìm nguyên nhân gốc rễ (Root Cause) để tối ưu hóa GMV.
+- Tại các tập đoàn sản xuất (như Colgate-Palmolive): Tham gia vào các dự án dữ liệu máy móc, thiết bị IoT trong nhà máy để tìm cơ hội tối ưu chi phí sản xuất và nâng cao hiệu suất thiết bị.
+- **4 kỹ năng bắt buộc**: Tư duy phản biện (Critical thinking), Kỹ năng giao tiếp điều phối, Kể chuyện với dữ liệu (Data storytelling), và Năng lực giải quyết bài toán thực tế.
+- **Lộ trình 5 bước định hình sự nghiệp**: Tư duy không đặt nặng chức danh (Title) mà tập trung nâng cấp năng lực qua từng nấc thang: `Follower` (Người thực thi checklist) $\rightarrow$ `Learner` (Người học chủ động) $\rightarrow$ `Problem Solver` (Người cam kết giải quyết bài toán) $\rightarrow$ `System Thinker` (Người tư duy hệ thống toàn cảnh) $\rightarrow$ `Super Star` (Người dẫn dắt và xây dựng tầm nhìn).
+- **Văn hóa không đổ lỗi (No-Blame Post-Mortem)**: Khắc họa sâu nét văn hóa công nghệ tại các tập đoàn đa quốc gia. Khi xảy ra sự cố sập hệ thống nghiêm trọng, các kỹ sư cùng ngồi lại rà soát mã nguồn, tìm ra kẽ hở kiến trúc hạ tầng để sửa đổi tận gốc thay vì chỉ trích hay quy trách nhiệm cho cá nhân.
 
-- Vì sao AI có thể thất bại khi thiếu context.
-- Context thật sự có nghĩa là gì trong quá trình làm việc với AI.
-- Sự phát triển từ prompt đơn giản đến memory và Second AI Brain.
-- Cách cung cấp context tốt hơn để nhận được kết quả chính xác hơn.
-- Tư duy thực tế khi sử dụng AI trong học tập, công việc và phát triển nghề nghiệp.
-- Gợi ý cho sinh viên bắt đầu xây dựng sản phẩm với AI.
-
-#### 36 hrs with LotusHacks – Building UTMorpho from Idea to Reality
-
-Phiên này chia sẻ hành trình xây dựng sản phẩm **UTMorpho** trong vòng 36 giờ tại LotusHacks. Nội dung giúp người tham dự hiểu rõ quá trình biến một ý tưởng ban đầu thành sản phẩm thực tế dưới áp lực thời gian.
-
-Các điểm nổi bật:
-
-- Lý do nhóm tham gia LotusHacks.
-- Quá trình brainstorming từ con số 0 đến khi hình thành ý tưởng.
-- Cách xác định vấn đề và định hình sản phẩm UTMorpho.
-- Trải nghiệm phát triển sản phẩm trong sprint 36 giờ.
-- Những khó khăn, thất bại và bước ngoặt trong quá trình xây dựng.
-- Tổng quan sản phẩm UTMorpho và phần demo.
-- Các bài học kinh nghiệm và định hướng phát triển tiếp theo.
-
-#### From Edge To Origin: CloudFront as Your Foundation
-
-Phiên chia sẻ về **Amazon CloudFront** giúp người tham dự hiểu cách dịch vụ CDN này hỗ trợ nhiều loại workload khác nhau, từ tăng hiệu năng đến tối ưu bảo mật và chi phí.
-
-Các nội dung chính:
-
-- Amazon CloudFront cho nhiều loại workload khác nhau.
-- Tối ưu chi phí với Amazon CloudFront.
-- Các khả năng bảo mật của CloudFront.
-- Tăng độ tin cậy cho hệ thống.
-- Cải thiện hiệu năng thông qua việc phân phối nội dung từ edge location.
-- Vai trò của CloudFront trong kiến trúc từ edge đến origin.
-
-#### Friendly AI Assistant with Amazon Quick
-
-Phiên này giới thiệu các công cụ AI assistant thân thiện, hỗ trợ người dùng khai thác dữ liệu, phân tích insight và xây dựng workflow thông minh bằng ngôn ngữ tự nhiên.
-
-Các nội dung chính:
-
-- **Quick Chat Agent**: AI assistant hỗ trợ khám phá dữ liệu và phân tích insight.
-- **Quick Flows**: Tạo workflow thông minh bằng ngôn ngữ tự nhiên, không cần lập trình.
-- **Quick Spaces**: Không gian cộng tác giúp chuyển insight cá nhân thành tri thức chung của nhóm.
-- **Quick Sight**: Xây dựng dashboard và báo cáo từ dữ liệu thô bằng ngôn ngữ tự nhiên.
-
-#### Non-Determinism of "Deterministic" LLM Settings
-
-Phiên này giúp người tham dự hiểu rằng ngay cả khi thiết lập LLM với các tham số tưởng chừng deterministic, kết quả vẫn có thể không hoàn toàn giống nhau trong mọi lần chạy.
-
-Các nội dung chính:
-
-- Cách LLM lựa chọn token tiếp theo.
-- Giả định phổ biến: `Temperature = 0` sẽ đảm bảo kết quả deterministic.
-- Thực tế: các tối ưu hóa trong quá trình inference có thể làm kết quả thay đổi.
-- Tác động thực tế đến quá trình sử dụng LLM trong sản phẩm.
-- Các chiến lược giảm thiểu rủi ro khi triển khai LLM.
-
-#### Enterprise-Grade Multi-Agent System: The Case of Startup Credit Scoring
-
-Phiên cuối tập trung vào mô hình **multi-agent system** cấp doanh nghiệp trong bài toán đánh giá tín dụng cho startup. Nội dung cho thấy cách nhiều agent có thể phối hợp để xử lý những bài toán phức tạp, đặc biệt trong lĩnh vực tài chính.
-
-Các nội dung chính:
-
-- Sự không tương thích giữa hệ thống ngân hàng truyền thống và dữ liệu startup.
-- Khi nào nên sử dụng single agent và khi nào không nên.
-- Tư duy về multi-agent paradigm.
-- Blueprint của một Virtual Credit Committee.
-- Guardrails và yêu cầu compliance trong hệ thống.
-- ROI vận hành và lộ trình triển khai.
-- Định hướng tiếp theo và phần Q&A.
-
----
+#### 3.Bức tranh toàn cảnh về DevOps Engineer trong thực tế
+- **Thị trường và thu nhập tại Việt Nam (2025 - 2026)**: Theo các báo cáo khảo sát từ ITviec và JT1 Salary Guide, vị trí DevOps Engineer và Cloud Engineer luôn nằm trong nhóm có chỉ số nhu cầu tuyển dụng và mức lương cao nhất thị trường. Thu nhập dao động từ **16 - 28 triệu VND/tháng** đối với mức Junior và có thể đạt tới **65 - 100 triệu VND/tháng** đối với cấp bậc Lead/Expert.
+- **Định kiến vs Thực tế**: DevOps không chỉ đơn thuần là người viết vài đường ống CI/CD, cấu hình Docker/Kubernetes hay ngồi trực hệ thống lúc nửa đêm. Phạm vi công việc (Scope) phụ thuộc rất lớn vào quy mô công ty, cấu trúc phòng ban và độ trưởng thành của hạ tầng doanh nghiệp.
+- **"Fundamentals Stay"**: Công cụ công nghệ (Tools) có thể thay đổi liên tục theo thời gian, nhưng các kiến thức nền tảng sẽ luôn ở lại. DevOps giỏi cần làm chủ các kỹ năng gốc: Hệ điều hành Linux, Kiến thức mạng (Networking basics), Ngôn ngữ lập trình (Python/Golang), Tư duy hệ thống (System Thinking) và năng lực đặt câu hỏi *"Tại sao"* trước khi tìm hiểu *"Làm thế nào"*.
 
 ### Những Gì Học Được
 
-#### Tư Duy Sử Dụng AI
+#### Tư Duy Thiết Kế
 
-- AI không chỉ phụ thuộc vào prompt, mà còn phụ thuộc rất nhiều vào context.
-- Context càng rõ ràng thì kết quả AI trả về càng phù hợp với nhu cầu thực tế.
-- Memory và Second AI Brain là hướng phát triển quan trọng giúp AI hiểu người dùng tốt hơn.
-- Khi sử dụng AI, cần cung cấp mục tiêu, dữ liệu nền, ràng buộc và ví dụ cụ thể.
+- **Tư duy tiền tính toán (Pre-computation)**: Học được cách chuyển đổi các tác vụ nặng, dễ gây nghẽn mạch thời gian thực thành các tác vụ chạy ngầm bất đồng bộ, chuẩn bị sẵn tài nguyên để phục vụ người dùng cuối với độ trễ thấp nhất.
+- **Tư duy No-Blame**: Hiểu rằng hệ thống lỗi là do lỗ hổng trong quy trình hoặc kiến trúc, việc xây dựng văn hóa thảo luận cởi mở sau sự cố là chìa khóa để nâng cấp độ ổn định của toàn bộ tổ chức.
 
-#### Tư Duy Xây Dựng Sản Phẩm
+#### Kiến Trúc Kỹ Thuật
 
-- Một sản phẩm tốt thường bắt đầu từ việc xác định đúng vấn đề.
-- Hackathon giúp rèn luyện khả năng brainstorming, ra quyết định nhanh và xây dựng MVP.
-- Khi làm việc dưới áp lực thời gian, nhóm cần ưu tiên tính năng cốt lõi thay vì cố gắng làm quá nhiều.
-- Demo sản phẩm là phần quan trọng để truyền tải giá trị của ý tưởng.
+- Nắm vững mô hình triển khai **KGS (Key Generation Service)** kết hợp giữa Redis (in-memory) và DynamoDB để xử lý bài toán chịu tải cao, chống trùng lặp dữ liệu.
+- Hiểu cách thức phân phối các chỉ số đo lường hiệu suất vận hành (Fulfillment, Last Mile Cost, Fill Rate) thông qua các Dashboard phân tích dữ liệu trực quan.
+- Phân biệt rõ ràng các lớp phòng ngự bảo mật tại vùng biên đám mây thông qua sự kết hợp của AWS WAF, CloudFront và AWS KMS.
 
-#### Kiến Thức Về CloudFront
+#### Chiến Lược Hiện Đại Hóa
 
-- CloudFront giúp phân phối nội dung nhanh hơn thông qua edge locations.
-- CloudFront không chỉ phục vụ static content mà còn có thể hỗ trợ nhiều workload khác nhau.
-- Dịch vụ này giúp cải thiện hiệu năng, bảo mật, độ tin cậy và tối ưu chi phí.
-- CloudFront là một thành phần quan trọng trong kiến trúc cloud hiện đại.
+- Thấu hiểu chuỗi dịch chuyển từ "Làm được" sang "Làm đúng chuẩn" toàn cầu. Đối với chuỗi cung ứng vật lý là tuân thủ GMP, GSP, GDP; còn đối với chuỗi cung ứng số và hạ tầng đám mây là bắt buộc phải đạt các chứng chỉ khắt khe như ISO 27001, SOC 2, và GDPR.
 
-#### Kiến Thức Về AI Assistant Và Workflow
+### Ứng Dụng Vào Công Việc
 
-- AI assistant có thể giúp người dùng phân tích dữ liệu nhanh hơn.
-- Workflow thông minh có thể được tạo bằng ngôn ngữ tự nhiên, giúp giảm rào cản kỹ thuật.
-- Shared spaces giúp tăng khả năng cộng tác và chia sẻ tri thức trong nhóm.
-- Natural language interface đang trở thành xu hướng trong việc xây dựng dashboard và báo cáo.
+- **Ứng dụng Cache-aside trong đồ án**: Thiết lập thêm một lớp Redis Cache đứng trước Database chính của các ứng dụng Backend tự làm để tối ưu tốc độ phản hồi API.
+- **Xây dựng tư duy System Thinker**: Khi viết code hoặc cấu hình hệ thống, tập thói quen đánh giá xem thay đổi này có ảnh hưởng chéo đến các module khác hoặc chi phí tài nguyên đám mây (FinOps) hay không.
+- **Tập trung vào Fundamentals**: Dành thêm thời gian học sâu về nhân Linux, các câu lệnh quản trị mạng nâng cao và Git luồng phối hợp (Git branching strategies) thay vì chỉ học vẹt các cú pháp của các công cụ automation.
+- **Thực hành triết lý "Đúng việc"**: Rèn luyện nội tâm tự quản trị vững vàng, làm nghề với tinh thần phụng sự giải quyết các bài toán thực tế của xã hội, hướng tới việc gánh vác các hệ thống số lớn sau khi ra trường.
 
-#### Kiến Thức Về LLM
+### Trải nghiệm trong event
 
-- `Temperature = 0` không luôn đảm bảo kết quả hoàn toàn giống nhau.
-- LLM có thể bị ảnh hưởng bởi cách hệ thống inference được tối ưu hóa.
-- Khi triển khai LLM trong sản phẩm thực tế, cần có cơ chế kiểm thử, logging và guardrails.
-- Cần hiểu rõ giới hạn của LLM để tránh phụ thuộc tuyệt đối vào kết quả mô hình.
+- Tham gia sự kiện **“FCAJ Community Day - June 2026 Edition”** vào ngày 13/06/2026 mang lại chuỗi trải nghiệm công nghệ vô cùng bùng nổ và thực tế.
 
-#### Kiến Thức Về Multi-Agent System
+#### Học hỏi từ các diễn giả có chuyên môn cao
 
-- Multi-agent system phù hợp với các bài toán phức tạp cần nhiều vai trò xử lý khác nhau.
-- Trong credit scoring, mỗi agent có thể đảm nhiệm một nhiệm vụ riêng như phân tích dữ liệu, đánh giá rủi ro, kiểm tra compliance.
-- Mô hình Virtual Credit Committee giúp mô phỏng quy trình ra quyết định của hội đồng tín dụng.
-- Guardrails là yếu tố bắt buộc khi triển khai AI trong môi trường doanh nghiệp và tài chính.
+- Các bài chia sẻ cực kỳ lôi cuốn từ những đàn anh đi trước đầy kinh nghiệm thực chiến. Lời khuyên về việc *"Dùng AI để nâng tầm kỹ năng chứ không phải để tắt đi bộ não của mình"* của các diễn giả DevOps khiến tôi thức tỉnh về phương pháp tự học trong kỷ nguyên công nghệ mới.
 
----
+#### Trải nghiệm kỹ thuật thực tế
 
-### Ứng Dụng Vào Học Tập Và Công Việc
+- Được phân tích chi tiết sơ đồ kiến trúc hạ tầng AWS chịu tải quy mô lớn. Việc bóc tách từng luồng request từ Route 53, đi qua ALB rồi chia tải xuống các dịch vụ Fargate và Redis giúp tôi hiểu sâu sắc thế nào là một hệ thống có tính sẵn sàng cao (High Availability).
 
-- Khi sử dụng AI để học tập, cần cung cấp context rõ ràng như mục tiêu học, trình độ hiện tại, yêu cầu đầu ra và ví dụ mong muốn.
-- Có thể áp dụng tư duy Second AI Brain để lưu trữ kiến thức, ghi chú và tài liệu học tập cá nhân.
-- Khi xây dựng project, nên bắt đầu từ problem statement trước khi chọn công nghệ.
-- Có thể sử dụng CloudFront cho các project web để tăng tốc độ tải trang và cải thiện trải nghiệm người dùng.
-- Có thể thử nghiệm AI assistant để phân tích dữ liệu, tạo báo cáo hoặc hỗ trợ quy trình làm việc.
-- Khi dùng LLM trong project, cần kiểm tra tính ổn định của kết quả và không nên giả định mô hình luôn deterministic.
-- Với các bài toán phức tạp, có thể nghiên cứu mô hình multi-agent để chia nhỏ nhiệm vụ và tăng khả năng kiểm soát.
+#### Ứng dụng công cụ hiện đại
 
----
+- Được tiếp cận các mẫu Dashboard vận hành thực tế tại doanh nghiệp, từ đó hiểu được cách biến những dòng dữ liệu thô, khô khan thành những câu chuyện có ý nghĩa, hỗ trợ ban giám đốc đưa ra các quyết định kinh doanh chính xác.
 
-### Trải Nghiệm Trong Event
+#### Kết nối và trao đổi
 
-Tham gia event về AI, CloudFront và multi-agent system là một trải nghiệm rất hữu ích, giúp tôi có thêm góc nhìn thực tế về cách AI và cloud đang được ứng dụng trong nhiều lĩnh vực khác nhau. Các phiên chia sẻ không chỉ tập trung vào lý thuyết mà còn đưa ra nhiều case study, ví dụ thực tế và kinh nghiệm triển khai.
-
-#### Học hỏi từ các chủ đề thực tế
-
-- Phần chia sẻ về context giúp tôi hiểu rằng muốn AI hoạt động hiệu quả thì cần biết cách cung cấp thông tin đầu vào đầy đủ.
-- Phần LotusHacks cho thấy quá trình xây dựng sản phẩm không nhất thiết bắt đầu từ một ý tưởng hoàn hảo, mà có thể được hình thành qua brainstorming và thử nghiệm nhanh.
-- Phần CloudFront giúp tôi hiểu rõ hơn vai trò của CDN trong kiến trúc cloud hiện đại.
-- Phần LLM non-determinism giúp tôi nhận ra rằng AI vẫn có những giới hạn kỹ thuật cần được kiểm soát khi đưa vào sản phẩm thực tế.
-
-#### Trải nghiệm về tư duy sản phẩm và kỹ thuật
-
-- Tôi học được cách kết hợp giữa tư duy sản phẩm, tư duy kỹ thuật và tư duy triển khai thực tế.
-- Các nội dung về CloudFront và multi-agent system giúp tôi hiểu hơn về kiến trúc hệ thống có khả năng mở rộng.
-- Các ví dụ về AI assistant cho thấy cách AI có thể hỗ trợ người dùng không chuyên kỹ thuật làm việc với dữ liệu hiệu quả hơn.
+- Sự kiện diễn ra vô cùng ấm cúng với không gian thảo luận trực tiếp và cả các phiên kết nối trực tuyến qua Google Meet với hơn 30 thành viên đồng hành. Việc được trao đổi và lắng nghe những trăn trở, định hướng phát triển từ các AWS Community Builders đã mở rộng đáng kể mạng lưới kết nối chuyên môn của tôi.
 
 #### Bài học rút ra
 
-- Context là yếu tố rất quan trọng khi sử dụng AI.
-- Cloud không chỉ là nơi deploy ứng dụng, mà còn cung cấp nhiều dịch vụ giúp tối ưu hiệu năng, bảo mật và chi phí.
-- Khi xây dựng sản phẩm AI, cần quan tâm đến tính ổn định, khả năng kiểm soát và các giới hạn của mô hình.
-- Multi-agent system là một hướng tiếp cận tiềm năng cho các bài toán doanh nghiệp phức tạp.
-- Sinh viên có thể bắt đầu với các project nhỏ, hackathon hoặc demo sản phẩm để học cách áp dụng AI và cloud vào thực tế.
+- Mọi công cụ, công nghệ thời thượng đều sẽ lỗi thời theo năm tháng, duy chỉ có kiến thức nền tảng và tư duy hệ thống vững vàng là chìa khóa giúp người kỹ sư thích nghi với mọi biến động thị trường.
+- Hãy luôn chủ động học hỏi bằng cách thực hành (Hands-on Labs), đóng góp ngược lại cho cộng đồng (Share Back) để không ngừng nâng cao giá trị bản thân trên bản đồ công nghệ.
 
 #### Một số hình ảnh khi tham gia sự kiện
 
-* Thêm các hình ảnh của các bạn tại đây
+![Ảnh minh chứng: tham gia event](</aws-intership-report/images/4-EventParticipated/Event3/event3(0).jpg>)
 
-> Tổng thể, sự kiện giúp tôi mở rộng kiến thức về AI, cloud infrastructure và cách xây dựng hệ thống thông minh trong thực tế. Đây là một buổi event có giá trị, đặc biệt với sinh viên hoặc người mới bắt đầu tìm hiểu về AI, cloud và kiến trúc hệ thống hiện đại.
+> Tóm lại, sự kiện đã mang đến một lăng kính công nghệ vô cùng sắc bén và toàn diện. Đây không chỉ là những kiến thức bổ trợ cho cuốn báo cáo thực tập, mà còn là kim chỉ nam giúp tôi định hình rõ ràng con đường trở thành một kỹ sư giải pháp đám mây tử tế và chuẩn mực quốc tế.

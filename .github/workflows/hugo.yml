@@ -38,7 +38,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build website
-        run: hugo --minify --baseURL "https://khanhdong1802.github.io/AWS-HUTECHintership-report/"
+        run: hugo --minify --baseURL "https://trantuannam106.github.io/AWS-HUTECHintership-report/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,212 +1,105 @@
 ---
-title: "Event 2"
-date: 2026-05-23
-weight: 2
+title: "Event 3"
+date: 2026-06-13
+weight: 3
 chapter: false
 pre: " <b> 4.3. </b> "
 ---
 
+# "FCAJ Community Day - June 2026 Edition" Workshop Report
 
+### Event Objectives
+- **High-scale Architecture Design**: Introduce a highly scalable URL Shortener service architecture deployed on the AWS cloud ecosystem.
+- **Data Analytics Competency Mapping**: Analyze real-world workflows, core skill sets, and career progression mindsets for a Data Analytics Engineer within Multinational Corporations (MNCs).
+- **Demystifying Production DevOps**: Evaluate the active job market, compensation benchmarks, hiring demands, and the unyielding foundational engineering skill sets required by an expert DevOps engineer.
+- **Connecting Value Chains & Civic Mindset**: Share a continuous tech journey moving from a curious student to an AWS Partner, while integrating the "Right Work" philosophy to contribute to the nation's digital backbone infrastructure.
 
-# Reflection Report: “AI, CloudFront, and Multi-Agent Systems Event”
+### Speaker Lineup
 
-### Purpose of the Event
-
-- To understand how AI can work more effectively when provided with proper context.
-- To learn the importance of context, memory, and the concept of a Second AI Brain.
-- To explore a real-world product-building journey through the LotusHacks hackathon experience.
-- To understand how Amazon CloudFront improves performance, security, reliability, and cost optimization.
-- To discover friendly AI assistant tools and intelligent workflows with Amazon Quick.
-- To understand the non-deterministic behavior of LLMs, even when deterministic settings are used.
-- To learn how enterprise-grade multi-agent systems can be applied to startup credit scoring.
-
----
-
-### Event Agenda
-
-| Time | Session |
-| --- | --- |
-| 8:30 - 9:00 AM | Settle into your seat |
-| 9:00 - 9:30 AM | Context Is Everything: Making AI Actually Work for You |
-| 9:30 - 10:00 AM | 36 hrs with LotusHacks – Building UTMorpho from Idea to Reality |
-| 10:00 - 10:40 AM | From Edge To Origin: CloudFront as Your Foundation |
-| 10:40 - 10:55 AM | Friendly AI Assistant with Amazon Quick |
-| 10:55 - 11:00 AM | Break |
-| 11:00 - 11:30 AM | Non-Determinism of "Deterministic" LLM Settings |
-| 11:30 - 12:00 PM | Enterprise-Grade Multi-Agent System: The Case of Startup Credit Scoring |
+- **Mr. Dinh Trung Kien** - Lead Developer at a Startup.
+- **Mr. Nguyen Minh Tho** - Student & Cloud Contributor.
+- **Mr. Dat Pham** - Data Analytics Engineer at a Multinational Corporation.
+- **Mr. Cuong Nguyen** - Process Engineer.
+- **Mr. Trong H. Truong** - DevOps Engineer at Endava Vietnam.
+- **Mr. Danh Hoang Hieu Nghi** - AI Engineer, AWS Community Builder & SBG Leader.
 
 ---
 
 ### Key Highlights
 
-#### Context Is Everything: Making AI Actually Work for You
+#### 1. Architecting a Scalable URL Shortener Solution on AWS
+- **Traditional Legacy Bottlenecks (Naive Flow)**: Traditional on-demand short code generation workflows introduce severe architectural challenges, including high read latency, security vulnerabilities, single points of failure, and extreme difficulty in handling sudden, massive traffic spikes.
+- **Advanced Key Generation Service (KGS) Patterns**:
+  - *Separation of Concerns*: The active Read path and Write path operate completely independently, enabling granular, isolated optimizations matching specific downstream traffic profiles.
+  - *Pre-computation over On-demand Execution*: Utilizes isolated container tasks running on **Amazon ECS** to continuously calculate and pre-generate safe alphanumeric short codes well before a user request hits the server. These hashes are instantly streamed into **Amazon ElastiCache for Redis** memory queues using `LPUSH key_queue`.
+  - *Ultra-low Latency Initialization Flow*: When an end-user triggers a URL shortening request, the active SpringBoot backend container execution logic simply performs an atomic `RPOP` command to grab a pre-computed token directly out of Redis memory, instantly logging the structural mappings into **Amazon DynamoDB** using it as the Primary Key (PK). This decoupled system guarantees immediate response states and permanently eliminates code collision risks.
+  - *Cache-aside Architecture Pattern*: Downstream link redirection requests (Forward flow) prioritize near-instant memory lookups against the Redis cluster state (Cache hit). The system only falls back to query the main transactional DynamoDB engine upon a clean Cache miss, dropping computing stress and flattening response latency bounds.
+  - *Edge Layer Defensive Strategy*: Pushes deep edge inspection rules via **AWS WAF** alongside global static content caching structures via **Amazon CloudFront** distribution points as close to the target client as possible, systematically isolating and killing malicious vectors before malicious traffic hits core cloud systems.
 
-This session focused on the importance of **context** when working with AI. One of the main reasons AI fails to provide useful results is that users often give incomplete information or unclear instructions.
+#### 2. Enterprise Realities and Growth Mindsets for Data Analytics Engineers inside MNCs
+- **Isolated Domain Realities**:
+  - *Tech and E-commerce Ecosystems (e.g., Kamereo)*: Highly focused on orchestrating operational performance reporting pipelines, designing robust analytical dashboards to flag anomalous data drifts, and aligning cross-department investigations to locate the root cause of GMV fluctuations.
+  - *Heavy Manufacturing Ecosystems (e.g., Colgate-Palmolive)*: Centered on capturing telemetry logs from physical machinery and distributed industrial IoT sensors across internal production lines to track hardware optimization opportunities and depress operational assembly line costs.
+- **The Core 4 Skills Mandate**: Structural critical thinking, clear cross-functional project management communication, advanced data storytelling, and concrete problem-solving execution under business constraints.
+- **The 5-Stage Career Mapping Matrix**: Shifting focus away from arbitrary corporate titles to master progressive engineering competency tiers: `Follower` (Executes deterministic checklists) $\rightarrow$ `Learner` (Proactive contextual discovery) $\rightarrow$ `Problem Solver` (Owns and drives end-to-end solutions) $\rightarrow$ `System Thinker` (Analyzes global cross-dependencies and holistic system health) $\rightarrow$ `Super Star` (Sets technical vision and scales organizational capabilities).
+- **Cultivating a True No-Blame Post-Mortem Culture**: Highlighting standard operational maturity frameworks inside global tech environments. When highly critical system failures or blackouts hit production stacks, engineering squads do not hunt for a human scapegoat. Instead, they isolate the structural bug, review the underlying codebase, and harden the core infrastructure to systematically prevent regression.
 
-Main points covered in this session:
-
-- Why AI may fail when it does not have enough context.
-- What “context” really means when interacting with AI.
-- The evolution from simple prompts to memory-based AI systems.
-- The concept of a Second AI Brain.
-- How better context leads to better and more accurate AI responses.
-- Practical mindset and tips for using AI effectively.
-- Career insights and how students can start building projects with AI.
-- Q&A session with practical advice for students.
-
-#### 36 hrs with LotusHacks – Building UTMorpho from Idea to Reality
-
-This session shared the journey of building **UTMorpho** within 36 hours during LotusHacks. It helped participants understand how an idea can be transformed into a real product under time pressure.
-
-Main points covered in this session:
-
-- Why the team joined LotusHacks.
-- The brainstorming journey from zero to idea.
-- How the team defined the problem and shaped UTMorpho.
-- The 36-hour development sprint.
-- Challenges, failures, and turning points during the process.
-- Product overview and demo of UTMorpho.
-- Key lessons learned from the hackathon.
-- Future development direction for the product.
-
-#### From Edge To Origin: CloudFront as Your Foundation
-
-This session introduced **Amazon CloudFront** and explained how it can be used as a foundation for different types of workloads. It also showed how CloudFront helps improve performance, security, reliability, and cost efficiency.
-
-Main points covered in this session:
-
-- Amazon CloudFront for various workloads.
-- Cost optimization with Amazon CloudFront.
-- Security capabilities of CloudFront.
-- Enhanced reliability with CloudFront.
-- Improved performance through edge locations.
-- The role of CloudFront in the architecture from edge to origin.
-
-#### Friendly AI Assistant with Amazon Quick
-
-This session introduced friendly AI assistant tools that help users explore data, analyze insights, and create intelligent workflows using natural language.
-
-Main points covered in this session:
-
-- **Quick Chat Agent**: AI assistants for exploring data and analyzing insights.
-- **Quick Flows**: Creating intelligent workflows with natural language without coding.
-- **Quick Spaces**: Shared collaborative spaces that turn individual insights into team knowledge.
-- **Quick Sight**: Building dashboards and reports from raw data using natural language.
-
-#### Non-Determinism of "Deterministic" LLM Settings
-
-This session explained that even when LLMs are configured with deterministic settings, the output may still not always be exactly the same.
-
-Main points covered in this session:
-
-- How LLMs choose the next token.
-- The common assumption that `Temperature = 0` guarantees deterministic output.
-- The reality that inference optimizations can still cause variations.
-- Practical impacts when using LLMs in real products.
-- Mitigation strategies to reduce unexpected behavior.
-
-#### Enterprise-Grade Multi-Agent System: The Case of Startup Credit Scoring
-
-The final session focused on enterprise-grade **multi-agent systems** in the use case of startup credit scoring. It explained how multiple agents can work together to solve complex business problems, especially in the finance and banking sector.
-
-Main points covered in this session:
-
-- The structural mismatch between traditional banking systems and startup data.
-- When to use a single agent and when not to.
-- The multi-agent paradigm.
-- Blueprint of a Virtual Credit Committee.
-- Guardrails and compliance requirements.
-- Operational ROI and implementation roadmap.
-- Future direction and Q&A.
+#### 3. Analyzing the Modern Production DevOps Engineering Landscape
+- **Vietnam Market and Salary Benchmarks**: Industry hiring analytical indicators from ITviec and the JT1 Salary Guide demonstrate that DevOps and Cloud Engineer specializations continuously secure top-tier market demand indices and premium engineering salary brackets. Gross target ranges span from **16 - 28 million VND/month** for entry-level Junior tracks, climbing to **65 - 100 million VND/month** for verified Expert/Lead roles.
+- **Industry Stereotypes vs. Real-world Scope**: DevOps is fundamentally not limited to merely writing basic shell build scripts, hacking out basic CI/CD pipeline parameters, or editing basic Dockerfiles and Kubernetes manifests. The active architectural scope is highly fluid and scales depending on enterprise scale, cross-team operational topologies, and infrastructure maturity frameworks.
+- **"Tools Change, Fundamentals Stay"**: Tooling landscapes mutate constantly, but foundational computing primitives are permanent. High-performance engineers focus on mastering rock-solid baseline systems engineering competencies: Linux kernel internals, networking primitives (TCP/IP stack, DNS routing), programming masteries (Python/Golang), systems level structural engineering, and the discipline to thoroughly dissect *"Why"* an infrastructure layout operates before deciding *"How"* to build it.
 
 ---
 
-### What I Learned
+### Key Takeaways
 
-#### AI Usage Mindset
+#### Design Thinking
+- **Pre-computation Architectural Mindset**: Mastered the strategy of converting blocking, real-time computational tasks into asynchronous background execution sequences, provisioning cloud assets in advance to satisfy user traffic profiles at sub-millisecond speeds.
+- **No-Blame Engineering Mentality**: Understood that production outages represent systemic failures in process design or infrastructure resilience. Building a transparent, psychological-safety-focused incident analysis pipeline is the single highest-leverage strategy to harden organizational stability.
 
-- AI does not only depend on prompts; it also depends heavily on context.
-- The clearer the context is, the more useful and accurate the AI response becomes.
-- Memory and the Second AI Brain concept are important directions in the evolution of AI.
-- When using AI, users should provide clear goals, background information, constraints, and examples.
+#### Technical Architecture
+- Deepened understanding of **KGS (Key Generation Service)** design mechanics using a distributed setup with Redis memory caching layers and DynamoDB tables to balance high-throughput transactional states without data collisions.
+- Learned how corporate operational key performance metrics (Fulfillment pipelines, Last Mile Cost tracking, Fill Rate optimization targets) are effectively exposed and modeled through enterprise business intelligence environments.
+- Articulated the precise configuration parameters needed to integrate layered perimeter defense patterns across AWS cloud infrastructure by combining AWS WAF, CloudFront distributions, and AWS KMS cryptographic management blocks.
 
-#### Product Development Mindset
-
-- A good product usually starts with identifying the right problem.
-- Hackathons help students practice brainstorming, quick decision-making, and MVP development.
-- When working under time pressure, teams should prioritize core features instead of trying to build too many functions.
-- A product demo is important because it helps communicate the value of the idea clearly.
-
-#### CloudFront Knowledge
-
-- CloudFront helps distribute content faster through edge locations.
-- CloudFront is not only useful for static content but can also support many different workloads.
-- It helps improve system performance, security, reliability, and cost efficiency.
-- CloudFront is an important component in modern cloud architecture.
-
-#### AI Assistant and Workflow Knowledge
-
-- AI assistants can help users analyze data faster and more effectively.
-- Intelligent workflows can be created using natural language, reducing the technical barrier for users.
-- Shared spaces improve collaboration and help teams turn personal insights into shared knowledge.
-- Natural language interfaces are becoming more common in dashboard and report creation.
-
-#### LLM Knowledge
-
-- `Temperature = 0` does not always guarantee completely identical results.
-- LLM behavior can be affected by inference optimization techniques.
-- When deploying LLMs in real-world systems, testing, logging, and guardrails are necessary.
-- It is important to understand the limitations of LLMs before depending on them in production systems.
-
-#### Multi-Agent System Knowledge
-
-- Multi-agent systems are suitable for complex problems that require different roles and responsibilities.
-- In credit scoring, different agents can handle tasks such as data analysis, risk evaluation, compliance checking, and decision support.
-- The Virtual Credit Committee model can simulate the decision-making process of a real credit committee.
-- Guardrails are essential when deploying AI systems in enterprise and financial environments.
+#### Modernization Strategy
+- Internalized the complex paradigm shift of transitioning from localized "Functional code execution" to fully compliant "Enterprise Global Standards." This translates to mastering GMP, GSP, and GDP compliance for physical logistics pipelines, and enforcing strict alignments against ISO 27001 info-sec protocols, SOC 2 compliance reporting, and GDPR data sovereignty governance parameters for digital cloud infrastructure.
 
 ---
 
-### Application to Study and Work
+### Practical Applications
 
-- When using AI for learning, I should provide clear context such as learning goals, current knowledge level, expected output, and examples.
-- I can apply the Second AI Brain concept to organize notes, learning materials, and project knowledge.
-- When building a project, I should begin with the problem statement before choosing the technology.
-- I can use CloudFront in web projects to improve page loading speed and user experience.
-- I can experiment with AI assistants to analyze data, create reports, and support workflows.
-- When using LLMs in projects, I should test the consistency of outputs and avoid assuming that the model is always deterministic.
-- For complex problems, I can study multi-agent systems to divide tasks and improve system control.
+- **Deploying Cache-aside Frameworks in Portfolio Stacks**: Integrating a dedicated Redis memory cluster right in front of relational databases within internal sandbox projects to systematically optimize API endpoint throughput.
+- **Adopting a System Thinker Approach**: Enforcing a strict design routine during development to actively trace how local code alterations or microservice parameter edits affect downstream dependencies and global cloud optimization costs (FinOps).
+- **Deepening Mastery of Core Fundamentals**: Allocating focused learning loops to master Linux storage subsystems, low-level networking routing controls, and enterprise Git workflow patterns (Git branching strategies), rather than memorizing syntax blocks of high-level automation wrappers.
+- **Executing the "Right Work" Ideology**: Nurturing a disciplined, self-governed technical mindset to serve real-world societal problem spaces, systematically preparing capabilities to inherit and drive enterprise-scale digital backbone infrastructure upon graduation.
 
 ---
 
-### Event Experience
+### Personal Event Experience
 
-Joining this event about AI, CloudFront, and multi-agent systems was a valuable experience. It helped me gain a more practical understanding of how AI and cloud technologies are being applied in different fields. The sessions were not only theoretical but also included real case studies, product stories, technical explanations, and implementation experiences.
+- Participating in the **“FCAJ Community Day - June 2026 Edition”** on June 13, 2026, delivered a profoundly impactful, realistic insight into modern distributed systems engineering.
 
-#### Learning from Practical Topics
+#### Learning from High-Caliber Speakers
+- Engaging with highly articulate tech leaders sharing battle-tested production insights was exceptionally inspiring. The structural advice to *"Use AI to augment your senior-level engineering capabilities rather than shutting down your critical thinking"* shared by the DevOps panel serves as a definitive roadmap for self-directed learning in this new era of software engineering.
 
-- The session about context helped me understand that effective AI usage requires clear and sufficient input information.
-- The LotusHacks session showed that product development does not always start from a perfect idea. It can be shaped through brainstorming, testing, and fast iteration.
-- The CloudFront session helped me better understand the role of CDN in modern cloud architecture.
-- The LLM non-determinism session helped me realize that AI still has technical limitations that must be controlled when used in real products.
+#### Practical Engineering Exposure
+- Analyzing a fully detailed architectural breakdown of an AWS high-scale infrastructure stack was an incredible learning experience. Watching request vectors route through Route 53, strike the ALB layer, and dynamically fan out to Fargate tasks and Redis cluster configurations replaced abstract classroom theory with actual High Availability engineering realities.
 
-#### Technical and Product Thinking Experience
+#### Deploying Modern Tooling
+- Gaining direct access to live enterprise operations dashboards illustrated exactly how unstructured, massive datasets are compressed into actionable strategic business narratives, enabling management teams to make hyper-accurate, data-driven decisions.
 
-- I learned how to combine product thinking, technical thinking, and real-world implementation.
-- The CloudFront and multi-agent system sessions helped me understand more about scalable system architecture.
-- The examples of AI assistants showed how AI can help non-technical users work with data more easily.
-- The startup credit scoring case study helped me see how AI can support decision-making in enterprise environments.
+#### Networking and Collaboration
+- The organizers cultivated a brilliantly collaborative space, seamlessly weaving physical meetup spaces with interactive Google Meet rooms gathering over 30 remote engineers. Interacting directly with AWS Community Builders to discuss the explicit trade-offs between optimization costs and accuracy boundaries dramatically broadened my technical architectural perspective.
 
-#### Key Takeaways
+#### Core Lessons
+- Modern cloud tooling ecosystems will eventually shift and age out, but strong foundational systems knowledge and systemic architectural design paradigms will always endure, serving as an engineer's ultimate defense against market disruption.
+- Continuous engineering success requires an absolute commitment to hands-on experimentation (Hands-on Labs) and a proactive drive to contribute knowledge straight back into the technical ecosystem (Share Back) to scale personal market impact.
 
-- Context is a very important factor when using AI.
-- Cloud is not only a place to deploy applications but also provides services that optimize performance, security, reliability, and cost.
-- When building AI products, developers need to consider stability, control, and model limitations.
-- Multi-agent systems are a promising approach for solving complex enterprise problems.
-- Students can start learning AI and cloud by building small projects, joining hackathons, and creating product demos.
+#### Event Participation Evidence Photo
 
-#### Event Photos
+![Event Participation Evidence Photo](</aws-intership-report/images/4-EventParticipated/Event3/event3(0).jpg>)
 
-* Add your event photos here.
+> In summary, this June installment of Community Day succeeded in shifting my engineering horizon far beyond standard API scripting. It provided a permanent career foundation, bridging the gap between isolated code snippets and the robust, secure, and resilient infrastructure required by modern enterprises.
 
-> Overall, the event helped me expand my knowledge of AI, cloud infrastructure, and intelligent system design. It was especially useful for students and beginners who want to learn how AI and cloud technologies can be applied in real-world projects.
+```

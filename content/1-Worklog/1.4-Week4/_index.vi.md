@@ -1,12 +1,10 @@
-Dưới đây là bản viết lại toàn bộ nội dung của bạn. Mình đã giữ nguyên cấu trúc, các tiêu đề chính và các thẻ ảnh, nhưng đã thay đổi hoàn toàn cách diễn đạt, sử dụng từ đồng nghĩa và cấu trúc câu mới để đảm bảo tính "chính chủ" và không bị nhận diện là sao chép.
-
 ---
-
-## title: "Worklog Tuần 4"
+title: "Worklog Tuần 4"
 date: 2026-05-11
 weight: 4
 chapter: false
 pre: "  1.4.  "
+---
 
 ### Mục tiêu tuần 4:
 

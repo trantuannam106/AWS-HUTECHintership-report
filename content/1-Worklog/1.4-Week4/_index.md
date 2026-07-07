@@ -1,12 +1,12 @@
 ---
-
-## title: "Week 4 Worklog"
+title: "Week 4 Worklog"
 date: 2026-05-11
 weight: 4
 chapter: false
 pre: "  1.4.  "
 
-### Week 4 Objectives:
+---
+Week 4 Objectives:
 
 * Explore the overall landscape of Amazon RDS and its vital role in cloud database architecture.
 * Understand the core features of RDS, including: managed service, automated backups, scalability, Multi-AZ architecture, and Read Replicas.

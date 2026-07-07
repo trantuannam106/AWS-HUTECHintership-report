@@ -90,24 +90,24 @@ pre: " <b> 1.1. </b> "
 - Truy cập [aws.amazon.com/free](https://aws.amazon.com/free) và tạo tài khoản mới.
 - Chọn **Paid Plan** để toàn quyền truy cập dịch vụ.
 - Nhận $100 credit tự động sau khi tạo tài khoản thành công.
-- ![Ảnh minh chứng: màn hình AWS Console sau khi đăng nhập lần đầu](AWS-HUTECHintership-report/images/1-Worklog/1.1-Week1/aws-billing-100-credit.png)
-- ![Ảnh minh chứng: AWS Billing Console hiển thị $100 credit](AWS-HUTECHintership-report/images/1-Worklog/1.1-Week1/aws-billing-100-credit.png)
+- ![Ảnh minh chứng: màn hình AWS Console sau khi đăng nhập lần đầu](/aws-intership-report/images/1-Worklog/1.1-Week1/aws-billing-100-credit.png)
+- ![Ảnh minh chứng: AWS Billing Console hiển thị $100 credit](/aws-intership-report/images/1-Worklog/1.1-Week1/aws-billing-100-credit.png)
 
 **Lab01-02 — Cài đặt Virtual MFA Device:**
 
 - Kích hoạt MFA cho tài khoản root bằng ứng dụng Authenticator.
-- ![Ảnh minh chứng: màn hình xác nhận MFA đã được kích hoạt thành công](AWS-HUTECHintership-report/images/1-Worklog/1.1-Week1/mfa-activated.png)
+- ![Ảnh minh chứng: màn hình xác nhận MFA đã được kích hoạt thành công](/aws-intership-report/images/1-Worklog/1.1-Week1/mfa-activated.png)
 
 **Lab01-03 — Tạo admin group và admin user:**
 
 - Tạo IAM Group `AdminGroup` với quyền `AdministratorAccess`.
 - Tạo IAM User và gán vào group.
-- ![Ảnh minh chứng: danh sách IAM Users và Groups trong Console](AWS-HUTECHintership-report/images/1-Worklog/1.1-Week1/iam-users-groups-console.png)
+- ![Ảnh minh chứng: danh sách IAM Users và Groups trong Console](/aws-intership-report/images/1-Worklog/1.1-Week1/iam-users-groups-console.png)
 
 **Lab01-04 — Hỗ trợ xác thực tài khoản:**
 
 - Thực hành liên hệ AWS Support để xác thực tài khoản khi cần.
-- ![Ảnh minh chứng: màn hình tạo support case thành công](AWS-HUTECHintership-report/images/1-Worklog/1.1-Week1/support-case-success.png)
+- ![Ảnh minh chứng: màn hình tạo support case thành công](/aws-intership-report/images/1-Worklog/1.1-Week1/support-case-success.png)
 
 **Lab07 — Thực hành AWS Budgets:**
 
@@ -122,24 +122,24 @@ pre: " <b> 1.1. </b> "
 
 - **Task 1 — Launch EC2 Instance (+$20):**
   - Tạo EC2 instance tên `Test Instance`, chọn AMI, cấu hình Security Group.
-   ![Ảnh minh chứng: Tạo EC2 instance Test Instance](AWS-HUTECHintership-report/images/1-Worklog/1.1-Week1/Create_server_EC2.png)
+   ![Ảnh minh chứng: Tạo EC2 instance Test Instance](/aws-intership-report/images/1-Worklog/1.1-Week1/Create_server_EC2.png)
   - Tạo key pair `first-kp` (RSA, .pem).
-   ![Ảnh minh chứng: Tạo key pair first-kp](AWS-HUTECHintership-report/images/1-Worklog/1.1-Week1/Make_Pair_Key.png)
+   ![Ảnh minh chứng: Tạo key pair first-kp](/aws-intership-report/images/1-Worklog/1.1-Week1/Make_Pair_Key.png)
   - Terminate instance sau khi hoàn thành (clean up).
-   ![Ảnh minh chứng: Terminate EC2 instance sau khi hoàn thành](AWS-HUTECHintership-report/images/1-Worklog/1.1-Week1/Delete_server.png)
+   ![Ảnh minh chứng: Terminate EC2 instance sau khi hoàn thành](/aws-intership-report/images/1-Worklog/1.1-Week1/Delete_server.png)
   - Hoàn thành nhiệm vụ đầu tiên
-   ![Ảnh minh chứng: Hoàn thành nhiệm vụ đầu](AWS-HUTECHintership-report/images/1-Worklog/1.1-Week1/Finish_First_Mission.png)
+   ![Ảnh minh chứng: Hoàn thành nhiệm vụ đầu](/aws-intership-report/images/1-Worklog/1.1-Week1/Finish_First_Mission.png)
 
 - **Task 2 — Amazon Bedrock Playground (+$20):**
   - Truy cập Bedrock Console, chọn model **Claude 3 Haiku**.
   - Gửi use case details và chạy thử prompt.
-   ![Ảnh minh chứng: Truy cập Bedrock Console, chọn model Claude 3 Haiku](AWS-HUTECHintership-report/images/1-Worklog/1.1-Week1/Choose_Claude3_Haiku.png)
+   ![Ảnh minh chứng: Truy cập Bedrock Console, chọn model Claude 3 Haiku](/aws-intership-report/images/1-Worklog/1.1-Week1/Choose_Claude3_Haiku.png)
   - Hoàn thành nhiệm vụ hai
-   ![Ảnh minh chứng: Hoàn thành nhiệm vụ 2](AWS-HUTECHintership-report/images/1-Worklog/1.1-Week1/Complete_Second_Mission.png)
+   ![Ảnh minh chứng: Hoàn thành nhiệm vụ 2](/aws-intership-report/images/1-Worklog/1.1-Week1/Complete_Second_Mission.png)
 
 - **Task 3 — Set up AWS Budgets (+$20):**
   - Tạo cost budget với cảnh báo qua email.
-   ![Ảnh minh chứng: Tạo budget tahnhf công](AWS-HUTECHintership-report/images/1-Worklog/1.1-Week1/Create_Budget.png)
+   ![Ảnh minh chứng: Tạo budget tahnhf công](/aws-intership-report/images/1-Worklog/1.1-Week1/Create_Budget.png)
 
 - **Task 4 — Create Lambda Web App (+$20):**
   - Tạo Lambda function `http-function-url-tutorial` từ blueprint.

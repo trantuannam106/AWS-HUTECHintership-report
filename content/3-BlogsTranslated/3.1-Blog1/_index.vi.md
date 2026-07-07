@@ -44,7 +44,7 @@ Mô hình MVP (Minimum Viable Product) bao gồm các thành phần cốt lõi s
 3. Amazon S3 tiếp nhận request và tiến hành xác thực đa lớp: kiểm tra IAM Role của EC2, Endpoint policy và Bucket policy.
 4. Nếu tất cả các lớp bảo mật hợp lệ, EC2 có thể tương tác với bucket mà không cần đi qua Internet Gateway hoặc NAT Gateway.
 
-   ![Ảnh minh họa](/aws-intership-report/images/3-BlogsTranslated/Blog1/blog1.jpg)
+   ![Ảnh minh họa](/images/3-BlogsTranslated/Blog1/blog1.jpg)
 ---
 
 ## Lựa chọn giải pháp: VPC Endpoint vs NAT Gateway

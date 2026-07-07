@@ -45,7 +45,7 @@ The MVP (Minimum Viable Product) model consists of the following core components
 3. Amazon S3 receives the request and undergoes multi-layer authentication: verifying the EC2 instance's IAM Role, the Endpoint policy, and the Bucket policy.
 4. If all security layers are valid, the EC2 instance interacts with the bucket without needing an Internet Gateway or a NAT Gateway.
 
-   ![Illustration image](/aws-intership-report/images/3-BlogsTranslated/Blog1/blog1.jpg)
+   ![Illustration image](/images/3-BlogsTranslated/Blog1/blog1.jpg)
 ---
 
 ## Choosing a Solution: VPC Endpoint vs. NAT Gateway

@@ -112,6 +112,6 @@ Tham gia sự kiện **“FCAJ Community Day - June 2026 Edition”** tại khô
 
 #### Một số hình ảnh khi tham gia sự kiện
 
-![Ảnh minh chứng: tham gia event](</aws-intership-report/images/4-EventParticipated/Event4/event4(0).jpg>)
+![Ảnh minh chứng: tham gia event](/images/4-EventParticipated/Event4/event4(0).jpg>)
 
 > Tóm lại, buổi sinh hoạt Community Day tháng 6 không chỉ bồi đắp cho tôi những kiến thức chuyên sâu về Agentic Ops và bảo mật AI Agent, mà quan trọng hơn hết là giúp tôi định hình được một phong thái tự tin, một tư duy hệ thống đúng đắn để vững bước trên con đường sự nghiệp tương lai.

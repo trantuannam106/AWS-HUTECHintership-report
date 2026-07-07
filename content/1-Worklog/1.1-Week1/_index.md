@@ -90,23 +90,23 @@ pre: " <b> 1.1. </b> "
 - Accessed [aws.amazon.com/free](https://aws.amazon.com/free) and created a new account.
 - Selected **Paid Plan** for full service access.
 - Received $100 credit automatically after successful creation.
-- ![Proof: AWS Console screen after first login](/aws-intership-report/images/1-Worklog/1.1-Week1/aws-billing-100-credit.png)
+- ![Proof: AWS Console screen after first login](/images/1-Worklog/1.1-Week1/aws-billing-100-credit.png)
 
 **Lab01-02 — Set up Virtual MFA Device:**
 
 - Activated MFA for the root account using an Authenticator app.
-- ![Proof: MFA activation confirmation screen](/aws-intership-report/images/1-Worklog/1.1-Week1/mfa-activated.png)
+- ![Proof: MFA activation confirmation screen](/images/1-Worklog/1.1-Week1/mfa-activated.png)
 
 **Lab01-03 — Create Admin Group and Admin User:**
 
 - Created IAM Group `AdminGroup` with `AdministratorAccess` policy.
 - Created IAM User and assigned it to the group.
-- ![Proof: List of IAM Users and Groups in Console](/aws-intership-report/images/1-Worklog/1.1-Week1/iam-users-groups-console.png)
+- ![Proof: List of IAM Users and Groups in Console](/images/1-Worklog/1.1-Week1/iam-users-groups-console.png)
 
 **Lab01-04 — Account Verification Support:**
 
 - Practiced contacting AWS Support for account verification when necessary.
-- ![Proof: Support case creation success screen](/aws-intership-report/images/1-Worklog/1.1-Week1/support-case-success.png)
+- ![Proof: Support case creation success screen](/images/1-Worklog/1.1-Week1/support-case-success.png)
 
 **Lab07 — AWS Budgets Practice:**
 
@@ -121,24 +121,24 @@ pre: " <b> 1.1. </b> "
 
 - **Task 1 — Launch EC2 Instance (+$20):**
   - Create an EC2 instance named `Test Instance`, select an AMI, and configure the Security Group.
-   ![Proof Image: Creating Test Instance EC2](/aws-intership-report/images/1-Worklog/1.1-Week1/Create_server_EC2.png)
+   ![Proof Image: Creating Test Instance EC2](/images/1-Worklog/1.1-Week1/Create_server_EC2.png)
   - Create the `first-kp` key pair (RSA, .pem).
-   ![Proof Image: Creating first-kp key pair](/aws-intership-report/images/1-Worklog/1.1-Week1/Make_Pair_Key.png)
+   ![Proof Image: Creating first-kp key pair](/images/1-Worklog/1.1-Week1/Make_Pair_Key.png)
   - Terminate the instance after completion (clean up).
-   ![Proof Image: Terminating EC2 instance after completion](/aws-intership-report/images/1-Worklog/1.1-Week1/Delete_server.png)
+   ![Proof Image: Terminating EC2 instance after completion](/images/1-Worklog/1.1-Week1/Delete_server.png)
   - Complete the first task.
-   ![Proof Image: First task completed](/aws-intership-report/images/1-Worklog/1.1-Week1/Finish_First_Mission.png)
+   ![Proof Image: First task completed](/images/1-Worklog/1.1-Week1/Finish_First_Mission.png)
 
 - **Task 2 — Amazon Bedrock Playground (+$20):**
  - Access the Bedrock Console, select the **Claude 3 Haiku** model.
 - Submit the use case details and test the prompt.
-  ![Screenshot: Access the Bedrock Console, select the Claude 3 Haiku model](/aws-intership-report/images/1-Worklog/1.1-Week1/Choose_Claude3_Haiku.png)
+  ![Screenshot: Access the Bedrock Console, select the Claude 3 Haiku model](/images/1-Worklog/1.1-Week1/Choose_Claude3_Haiku.png)
 - Complete the second mission.
-  ![Screenshot: Complete the second mission](/aws-intership-report/images/1-Worklog/1.1-Week1/Complete_Second_Mission.png)
+  ![Screenshot: Complete the second mission](/images/1-Worklog/1.1-Week1/Complete_Second_Mission.png)
 
 - **Task 3 — Set up AWS Budgets (+$20):**
   - Created a cost budget with email notifications.
- ![Screenshot: Budget created successfully](/aws-intership-report/images/1-Worklog/1.1-Week1/Create_Budget.png)
+ ![Screenshot: Budget created successfully](/images/1-Worklog/1.1-Week1/Create_Budget.png)
 
 - **Task 4 — Create Lambda Web App (+$20):**
   - Created Lambda function `http-function-url-tutorial` from a blueprint.

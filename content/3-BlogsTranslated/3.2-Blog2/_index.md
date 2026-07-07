@@ -74,7 +74,7 @@ To get started and manually deploy CloudFront, you can follow these fundamental 
 * Customize the Cache Behavior for each specific type of content.
 * Access the site using the domain provided by CloudFront to verify the results.
 * Evaluate the page load speed and check whether the content has been cached successfully.
-   ![Illustration Image](/aws-intership-report/images/3-BlogsTranslated/Blog2/blog2(0).jpg)
+   ![Illustration Image](/images/3-BlogsTranslated/Blog2/blog2(0).jpg)
 
 ---
 

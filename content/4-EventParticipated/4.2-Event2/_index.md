@@ -127,6 +127,6 @@ Immersing myself in this **“FCAJ Community Day”** workshop was a mind-shifti
 
 #### Event Imagery
 
-![Event Participation Evidence Image](</aws-intership-report//images/4-EventParticipated/Event2/event2(0).jpg>)
+![Event Participation Evidence Image](</images/4-EventParticipated/Event2/event2(0).jpg>)
 
 > In summary, the event not only delivered deep technical insights into Prompt Engineering and AI-era software development models, but more importantly, it ignited a passion for disciplined self-learning and shaped the right professional mindset for the next generation of tech engineers.

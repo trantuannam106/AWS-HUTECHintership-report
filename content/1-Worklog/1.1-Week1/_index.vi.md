@@ -122,24 +122,24 @@ pre: " <b> 1.1. </b> "
 
 - **Task 1 — Launch EC2 Instance (+$20):**
   - Tạo EC2 instance tên `Test Instance`, chọn AMI, cấu hình Security Group.
-   ![Ảnh minh chứng: Tạo EC2 instance Test Instance](/aws-intership-report/images/1-Worklog/1.1-Week1/Create_server_EC2.png)
+   ![Ảnh minh chứng: Tạo EC2 instance Test Instance](/images/1-Worklog/1.1-Week1/Create_server_EC2.png)
   - Tạo key pair `first-kp` (RSA, .pem).
-   ![Ảnh minh chứng: Tạo key pair first-kp](/aws-intership-report/images/1-Worklog/1.1-Week1/Make_Pair_Key.png)
+   ![Ảnh minh chứng: Tạo key pair first-kp](/images/1-Worklog/1.1-Week1/Make_Pair_Key.png)
   - Terminate instance sau khi hoàn thành (clean up).
-   ![Ảnh minh chứng: Terminate EC2 instance sau khi hoàn thành](/aws-intership-report/images/1-Worklog/1.1-Week1/Delete_server.png)
+   ![Ảnh minh chứng: Terminate EC2 instance sau khi hoàn thành](/images/1-Worklog/1.1-Week1/Delete_server.png)
   - Hoàn thành nhiệm vụ đầu tiên
-   ![Ảnh minh chứng: Hoàn thành nhiệm vụ đầu](/aws-intership-report/images/1-Worklog/1.1-Week1/Finish_First_Mission.png)
+   ![Ảnh minh chứng: Hoàn thành nhiệm vụ đầu](/images/1-Worklog/1.1-Week1/Finish_First_Mission.png)
 
 - **Task 2 — Amazon Bedrock Playground (+$20):**
   - Truy cập Bedrock Console, chọn model **Claude 3 Haiku**.
   - Gửi use case details và chạy thử prompt.
-   ![Ảnh minh chứng: Truy cập Bedrock Console, chọn model Claude 3 Haiku](/aws-intership-report/images/1-Worklog/1.1-Week1/Choose_Claude3_Haiku.png)
+   ![Ảnh minh chứng: Truy cập Bedrock Console, chọn model Claude 3 Haiku](/images/1-Worklog/1.1-Week1/Choose_Claude3_Haiku.png)
   - Hoàn thành nhiệm vụ hai
-   ![Ảnh minh chứng: Hoàn thành nhiệm vụ 2](/aws-intership-report/images/1-Worklog/1.1-Week1/Complete_Second_Mission.png)
+   ![Ảnh minh chứng: Hoàn thành nhiệm vụ 2](/images/1-Worklog/1.1-Week1/Complete_Second_Mission.png)
 
 - **Task 3 — Set up AWS Budgets (+$20):**
   - Tạo cost budget với cảnh báo qua email.
-   ![Ảnh minh chứng: Tạo budget tahnhf công](/aws-intership-report/images/1-Worklog/1.1-Week1/Create_Budget.png)
+   ![Ảnh minh chứng: Tạo budget tahnhf công](/images/1-Worklog/1.1-Week1/Create_Budget.png)
 
 - **Task 4 — Create Lambda Web App (+$20):**
   - Tạo Lambda function `http-function-url-tutorial` từ blueprint.

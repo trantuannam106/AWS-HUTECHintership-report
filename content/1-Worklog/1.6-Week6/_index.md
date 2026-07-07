@@ -1,330 +1,196 @@
 ---
 title: "Week 6 Worklog"
-date: 2026-06-01
+date: 2026-05-25
 weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-### Week 6 Objectives:
+### Objectives achieved in week 6:
 
-- Learn the overview of cost management on AWS using AWS Budgets.
-- Understand the role of AWS Budgets in monitoring, controlling, and alerting AWS service costs.
-- Practice creating a Budget by using an available template.
-- Create a Cost Budget to monitor monthly AWS spending.
-- Create a Usage Budget to monitor AWS resource usage.
-- Learn about Reservation Budget for monitoring Reserved Instances.
-- Learn about Savings Plans Budget for monitoring Savings Plans.
-- Configure alert thresholds and email notifications.
-- Check Budget history, Budget health, and alert status.
-- Clean up the created Budgets after completing the lab.
+- Approach and grasp the overall picture of cost management on the AWS platform through AWS Budgets.
+- Understand the key role of AWS Budgets in monitoring, managing, and sending alerts upon detecting cost fluctuations or resource consumption.
+- Practice quickly deploying budgets by applying available system Templates.
+- Set up a Cost Budget to closely monitor the spending limits of AWS services on a monthly basis.
+- Initialize a Usage Budget to control the frequency of resource usage, particularly focusing on services billed by running time.
+- Research the operational mechanism of Reservation Budgets to check the utilization efficiency of Reserved Instances (RI).
+- Understand the operation of Savings Plans Budgets to measure the level of cost optimization from flexible commitment plans.
+- Flexibly configure alert thresholds accompanied by email notifications to detect the risk of exceeding the budget early.
+- Master the skills of reviewing budget history, budget health, and active alerts.
+- Perform cleanup of experimental configurations after completing the lab to keep the account tidy.
 
 ---
 
-### Tasks to be Completed This Week:
+### Detailed action plan:
 
-| Day | Task | Start Date | Completion Date | Reference |
+| Day | Task Details | Start Date | Completion Date | Reference Materials |
 | --- | --- | --- | --- | --- |
-| Monday | - Read the overview of the Cost Management with AWS Budgets workshop <br> - Learn the role of AWS Budgets in AWS cost management <br> - Access AWS Billing and Cost Management <br> - Get familiar with the Budgets interface in AWS Console | 01/06/2026 | 01/06/2026 | https://000007.awsstudygroup.com/1-create-budget/ |
-| Tuesday | - Create a Budget using an available template <br> - Select the Monthly cost budget template <br> - Enter the Budget name, monthly budget amount, and alert threshold <br> - Check the created Budget and view Budget history | 02/06/2026 | 02/06/2026 | https://000007.awsstudygroup.com/1-create-budget/ |
-| Wednesday | - Create a Cost Budget using Customize mode <br> - Select Cost budget as the budget type <br> - Configure Period, Budget effective dates, Budgeting method, and Budgeted amount <br> - Configure Budget scope for All AWS services and Unblended costs | 03/06/2026 | 03/06/2026 | https://000007.awsstudygroup.com/2-cost-budgets/ |
-| Thursday | - Configure alert thresholds for the Cost Budget <br> - Add an email address to receive budget alerts <br> - Review the Cost Budget configuration <br> - Create the Budget and confirm its active status | 04/06/2026 | 04/06/2026 | https://000007.awsstudygroup.com/2-cost-budgets/ |
-| Friday | - Create a Usage Budget to monitor resource usage <br> - Select Usage budget in Budget types <br> - Configure Usage type groups, such as EC2: ELB - Running Hours <br> - Set usage limits and alert thresholds | 05/06/2026 | 05/06/2026 | https://000007.awsstudygroup.com/3-usage-budget/ |
-| Saturday | - Learn about Reservation Budget for Reserved Instances <br> - Learn about Savings Plans Budget for Savings Plans <br> - Practice or review the steps to create RI Budget and Savings Plans Budget <br> - Configure coverage threshold, utilization threshold, and email alerts | 06/06/2026 | 06/06/2026 | https://000007.awsstudygroup.com/4-reservation-budget/ <br> https://000007.awsstudygroup.com/5-saving-plans-budget/ |
-| Sunday | - Check the list of created Budgets <br> - View Budget health and Budget history <br> - Delete the Budgets created during the lab <br> - Record results, difficulties, solutions, and lessons learned | 07/06/2026 | 07/06/2026 | https://000007.awsstudygroup.com/6-clean-up/ |
+| Monday | - Read the overview documentation for the Cost Management with AWS Budgets lab <br> - Evaluate the financial management role of the service <br> - Access the AWS Billing and Cost Management dashboard <br> - Familiarize with the functional modules on the Budgets interface | 05/25/2026 | 05/25/2026 | https://000007.awsstudygroup.com/1-create-budget/ |
+| Tuesday | - Apply quick budget creation using Templates <br> - Set up a Monthly cost budget configuration <br> - Declare information: Budget name, monthly spending limit, and alert thresholds <br> - Verify the display status of the budget and access Budget history | 05/26/2026 | 05/26/2026 | https://000007.awsstudygroup.com/1-create-budget/ |
+| Wednesday | - Custom configure an advanced Cost Budget via Customize mode <br> - Select the budget category (Cost budget) <br> - Define parameters: Period, effective dates, budgeting method, and limit amount <br> - Define the Budget scope for all services using Unblended costs | 05/27/2026 | 05/27/2026 | https://000007.awsstudygroup.com/2-cost-budgets/ |
+| Thursday | - Set trigger thresholds for the newly created Cost Budget <br> - Specify target email addresses to receive automated notifications <br> - Double-check all configuration parameters of the Cost Budget <br> - Activate the custom budget and monitor its initialization status | 05/28/2026 | 05/28/2026 | https://000007.awsstudygroup.com/2-cost-budgets/ |
+| Friday | - Deploy a Usage Budget to manage capacity and resource running time <br> - Initialize with the Usage budget option in the budget types <br> - Declare a specific monitoring target group, e.g., EC2: ELB - Running Hours <br> - Set limits on operating hours and establish corresponding alert thresholds | 05/29/2026 | 05/29/2026 | https://000007.awsstudygroup.com/3-usage-budget/ |
+| Saturday | - Investigate the Reservation Budget mechanism specifically for Reserved Instances <br> - Research the Savings Plans Budget feature to optimize usage commitments <br> - Review tutorials on configuring RI and Savings Plans Budgets in an enterprise environment <br> - Learn how to set up coverage and utilization metrics | 05/30/2026 | 05/30/2026 | https://000007.awsstudygroup.com/4-reservation-budget/ <br> https://000007.awsstudygroup.com/5-saving-plans-budget/ |
+| Sunday | - Review the entire list of budgets configured during the week <br> - Evaluate the health and fluctuation charts of each budget <br> - Proceed to delete experimental budgets to clean the learning environment <br> - Summarize lessons learned, identify obstacles, and propose solutions | 05/31/2026 | 05/31/2026 | https://000007.awsstudygroup.com/6-clean-up/ |
 
 ---
 
-### Week 6 Results:
+### Summary of achieved results:
 
-#### Knowledge
+#### Knowledge base
 
-**What is AWS Budgets?**
+> **The Nature of AWS Budgets**
+> - A powerful tool to track cash flow, measure resource productivity, and verify the efficiency of discount commitments on AWS.
+> - Supports flexible limit setups by Daily, Monthly, Quarterly, or Annually periods.
+> - Provides proactive email notifications as soon as the system detects actual or forecasted costs exceeding the allowable threshold.
+> - Acts as a "shield" to protect the learner's wallet, preventing the risk of generating large, uncontrollable bills.
+> - **Core note:** AWS Budgets only acts as a monitoring and alerting system; this service absolutely does NOT automatically shut down or interfere with the operational status of running resources.
 
-- AWS Budgets is a service used to monitor AWS costs, resource usage, and cost-saving commitments.
-- AWS Budgets allows users to set budgets by day, month, quarter, or year.
-- When costs or usage exceed the configured threshold, AWS Budgets can send alert notifications by email.
-- AWS Budgets is useful for beginners because it helps control costs while practicing AWS labs.
-- AWS Budgets only monitors and sends alerts. It does not automatically stop AWS resources when the budget is exceeded.
+**AWS Billing and Cost Management Console**
+- Proficient in searching and accessing the financial management center from the AWS Console.
+- Clearly understand that this is the central hub for all data regarding invoices, cash flow analysis, limit setups, and spending alert rules.
+- Know how to use the Budgets navigation menu to manage the lifecycle of a budget (Create - Edit - Monitor - Delete).
 
-**AWS Billing and Cost Management**
+**Creating Budgets via Template**
+- Understand the benefits of using pre-built templates to streamline the process and save time.
+- Know how to select the "Use a template" mode for basic needs.
+- Successfully apply the "Monthly cost budget" configuration to quickly establish a monthly cost management framework with email notifications.
+- Know how to view Budget history to evaluate future spending trends.
 
-- Learned how to access AWS Billing and Cost Management from the AWS Management Console.
-- Understood that this service is used to manage billing information, budgets, cost alerts, and cost reports.
-- Learned how to use the Budgets menu to create, view, edit, and delete Budgets.
-- Learned how to check the status of a Budget after creating it.
+**Configuring Cost Budgets**
+- Understand that a Cost Budget focuses on the monetary amount (in USD) incurred when using services.
+- Know how to deeply configure using Customize mode with the Cost budget type.
+- Distinguish between two types of period applications:
+  - *Recurring Budget:* Automatically renews and repeats in the next cycle.
+  - *Expiring Budget:* Has a fixed expiration date and is valid only once.
+- Distinguish between two budgeting methods:
+  - *Fixed:* Set a constant, equal amount for every month.
+  - *Planned:* Flexibly adjust the limit amount up or down for specific months.
+- Know how to configure the overall monitoring scope (All AWS services) and choose to aggregate by Unblended costs.
 
-**Create Budget Using Template**
+**Configuring Usage Budgets**
+- Recognize that a Usage Budget monitors the volume or consumption time of resources rather than the monetary value.
+- Clearly differentiate: Cost Budgets manage the pressure of "Money," while Usage Budgets manage the pressure of "Frequency/Running Time."
+- Know how to configure filters by Usage type groups, typically monitoring the running hours of a Load Balancer (`EC2: ELB - Running Hours`).
+- Realize that a Usage Budget is extremely useful for monitoring background resources that can easily cause waste over time, such as NAT Gateways, EC2, and ELB.
 
-- Understood that templates help create Budgets quickly with predefined configurations.
-- Learned how to select Use a template.
-- Learned how to choose the Monthly cost budget template.
-- Learned how to enter the Budget name, monthly budget amount, and alert threshold.
-- Learned how to check Budget history after the Budget is created.
-- Understood that templates are suitable for quickly setting up basic cost alerts.
+**Understanding Reservation & Savings Plans Budgets**
+- Grasp the theory behind Reservation Budgets (managing RIs) and Savings Plans Budgets (managing compute savings plans).
+- Understand that these two types help enterprises measure coverage and utilization metrics of upfront investments or long-term commitments to prevent waste.
+- Realize these are advanced features, usually applied in real-world Production environments. Do not arbitrarily activate or purchase real plans in a personal account to avoid unexpected long-term commitment costs.
 
-**Cost Budget**
+**Alert Thresholds & Health Monitoring Mechanism**
+- Know how to set alert tiers based on two criteria: Actual costs or Forecasted costs.
+- Successfully set up multi-tier rules (e.g., trigger an alert at 50%, send a serious reminder at 80%, and a red alert at 100%).
+- Understand how Budget health works to quickly filter out which budgets are in the safe zone or the danger zone.
+- Understand the data latency mechanism of AWS Billing so as not to panic when figures are not synchronized instantly.
 
-- Understood that Cost Budget is used to monitor AWS spending.
-- Learned how to create a Cost Budget using Customize mode.
-- Learned how to select Cost budget as the Budget type.
-- Learned how to configure the Budget period, such as Daily, Monthly, Quarterly, or Annually.
-- Learned the difference between Recurring Budget and Expiring Budget:
-  - Recurring Budget repeats based on the selected period.
-  - Expiring Budget is applied only within a specific time range.
-- Learned how to choose the Budgeting method:
-  - Fixed: the same budget amount for each period.
-  - Planned: different budget amounts for different months.
-- Learned how to set Budget scope to All AWS services.
-- Learned how to select Unblended costs.
-- Learned how to add alert thresholds to receive notifications when costs reach the configured limit.
-
-**Usage Budget**
-
-- Understood that Usage Budget is used to monitor resource usage instead of cost.
-- Learned the difference between Cost Budget and Usage Budget:
-  - Cost Budget monitors spending.
-  - Usage Budget monitors resource usage.
-- Learned how to select Usage budget as the Budget type.
-- Learned how to choose Usage type groups to define the resource type that needs to be monitored.
-- In this lab, Usage Budget can be used to monitor EC2: ELB - Running Hours.
-- Learned how to set usage limits.
-- Learned how to configure email alerts when usage exceeds the threshold.
-- Understood that Usage Budget is useful for services that are charged by usage hours, such as EC2, Load Balancer, or other continuously running resources.
-
-**Reservation Budget**
-
-- Understood that Reservation Budget is used to monitor Reserved Instances.
-- Learned that Reserved Instances usually require commitment or upfront payment, so they should only be reviewed or practiced carefully in a lab environment.
-- Learned that Reservation Budget helps monitor Reserved Instance coverage or utilization.
-- Learned how to configure the coverage threshold.
-- Understood that Reservation Budget is suitable for business environments that use Reserved Instances to optimize long-term costs.
-
-**Savings Plans Budget**
-
-- Understood that Savings Plans Budget is used to monitor Savings Plans.
-- Learned that Savings Plans allow users to commit to a certain level of compute usage over a period of time in exchange for lower prices compared to On-Demand pricing.
-- Learned that Savings Plans Budget helps monitor utilization thresholds.
-- Learned how to configure email alerts when Savings Plans usage does not meet expectations.
-- Understood that Savings Plans Budget is useful when the system has stable compute usage over a long period.
-
-**Alert Threshold and Email Notification**
-
-- Understood that alert threshold is the limit used to trigger a budget warning.
-- Learned how to configure multiple alert levels, such as 50%, 80%, and 100%.
-- Learned how to add an email address to receive budget alerts.
-- Understood that the email recipient should be the person responsible for monitoring AWS costs.
-- Learned that AWS Budgets can send notifications when the cost or usage reaches the configured threshold.
-
-**Budget Health and Budget History**
-
-- Understood that Budget health shows the current status of the budget compared to the configured limit.
-- Learned how to use Budget history to view cost or usage trends over time.
-- Learned how to evaluate whether the AWS account is using more resources than expected.
-- Understood that AWS cost and usage data may have some delay before being fully updated.
-
-**Clean Up AWS Budgets**
-
-- Understood that cleanup is an important step after completing the lab.
-- Learned how to delete the Budgets created for practice.
-- Understood that deleting AWS Budgets does not delete running AWS resources.
-- Learned that AWS Budgets is only a monitoring and alerting tool.
-- Learned how to check the Budget list after deletion to make sure unnecessary alerts are removed.
+**The Importance of Cleanup**
+- Realize that Cleaning Up after every lab session is a mandatory skill to maintain a clean infrastructure and avoid notification spam.
+- Firmly grasp the principle: Deleting AWS Budgets configurations only removes the checking and email rules; it completely does not affect or interrupt the services delivering applications in the account.
 
 ---
 
-#### Practice
+#### Visual Practical Implementation
 
-**Module 1 — Create Budget**
+**Module 1 — Quick Budget Deployment via Template**
+- Successfully logged into the AWS Management Console.
+- Navigated to the AWS Billing and Cost Management dashboard and selected the Budgets module.
+- Started the creator by clicking the `Create a budget` button.
+- Chose the quick initialization option: `Use a template (simplified)`.
+- Applied the `Monthly cost budget` template, filled in the identification info and limit amount according to the lab guide.
+- Specified the target email to receive notifications and completed the process with the `Create budget` command.
+- Verified the budget's appearance on the directory and opened the Budget history tab to survey the history interface.
+- 📸 *Proof: Successfully accessed AWS Billing and Cost Management.*
+- 📸 *Proof: Setup operation with Use a template.*
+- 📸 *Proof: Declared limit info on the Monthly cost budget template.*
+- 📸 *Proof: The first budget displaying active status.*
 
-- Accessed the AWS Management Console.
-- Opened AWS Billing and Cost Management.
-- Selected Budgets from the left menu.
-- Clicked Create a budget.
-- Selected Use a template.
-- Chose the Monthly cost budget template.
-- Entered the Budget name.
-- Entered the monthly budget amount.
-- Configured the alert threshold.
-- Clicked Create budget.
-- Checked that the Budget was created successfully.
-- Opened Budget history to view the budget status.
-- Reviewed the available alert types in the template.
-- 📸 _Evidence: AWS Billing and Cost Management interface._
-- 📸 _Evidence: Budgets page and Create a budget button._
-- 📸 _Evidence: Monthly cost budget template selected._
-- 📸 _Evidence: Budget created successfully._
+**Module 2 — Advanced Custom Cost Budget Setup**
+- In the Budgets section, activated the creation process and switched to the advanced `Customize` mode.
+- Specified the `Cost budget` classification and proceeded to the next step.
+- Declared the identifier name for the budget as `Monthly`.
+- Set the frequency to `Monthly`, selected the `Recurring Budget` repetition type, and applied the `Fixed` limit method.
+- Entered the limit amount allowed for spending.
+- Narrowed or expanded the application scope in the Budget scope section by selecting `All AWS services` combined with `Unblended costs`.
+- Set the alert rule (`Add an alert threshold`) at the desired level (e.g., 80% of actual cost) and entered the admin email address.
+- Reviewed all parameters on the Summary page before confirming system initialization.
+- 📸 *Proof: Selected Customize and Cost budget type.*
+- 📸 *Proof: Detailed setup of period, Fixed method, and Unblended costs scope.*
+- 📸 *Proof: Configured percentage alert tiers and declared Email.*
+- 📸 *Proof: Custom Cost Budget successfully displayed in the list.*
 
-**Module 2 — Create Cost Budget**
+**Module 3 — Create Usage Budget to Monitor Consumption Capacity**
+- Followed the custom budget creation steps (`Customize`) but selected the `Usage budget` classification.
+- Set a distinct name for the Usage Budget.
+- In the consumption characteristic filter area (`Budget against`), selected `Usage type groups`.
+- Searched for and specified the exact desired resource group, specifically `EC2: ELB - Running Hours`.
+- Set the monitoring timeframe, chose the appropriate limit type, and entered the maximum number of hours the Load Balancer is allowed to run during the cycle.
+- Moved to the Alert configuration section, set the alert percentage level based on actual consumption capacity, and entered the receiving email information.
+- Completed the initialization and proceeded to review the `Budget health` indicator to assess the Load Balancer's current consumption level.
+- 📸 *Proof: Selected Usage budget classification on the initialization interface.*
+- 📸 *Proof: Filtered and specified the EC2: ELB - Running Hours service group.*
+- 📸 *Proof: Entered the operating hours limit and configured the Email alert.*
+- 📸 *Proof: The system recorded the new Usage Budget in checking status.*
 
-- Accessed AWS Billing and Cost Management.
-- Selected Budgets from the left menu.
-- Clicked Create budget.
-- In Budget setup, selected Customize.
-- In Budget types, selected Cost budget.
-- Clicked Next.
-- In Set your budget, entered the Budget name `Monthly`.
-- Selected the Period, such as Monthly.
-- Configured Budget effective dates:
-  - Recurring Budget for repeated budgets.
-  - Expiring Budget for one-time budgets.
-- Configured the Budgeting method:
-  - Fixed for the same budget amount each period.
-  - Planned for different budget amounts by month.
-- Entered the Budgeted amount.
-- In Budget scope, selected All AWS services.
-- In Aggregate costs by, selected Unblended costs.
-- Clicked Next to configure alerts.
-- Selected Add an alert threshold.
-- Entered the alert percentage, such as 80% or 100%.
-- Entered the email address for notifications.
-- Reviewed all configurations.
-- Clicked Create budget.
-- Confirmed that the Budget appeared in the Budgets list.
-- 📸 _Evidence: Customize and Cost budget selected._
-- 📸 _Evidence: Period, Budget amount, and Budget scope configured._
-- 📸 _Evidence: Alert threshold configured._
-- 📸 _Evidence: Cost Budget created successfully._
+**Module 4 & 5 — Research Reservation & Savings Plans Budgets via Simulation**
+- Executed the custom initialization steps specifically for `Reservation budget` and `Savings Plans budget`.
+- Set explicit names for each budget type to facilitate management.
+- Configured the `Coverage threshold` (for RI) and `Utilization threshold` (for savings plans) according to the practical scenarios instructed in the workshop document.
+- Filled in the email information to receive performance alerts in the Alert setting section.
+- Clicked create to experience the enterprise-standard setup process.
+- *Important note recorded in the lab:* Due to the nature of a personal/practice account, students only performed operations at the level of exploring the interface and simulated configuration, and did not execute actual commitment purchases to avoid unexpected financial bills.
+- 📸 *Proof: Simulated Reservation budget configuration interface.*
+- 📸 *Proof: Savings Plans budget metric configuration interface.*
 
-**Module 3 — Create Usage Budget**
-
-- Opened Budgets in AWS Billing and Cost Management.
-- Clicked Create budget.
-- Selected Customize.
-- In Budget types, selected Usage budget.
-- Clicked Next.
-- Entered the Usage Budget name.
-- In Budget against, selected Usage type groups.
-- Chose the usage type to monitor, such as EC2: ELB - Running Hours.
-- Configured Set budget amount:
-  - Selected Period as Daily, Monthly, Quarterly, or Annually.
-  - Selected Budget renewal type as Recurring or Expiring.
-  - Selected Budgeting method as Fixed or Planned.
-  - Entered the maximum number of usage hours to monitor.
-- Kept the default Budget scope if suitable for the lab.
-- Clicked Next to configure alerts.
-- Selected Add an alert threshold.
-- Entered the alert percentage.
-- Entered the notification email address.
-- Reviewed the configuration.
-- Clicked Create budget.
-- Checked Budget health to view current usage compared with the limit.
-- Opened Budget history to track usage trends.
-- 📸 _Evidence: Usage budget selected._
-- 📸 _Evidence: Usage type groups selected._
-- 📸 _Evidence: Usage hours and alert configured._
-- 📸 _Evidence: Usage Budget displayed in the Budgets list._
-
-**Module 4 — Create RI Budget**
-
-- Accessed AWS Billing and Cost Management.
-- Selected Budgets.
-- Clicked Create budget.
-- In Budget setup, selected Customize.
-- Selected Reservation budget.
-- Clicked Next.
-- Entered the Reservation Budget name.
-- Configured the Coverage threshold to monitor Reserved Instance coverage.
-- Configured Budget scope according to the lab instructions.
-- In Alert setting, entered the email address for notifications.
-- Reviewed the information.
-- Clicked Create budget.
-- Checked that the Reservation Budget was created.
-- Noted that in the lab environment, purchasing Reserved Instances is not required because it may generate costs or long-term commitments.
-- 📸 _Evidence: Reservation budget selected._
-- 📸 _Evidence: Coverage threshold configured._
-- 📸 _Evidence: Reservation Budget created or reviewed in demo mode._
-
-**Module 5 — Create Savings Plans Budget**
-
-- Accessed AWS Billing and Cost Management.
-- Selected Budgets.
-- Clicked Create budget.
-- Selected Customize.
-- In Budget types, selected Savings Plans budget.
-- Clicked Next.
-- Entered the Savings Plans Budget name.
-- Configured the Utilization threshold to monitor Savings Plans usage.
-- Kept the Budget scope as default if suitable for the lab.
-- In Alert setting, entered the email address for notifications.
-- Reviewed the full configuration.
-- Clicked Create budget.
-- Checked the created Budget in the Budgets list.
-- Noted that Savings Plans usually involve long-term usage commitments, so they should only be reviewed or practiced carefully in a learning account.
-- 📸 _Evidence: Savings Plans budget selected._
-- 📸 _Evidence: Utilization threshold configured._
-- 📸 _Evidence: Savings Plans Budget created or reviewed in demo mode._
-
-**Module 6 — Clean Up Resources**
-
-- Accessed AWS Billing and Cost Management.
-- Selected Budgets from the left menu.
-- Checked the list of Budgets created during the lab.
-- Selected the Budget to delete.
-- Chose Action.
-- Clicked Delete.
-- Confirmed the deletion in the confirmation dialog.
-- Repeated the same steps for the remaining Budgets created during the lab.
-- Checked the Budgets list again after cleanup.
-- Noted that deleting a Budget only removes the monitoring and alert configuration. It does not affect any running AWS resources.
-- 📸 _Evidence: Budget list before deletion._
-- 📸 _Evidence: Delete Budget action._
-- 📸 _Evidence: Budget list after cleanup._
+**Module 6 — Clean Up the Practical Environment**
+- Accessed the centralized Budgets management directory in AWS Billing.
+- Proceeded to tick the test budgets created throughout the lab session.
+- Opened the `Actions` navigation menu located in the top right corner and selected the `Delete` command.
+- Confirmed the deletion decision at the pop-up notification window for the system to completely remove the configuration.
+- Repeated the same for the rest until the list returned to its initial state, ensuring no redundant mailing rules remained.
+- 📸 *Proof: Summary table of existing Budgets before deletion.*
+- 📸 *Proof: Delete Budget action confirmation dialog.*
+- 📸 *Proof: Clean interface after completing the cleanup process.*
 
 ---
 
-### Week 6 Evaluation:
+### Challenges and obstacles faced:
 
-- Completed the study of AWS Budgets for AWS cost management.
-- Learned how to create a Budget using an available template.
-- Created a Cost Budget to monitor monthly AWS spending.
-- Created a Usage Budget to monitor AWS resource usage.
-- Understood the difference between Cost Budget and Usage Budget.
-- Understood the purpose of Reservation Budget for Reserved Instances.
-- Understood the purpose of Savings Plans Budget for Savings Plans.
-- Learned how to configure alert thresholds and email notifications.
-- Learned how to check Budget health and Budget history.
-- Learned how to clean up Budgets created during the lab.
-- Became more aware of the importance of cost control when practicing AWS labs.
+- The Billing and Cost Management dashboard integrates many analytical tools (Bills, Cost Explorer, Budgets, etc.), making the initial approach confusing among the features.
+- The theoretical boundary between a Cost Budget and a Usage Budget can easily be mixed up if one does not stick closely to the unit of measurement (USD vs. Output/Running hours).
+- The `Usage type groups` directory has a very broad filter, requiring careful reading and exact searching for the keyword `EC2: ELB - Running Hours` to avoid mistakenly selecting other services.
+- Due to the asynchronous update mechanism (Data Latency) of AWS, monetary metrics and historical charts do not show changes immediately after creation, making it difficult to verify instant results.
+- Advanced knowledge related to RIs and Savings Plans is relatively abstract because students have not yet had the chance to encounter large-scale cost optimization problems in reality.
+- If email syntax is not checked carefully or verification is forgotten, the alert system may fail to deliver messages to the inbox as expected.
 
 ---
 
-### Difficulties Encountered:
+### Solutions and lessons learned:
 
-- The Billing and Cost Management interface contains many sections, so it was easy to confuse Bills, Cost Explorer, and Budgets at first.
-- It was necessary to clearly distinguish Cost Budget from Usage Budget because they monitor different types of information.
-- When configuring Usage Budget, it was important to choose the correct Usage type group.
-- Some new AWS accounts may not show all Budget types immediately.
-- AWS cost and usage data may be delayed, so the Budget may not show full data immediately after creation.
-- RI Budget and Savings Plans Budget were more difficult to understand because they are related to long-term cost commitments.
-- If the alert email is entered incorrectly, the user may not receive budget notifications.
-- AWS Budgets only sends alerts. It does not automatically stop AWS services when the budget is exceeded.
-
----
-
-### Solutions:
-
-- Read each step in the workshop carefully before performing actions in the AWS Console.
-- Take notes on the purpose of each Budget type:
-  - Cost Budget monitors spending.
-  - Usage Budget monitors resource usage.
-  - Reservation Budget monitors Reserved Instances.
-  - Savings Plans Budget monitors Savings Plans.
-- When configuring alerts, enter the correct email address and check the mailbox for AWS notifications.
-- Set multiple alert levels, such as 50%, 80%, and 100%, to control costs more effectively.
-- Do not purchase Reserved Instances or Savings Plans in a learning account unless required.
-- Delete practice Budgets after completing the lab to avoid unnecessary notifications.
-- Check the Billing Dashboard after each lab session to detect unexpected costs.
-- Combine AWS Budgets with regular resource cleanup habits to reduce the risk of unexpected AWS charges.
+- Always maintain the habit of carefully reading every technical instruction in the guide document before clicking on the AWS Console interface.
+- Systematize the nature of the tools with a concise mind map:
+  - *Cost Budget:* Manages the wallet.
+  - *Usage Budget:* Manages the running hours/capacity of resources.
+  - *Reservation / Savings Plans Budget:* Monitors the efficiency of upfront commitment plans.
+- Set smart notification thresholds (from low to high) to create buffer zones, giving yourself time to intervene and handle resources before hitting the 100% mark.
+- Strictly adhere to account safety principles: Do not click to buy or activate any real RI/Savings Plans commitments while doing a learning lab.
+- Thoroughly clean up experimental configurations immediately after finishing the lab to keep the learning environment standardized.
+- Combine using AWS Budgets with manually reviewing the Billing Dashboard periodically after each study session to early detect hidden costs.
 
 ---
 
-### Plan for Next Week:
+### Plan and roadmap for next week:
 
-- Continue learning about AWS Billing and Cost Management.
-- Study AWS Cost Explorer to analyze costs by service, time, and account.
-- Learn how to use the AWS Free Tier Dashboard to monitor free tier limits.
-- Learn about AWS Cost Anomaly Detection to identify unusual spending.
-- Study AWS Organizations and cost management for multiple AWS accounts.
-- Practice checking the Billing Dashboard after each AWS lab.
-- Prepare evidence screenshots, notes, and comments to complete the next weekly report.
+- Continue to delve deeper into the supplementary modules within the AWS Billing and Cost Management ecosystem.
+- Shift focus to researching **AWS Cost Explorer** to learn how to break down and analyze costs deeply by tags, services, and time dimensions.
+- Learn how to track free tier limits through the **AWS Free Tier Dashboard**.
+- Approach anomalous cost detection solutions using machine learning with **AWS Cost Anomaly Detection**.
+- Understand the centralized financial management model for a chain of multiple accounts through the **AWS Organizations** service.
+- Maintain and practice the habit of checking the Billing Dashboard periodically to enhance FinOps (cloud cost optimization) mindset.
+
+---
+
+### 💡 A small tip for you to avoid duplication (plagiarism):
+1. **Proof images (`📸 Proof...`):** This is the part that proves your own work. Rename the screenshots using your own consistent structure, for example: `week6_budgets_01.png`, `week6_cost_budget_actual.png`, etc.
+2. **Amount limit:** In the sections mentioning "enter the monthly spending limit," when doing the actual lab, enter an odd or specific number of your choice (e.g., `10 USD`, `15 USD`) and put that specific number into the report instead of writing generally to create a unique touch for your report.

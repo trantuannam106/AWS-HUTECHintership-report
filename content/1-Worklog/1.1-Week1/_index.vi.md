@@ -148,7 +148,7 @@ pre: " <b> 1.1. </b> "
    ![Ảnh minh chứng: Tạo Lambda function ](/images/1-Worklog/1.1-Week1/Create_Lambda_function.png)
   - Delete function sau khi hoàn thành (clean up).
    ![Ảnh minh chứng: Xóa Lambda function](/images/1-Worklog/1.1-Week1/Delete_Lambda_function.png)
-  - Hoàn thành nhiệm vụ bốn
+  - Hoàn thành nhiệm vụ bốn.
    ![Ảnh minh chứng: Hoàn thành nhiệm vụ 4](/images/1-Worklog/1.1-Week1/Finish_Fourth_Mission.png)
 
 - **Task 5 — Create RDS Database (+$20):**
@@ -156,6 +156,7 @@ pre: " <b> 1.1. </b> "
 
   - Xóa DB instance và cluster sau khi hoàn thành (clean up).
 
+  - Hoàn thành nhiệm vụ năm.
 
 ---
 

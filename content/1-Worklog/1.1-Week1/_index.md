@@ -149,9 +149,13 @@ pre: " <b> 1.1. </b> "
    ![Proof Image: Delete Lambda function](/images/1-Worklog/1.1-Week1/Delete_Lambda_function.png)
  - Complete the fourth mission.
    ![Proof Image: Fourth task completed](/images/1-Worklog/1.1-Week1/Finish_Fourth_Mission.png)
+
 - **Task 5 — Create RDS Database (+$20):**
   - Created Aurora (PostgreSQL Compatible) database using 'Easy Create'.
+
   - Deleted DB instance and cluster after completion (cleanup).
+
+ - Complete the fifth mission.
 
 ---
 

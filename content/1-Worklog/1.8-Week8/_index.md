@@ -1,159 +1,130 @@
 ---
-title: "Week 8 Worklog"
-date: 2026-06-15
+title: "Week 8 Practice Report"
+date: 2026-06-08
 weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
 
-### Objectives of Week 8:
+### Key Objectives for Week 8:
 
-- Learn the fundamentals of AWS Identity and Access Management (IAM).
-- Understand how to manage identities, authentication, and permissions in AWS.
-- Explore Multi-Factor Authentication (MFA) and AWS account security.
-- Learn about IAM Users, Groups, Roles, and Policies.
-- Practice configuring IAM permissions following the principle of least privilege.
-- Understand AWS security best practices for identity management.
-- Learn the fundamentals of AWS networking with Amazon Virtual Private Cloud (Amazon VPC).
-- Explore VPC components including Subnets, Route Tables, Internet Gateways, and Security Groups.
-- Practice creating and configuring networking resources in Amazon VPC.
-- Gain hands-on experience managing secure cloud infrastructure.
+- Explore the big picture of the AWS Identity and Access Management (IAM) service.
+- Deeply understand the core role of IAM in controlling identities and allocating permissions within a cloud computing environment.
+- Deploy robust account protection layers through the Multi-Factor Authentication (MFA) mechanism.
+- Directly practice the identity management process: initializing IAM Users, allocating Groups, setting up Roles, and attaching Policies.
+- Internalize and strictly apply the "Principle of Least Privilege" in security.
+- Research an overview of the Amazon Virtual Private Cloud (Amazon VPC) network architecture.
+- Dissect and analyze the network nodes that make up a complete VPC system.
+- Manually build network infrastructure from scratch: configuring a VPC, partitioning Subnets, setting up Route Tables, and opening outbound internet access (Internet Gateway).
+- Deploy network security checkpoints through Security Group and Network ACL firewalls.
+- Consolidate the mindset of designing a secure, isolated, and optimized network infrastructure on the AWS platform.
 
 ---
 
-### Tasks to be completed this week:
+### Detailed Action Plan:
 
-| Day | Tasks | Start Date | Completion Date | Reference |
+| Day | Task Details | Start Date | Completion Date | Reference Materials |
 | --- | --- | --- | --- | --- |
-| Monday | - Read the IAM workshop introduction <br> - Learn the importance of Identity and Access Management <br> - Prepare the AWS practice environment | 15/06/2026 | 15/06/2026 | https://000009.awsstudygroup.com/ |
-| Tuesday | - Explore IAM Users, Groups, Roles, and Policies <br> - Create IAM users and groups <br> - Assign permissions using managed policies | 16/06/2026 | 16/06/2026 | https://000009.awsstudygroup.com/ |
-| Wednesday | - Learn Multi-Factor Authentication (MFA) <br> - Configure MFA for IAM users <br> - Review AWS security best practices | 17/06/2026 | 17/06/2026 | https://000009.awsstudygroup.com/ |
-| Thursday | - Read the Amazon VPC workshop introduction <br> - Learn VPC architecture and networking concepts <br> - Explore VPC components | 18/06/2026 | 18/06/2026 | https://000010.awsstudygroup.com/ |
-| Friday | - Create a Virtual Private Cloud (VPC) <br> - Configure Public and Private Subnets <br> - Configure Route Tables and Internet Gateway | 19/06/2026 | 19/06/2026 | https://000010.awsstudygroup.com/ |
-| Saturday | - Configure Security Groups and Network ACLs <br> - Test network connectivity <br> - Review VPC configurations | 20/06/2026 | 20/06/2026 | https://000010.awsstudygroup.com/ |
-| Sunday | - Review all IAM and VPC resources <br> - Perform cleanup of created resources <br> - Summarize the knowledge gained during the week | 21/06/2026 | 21/06/2026 | https://000009.awsstudygroup.com/ <br> https://000010.awsstudygroup.com/ |
+| Mon | - Read the AWS IAM lab guide <br> - Evaluate the function of IAM within the AWS ecosystem <br> - Prepare a safe account and practice environment | 06/08/2026 | 06/08/2026 | https://000009.awsstudygroup.com/ |
+| Tue | - Distinguish the nature of entities: IAM User, Group, Role, and Policy <br> - Practice creating new users and assigning them to corresponding groups <br> - Grant permissions using available policies (Managed Policy) | 06/09/2026 | 06/09/2026 | https://000009.awsstudygroup.com/ |
+| Wed | - Research account protection mechanisms using Multi-Factor Authentication (MFA) <br> - Activate MFA for both the Root user and IAM Users <br> - Delve into cloud security standards | 06/10/2026 | 06/10/2026 | https://000009.awsstudygroup.com/ |
+| Thu | - Shift focus to virtual networking with Amazon VPC <br> - Analyze the architectural diagram and data flow within a VPC network <br> - Familiarize with foundational networking concepts | 06/11/2026 | 06/11/2026 | https://000010.awsstudygroup.com/ |
+| Fri | - Initialize an independent Virtual Private Cloud <br> - Partition the network range into Public Subnets and Private Subnets <br> - Attach an Internet Gateway and route traffic via Route Tables | 06/12/2026 | 06/12/2026 | https://000010.awsstudygroup.com/ |
+| Sat | - Build security barriers: Security Groups and Network ACLs <br> - Test connection flows between instances to verify configurations <br> - Fine-tune and finalize the network architecture | 06/13/2026 | 06/13/2026 | https://000010.awsstudygroup.com/ |
+| Sun | - Review the entire list of deployed resources <br> - Perform environment Cleanup to avoid incurring charges <br> - Consolidate knowledge, note errors, and write the weekly report | 06/14/2026 | 06/14/2026 | https://000009.awsstudygroup.com/ <br> https://000010.awsstudygroup.com/ |
 
 ---
 
-### Outcomes of Week 8:
+### Summary of Achieved Results:
 
-#### Knowledge
+#### Knowledge Base
 
-**AWS Identity and Access Management (IAM)**
+**AWS IAM Identity Management**
+- Deeply understand that IAM is the central control hub determining "who" is allowed to do "what" in an AWS account.
+- Master the lifecycle of creating and managing entity groups: IAM User, Group, Role, and Policy.
+- Engrave the core principle of Least Privilege to prevent data leakage risks.
+- Clearly define the boundaries between AWS Managed Policies and Customer Managed Policies.
+- Understand safe management methods for login credentials and Access Keys.
 
-- Understand the purpose of AWS IAM in managing authentication and authorization.
-- Learn how IAM Users, Groups, Roles, and Policies work together.
-- Understand the principle of least privilege when assigning permissions.
-- Learn the differences between AWS managed policies and customer managed policies.
-- Understand IAM credential management and access control.
+**AWS Account Security**
+- Highly value the role of MFA as a secondary "shield" against account takeover attacks.
+- Master the device synchronization process to configure MFA.
+- Internalize the golden rule of security: Never use the Root account for daily tasks; instead, create and use an IAM User.
 
-**AWS Security**
+**Amazon VPC Network Architecture**
+- Grasp how a VPC creates an isolated, software-defined network space in the cloud.
+- Understand the principle of IP range allocation (CIDR Block) and how to subdivide them into Subnets for specific purposes.
+- See the importance of the Internet Gateway in opening internet access and how Route Tables act as the "navigator" for data packets.
+- Identify the core difference between a Public Subnet (with internet outbound access) and a Private Subnet (completely isolated).
 
-- Learn how Multi-Factor Authentication (MFA) improves account security.
-- Understand password policies and credential protection.
-- Learn AWS identity security best practices.
-- Understand the importance of securing root account credentials.
-
-**Amazon Virtual Private Cloud (Amazon VPC)**
-
-- Understand the architecture of Amazon VPC.
-- Learn the concepts of CIDR blocks, Subnets, and IP addressing.
-- Understand the purpose of Internet Gateways and Route Tables.
-- Learn the differences between Public and Private Subnets.
-
-**Network Security**
-
-- Understand how Security Groups protect AWS resources.
-- Learn the purpose of Network Access Control Lists (Network ACLs).
-- Configure inbound and outbound network traffic rules.
-- Understand secure network design principles in AWS.
+**Network Infrastructure Security**
+- Master the mechanism of Security Groups: acting as stateful virtual firewalls that protect at the EC2 Instance level.
+- Understand the principle of Network ACLs: acting as stateless gatekeepers at the Subnet network level.
+- Know how to strictly establish Inbound and Outbound data flow rules.
+- Perfect the mindset for designing multi-layered secure network systems.
 
 ---
 
-#### Hands-on Practice
+#### Visual Practical Implementation
 
-##### Module 1 — AWS IAM
+**Module 1 — AWS IAM**
+- Successfully logged into the IAM console.
+- Initialized Users and placed them into corresponding Groups.
+- Attached permissions via Managed Policies.
+- Successfully configured IAM Roles for hypothetical services.
+- Successfully activated two-factor authentication (MFA).
+- Performed a test login using an IAM User to verify permission boundaries.
 
-- Access the IAM Management Console.
-- Create IAM Users and Groups.
-- Attach managed policies.
-- Configure IAM Roles.
-- Enable Multi-Factor Authentication.
-- Verify IAM permissions.
+**Module 2 — AWS Security**
+- Applied security standards according to AWS best practices.
+- Disabled or deleted unnecessary Access Keys, strictly applying Least Privilege.
+- Re-verified the safe configuration of the Root account.
 
-##### Module 2 — AWS Security Best Practices
+**Module 3 — Amazon VPC**
+- Successfully initialized a VPC with a custom CIDR block.
+- Completely set up the structure of Public Subnets and Private Subnets.
+- Initialized and attached an Internet Gateway to the VPC.
+- Successfully routed traffic from the Public Subnet to the internet via Route Tables.
 
-- Review AWS security recommendations.
-- Configure strong authentication methods.
-- Apply least privilege permissions.
-- Secure AWS account access.
+**Module 4 — Network Security Configuration**
+- Created and attached Security Groups allowing basic communication ports (SSH/HTTP).
+- Configured Network ACLs to block/allow IP ranges based on scenarios.
+- Successfully performed ping tests to confirm the network flowed exactly as designed.
+- Verified the effectiveness of the virtual firewalls.
 
-##### Module 3 — Amazon VPC Introduction
-
-- Explore Amazon VPC architecture.
-- Understand networking components.
-- Prepare networking resources.
-
-##### Module 4 — Amazon VPC Configuration
-
-- Create a Virtual Private Cloud.
-- Create Public and Private Subnets.
-- Configure Internet Gateway.
-- Configure Route Tables.
-
-##### Module 5 — Network Security
-
-- Configure Security Groups.
-- Configure Network ACLs.
-- Test communication between resources.
-- Verify network connectivity.
-
-##### Module 6 — Cleanup Resources
-
-- Review all created resources.
-- Delete unnecessary IAM and VPC resources.
-- Verify successful cleanup.
+**Module 5 — Resource Cleanup**
+- Cross-checked the entire VPC, Subnets, IGW, and IAM Users created during the lab.
+- Safely deleted and removed each component.
+- Completed the cleanup process, returning the account to a clean environment.
 
 ---
 
-### Weekly Evaluation
+### Evaluation of Week 8 Results:
 
-- Understand the role of AWS Identity and Access Management.
-- Successfully create and manage IAM Users, Groups, Roles, and Policies.
-- Configure Multi-Factor Authentication to improve AWS account security.
-- Understand AWS identity security best practices.
-- Successfully create and configure Amazon VPC networking resources.
-- Configure Public and Private Subnets, Route Tables, and Internet Gateway.
-- Configure Security Groups and Network ACLs.
-- Improve cloud security and networking management skills on AWS.
-
----
-
-### Challenges
-
-- Understanding the relationship between IAM Users, Groups, Roles, and Policies.
-- Distinguishing between Security Groups and Network ACLs.
-- Configuring IAM permissions without granting excessive privileges.
-- Understanding VPC networking concepts such as CIDR blocks and routing.
-- Troubleshooting network connectivity issues caused by incorrect security configurations.
+- Excellently mastered the IAM tool to manage access permissions.
+- Operated smoothly in creating and allocating permissions for Users, Groups, Roles, and Policies.
+- Successfully activated MFA, ensuring the account is at the highest safety level.
+- Manually designed, configured, and fully operated a basic Amazon VPC network system.
+- Accurately allocated network components: Public/Private Subnets, Route Tables, and IGWs.
+- Successfully configured a multi-tier protection network using Security Groups and Network ACLs.
+- Became much more confident in planning and deploying secure infrastructure on AWS.
 
 ---
 
-### Solutions
+### Challenges and Obstacles Faced:
 
-- Review the AWS Study Group workshop documentation carefully.
-- Practice creating different IAM configurations multiple times.
-- Follow AWS security best practices when assigning permissions.
-- Draw VPC architecture diagrams to better understand network flow.
-- Verify Route Tables, Security Groups, and Network ACL configurations before testing connectivity.
-- Refer to AWS Documentation when troubleshooting configuration issues.
+- In the early stages, it was easy to confuse the concepts between an IAM Role (used for temporary authorization/services) and an IAM User (used for people).
+- Struggled to distinguish the difference between a Managed Policy (standalone policy) and an Inline Policy (embedded policy).
+- The concepts of "stateful" (Security Group) and "stateless" (Network ACL) firewalls were a bit abstract and hard to grasp.
+- Struggled for a while to understand how to calculate CIDR Block IP ranges and the data routing logic of Route Tables.
+- Encountered Timeout errors unable to access instances due to forgetting to open Inbound ports in the Security Group or misconfiguring the Route Table.
 
 ---
 
-### Plan for Next Week
+### Solutions and Lessons Learned:
 
-- Learn the fundamentals of AWS Command Line Interface (AWS CLI).
-- Install and configure AWS CLI.
-- Practice managing AWS resources using command-line operations.
-- Explore AWS CLI with Amazon S3, SNS, IAM, VPC, and EC2.
-- Prepare screenshots and complete the weekly practical report.
+- Re-read use-cases in AWS documentation over and over to fully understand the core differences between a Role and a User.
+- Directly practiced creating both types of Policies to clearly see the differences in flexibility and reusability.
+- Proactively drew the network architecture diagram on paper or used tools (like draw.io) to clearly visualize the packet flow (from IGW -> Route Table -> NACL -> Subnet -> SG -> Instance).
+- Formed a habit of carefully cross-checking every Inbound/Outbound rule when conducting network troubleshooting.
+- Firmly applied the "only open truly necessary ports" mindset instead of taking the easy route of opening All Traffic (0.0.0.0/0).

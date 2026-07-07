@@ -1,180 +1,140 @@
 ---
-title: "Week 9 Worklog"
-date: 2026-06-22
+title: "Week 9 Practice Report"
+date: 2026-06-15
 weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
 
-### Objectives of Week 9:
+### Key Objectives for Week 9:
 
-- Learn the fundamentals of AWS Command Line Interface (AWS CLI).
-- Understand the role of AWS CLI in managing AWS services.
-- Install and configure AWS CLI on a local machine.
-- Practice inspecting AWS resources using AWS CLI.
-- Learn how to manage Amazon S3 with AWS CLI.
-- Explore Amazon SNS using AWS CLI commands.
-- Practice managing AWS Identity and Access Management (IAM) through AWS CLI.
-- Learn how to work with Amazon VPC using AWS CLI.
-- Launch and manage Amazon EC2 instances using AWS CLI.
-- Clean up AWS resources after completing the hands-on labs.
+- Explore the overview of the AWS Command Line Interface (AWS CLI).
+- Grasp the advantages and role of the CLI in automating and managing AWS resources, replacing the traditional web interface.
+- Directly install and set up the AWS CLI environment on a personal computer.
+- Practice the skill of querying information and controlling the system entirely using terminal commands.
+- Apply AWS CLI to interact with the Amazon S3 storage service (manage buckets, objects).
+- Configure and navigate the Amazon SNS notification service via the command line.
+- Access and manage identity information (IAM) through the AWS CLI.
+- Understand how to fetch information and manage virtual networks (Amazon VPC) using scripts.
+- Deploy, inspect, and tear down Amazon EC2 virtual servers without using a mouse.
+- Execute cleanup scripts after completing the lab to protect the AWS budget.
 
 ---
 
-### Tasks to be completed this week:
+### Detailed Action Plan:
 
-| Day | Tasks | Start Date | Completion Date | Reference |
+| Day | Task Details | Start Date | Completion Date | Reference Materials |
 | --- | --- | --- | --- | --- |
-| Monday | - Read the AWS CLI workshop introduction <br> - Learn the purpose and benefits of AWS CLI <br> - Prepare the practice environment | 22/06/2026 | 22/06/2026 | https://000011.awsstudygroup.com/1-introduction/ |
-| Tuesday | - Install AWS CLI <br> - Configure AWS credentials and Region <br> - Verify the AWS CLI installation | 23/06/2026 | 23/06/2026 | https://000011.awsstudygroup.com/2-prerequiste/ <br> https://000011.awsstudygroup.com/3-installation/ |
-| Wednesday | - Explore AWS resources using AWS CLI <br> - Practice basic AWS CLI commands | 24/06/2026 | 24/06/2026 | https://000011.awsstudygroup.com/4-check-resource/ |
-| Thursday | - Work with Amazon S3 using AWS CLI <br> - Create S3 buckets <br> - Upload and download objects | 25/06/2026 | 25/06/2026 | https://000011.awsstudygroup.com/5-cli-with-s3/ |
-| Friday | - Work with Amazon SNS using AWS CLI <br> - Create SNS Topics <br> - Publish test notifications | 26/06/2026 | 26/06/2026 | https://000011.awsstudygroup.com/6-cli-with-sns/ |
-| Saturday | - Manage IAM resources using AWS CLI <br> - Explore Amazon VPC <br> - Launch an EC2 instance using AWS CLI | 27/06/2026 | 27/06/2026 | https://000011.awsstudygroup.com/7-cli-with-iam/ <br> https://000011.awsstudygroup.com/8-cli-with-vpc/ <br> https://000011.awsstudygroup.com/9-create-ec2/ |
-| Sunday | - Review all created resources <br> - Perform resource cleanup <br> - Summarize the knowledge gained throughout the workshop | 28/06/2026 | 28/06/2026 | https://000011.awsstudygroup.com/11-clean-up/ |
+| Monday | - Research the introductory documentation on AWS CLI <br> - Analyze the API calling mechanism via the command line <br> - Prepare the personal computer and practice account | 06/15/2026 | 06/15/2026 | https://000011.awsstudygroup.com/1-introduction/ |
+| Tuesday | - Download and install the AWS CLI software package <br> - Execute `aws configure` to input the Access Key and Region <br> - Authenticate the connection to the AWS account | 06/16/2026 | 06/16/2026 | https://000011.awsstudygroup.com/2-prerequiste/ <br> https://000011.awsstudygroup.com/3-installation/ |
+| Wednesday | - Use query commands to inventory existing resources <br> - Familiarize with the basic grammar structure of the CLI | 06/17/2026 | 06/17/2026 | https://000011.awsstudygroup.com/4-check-resource/ |
+| Thursday | - Operate Amazon S3 via the terminal <br> - Run the script to create a new Bucket <br> - Execute commands to copy, upload, and download files | 06/18/2026 | 06/18/2026 | https://000011.awsstudygroup.com/5-cli-with-s3/ |
+| Friday | - Interact with Amazon SNS using CLI <br> - Create a notification Topic <br> - Subscribe an email and push a test message | 06/19/2026 | 06/19/2026 | https://000011.awsstudygroup.com/6-cli-with-sns/ |
+| Saturday | - Retrieve IAM information (User, Group) via the command line <br> - Detail network infrastructure (VPC, Subnet, SG) <br> - Use the `run-instances` command to provision an EC2 server | 06/20/2026 | 06/20/2026 | https://000011.awsstudygroup.com/7-cli-with-iam/ <br> https://000011.awsstudygroup.com/8-cli-with-vpc/ <br> https://000011.awsstudygroup.com/9-create-ec2/ |
+| Sunday | - Cross-check the initialized resources <br> - Run the Cleanup command for the entire practice infrastructure <br> - Write the report and summarize experiences | 06/21/2026 | 06/21/2026 | https://000011.awsstudygroup.com/11-clean-up/ |
 
 ---
 
-### Outcomes of Week 9:
+### Summary of Achieved Results:
 
-#### Knowledge
+#### Knowledge Base
 
-**Introduction to AWS CLI**
+**The Nature of AWS CLI**
+- Understand that AWS CLI is an open-source toolset acting as a wrapper to communicate directly with AWS APIs.
+- Evaluate the power of CLI in helping DevOps engineers optimize time and easily automate repetitive tasks using shell scripts.
+- Master the process of securely managing credentials in a local environment.
 
-- Understand what AWS Command Line Interface (AWS CLI) is.
-- Learn how AWS CLI simplifies resource management and automation.
-- Understand the advantages of using the command line over the AWS Management Console.
+**Installation & Configuration Process**
+- Proficient in setting up the CLI executable on the current operating system.
+- Clearly understand the meaning of the 4 parameters when running `aws configure`: Access Key ID, Secret Access Key, Default Region, and Default Output Format (usually `json`).
+- Know how to use the `aws sts get-caller-identity` command to verify the operating identity.
 
-**AWS CLI Installation and Configuration**
+**Amazon S3 Management via Command Line**
+- Smoothly use the `aws s3` command family for high-level management (create bucket `mb`, synchronize `sync`, copy `cp`, remove `rm`).
+- Understand how to completely clean up a bucket using force parameters.
 
-- Install AWS CLI on the local computer.
-- Configure AWS Access Key, Secret Access Key, default Region, and output format.
-- Verify connectivity to an AWS account.
+**Navigating Amazon SNS**
+- Understand how to call commands to initialize a new Topic and extract the Topic ARN.
+- Know how to add an Endpoint (like an Email) to a Topic and trigger a test Notification directly from the terminal.
 
-**Working with Amazon S3**
+**Identity Management (IAM)**
+- Know how to use the `aws iam` command to list users, display groups, and extract Policies for security auditing purposes.
 
-- Create and manage S3 buckets.
-- Upload, download, list, and delete objects.
-- Remove S3 buckets using AWS CLI.
+**Network Control (Amazon VPC)**
+- Effectively use the `describe` command to get detailed information about VPC IDs, Subnet IDs, and Security Group IDs. This is a mandatory stepping stone for initializing EC2 via the command line.
 
-**Working with Amazon SNS**
-
-- Create SNS Topics.
-- Create Subscriptions.
-- Publish messages using AWS CLI.
-
-**Working with IAM**
-
-- List IAM users, groups, and policies.
-- Inspect IAM resources through AWS CLI.
-- Understand permission management using command-line tools.
-
-**Working with Amazon VPC**
-
-- View VPC information.
-- List Subnets and Security Groups.
-- Inspect networking resources using AWS CLI.
-
-**Working with Amazon EC2**
-
-- Launch an EC2 instance using AWS CLI.
-- Monitor EC2 instance status.
-- Manage EC2 resources through command-line operations.
+**Deploying Virtual Servers (Amazon EC2)**
+- Master the complex syntax of the `aws ec2 run-instances` command.
+- Clearly understand the need to pass minimum parameters: Image ID (AMI), Instance Type, Subnet ID, and Key Pair to successfully create a server.
 
 ---
 
-#### Hands-on Practice
+#### Visual Practical Implementation
 
-##### Module 1 — Introduction
+**Module 1 — Introduction**
+- Carefully studied the theoretical documentation.
+- Grasped the structural logic of a standard CLI command: `aws <command> <subcommand> [options and parameters]`.
 
-- Read the AWS CLI workshop overview.
-- Understand the architecture and workflow of AWS CLI.
-- Prepare the practice environment.
+**Module 2 — Installation**
+- Successfully downloaded and installed AWS CLI v2.
+- Entered the Access Key information and successfully configured the default profile.
+- Ran the `aws --version` command to verify a valid installation.
 
-##### Module 2 — Installation
+**Module 3 — Check Resource**
+- Practiced running `describe` and `list` commands to scan running services on the account.
+- Familiarized with reading the returned results in JSON format.
 
-- Install AWS CLI.
-- Configure AWS credentials.
-- Verify the installation.
+**Module 4 — Interacting with Amazon S3**
+- Successfully created a brand new Bucket using the `aws s3 mb` command.
+- Successfully pushed a test text file from the computer to the cloud and pulled it back to the local machine.
+- Used the `aws s3 rb` command to delete the bucket, completing the S3 lab.
 
-##### Module 3 — Check Resources
+**Module 5 — Interacting with Amazon SNS**
+- Successfully initialized an SNS Topic.
+- Ran the subscribe command to link a personal email and confirmed the mailbox.
+- Used the `publish` command to shoot a simulated alert message and received the response email.
 
-- View AWS resources using AWS CLI.
-- Practice commonly used CLI commands.
-- Become familiar with AWS CLI syntax.
+**Module 6 — Interacting with IAM**
+- Ran the `aws iam list-users` command to output the current user list.
+- Successfully queried the Group and Policy information associated with the operating User.
 
-##### Module 4 — AWS CLI with Amazon S3
+**Module 7 — Interacting with Amazon VPC**
+- Practiced the `aws ec2 describe-vpcs` and `describe-subnets` command set.
+- Copied and stored the ID values of the network infrastructure into a draft file to prepare for the EC2 creation step.
 
-- Create an S3 bucket.
-- Upload and download files.
-- Delete S3 objects and buckets.
+**Module 8 — Create EC2**
+- Successfully wrote and executed the long command chain to initialize an EC2 Instance.
+- Called the Status check command to confirm the server transitioned to "running".
+- Proceeded to run the `terminate-instances` command to manually shut down the server remotely.
 
-##### Module 5 — AWS CLI with Amazon SNS
-
-- Create an SNS Topic.
-- Create a Subscription.
-- Publish a test notification.
-
-##### Module 6 — AWS CLI with IAM
-
-- List IAM users.
-- Inspect IAM groups and policies.
-- Practice IAM management commands.
-
-##### Module 7 — AWS CLI with Amazon VPC
-
-- View VPC information.
-- List available Subnets.
-- Inspect Security Groups.
-
-##### Module 8 — Launch EC2 Instance
-
-- Launch an EC2 instance.
-- Verify the instance status.
-- Manage EC2 resources through AWS CLI.
-
-##### Module 9 — Cleanup Resources
-
-- Review all created AWS resources.
-- Remove unnecessary resources.
-- Verify that the cleanup process has been completed successfully.
+**Module 9 — Cleanup Resources**
+- Reviewed via CLI to ensure no running EC2 instances or forgotten S3 Buckets remained.
+- Saved cleanup time by typing commands instead of clicking back and forth between screens on the Console.
 
 ---
 
-### Weekly Evaluation
+### Evaluation of Week 9 Results:
 
-- Understand the purpose and benefits of AWS CLI.
-- Successfully install and configure AWS CLI.
-- Practice managing Amazon S3 using command-line operations.
-- Use AWS CLI to interact with Amazon SNS.
-- Manage IAM and Amazon VPC resources through AWS CLI.
-- Launch and manage Amazon EC2 instances using AWS CLI.
-- Improve cloud administration skills by using command-line automation.
+- Successfully took the initial step in shifting the operational mindset from a Graphical User Interface (GUI) to a Command Line Interface (CLI).
+- Installation, configuration, and authentication of the CLI environment worked perfectly.
+- Flexibly utilized AWS CLI to handle basic needs with S3, SNS, IAM, VPC, and EC2.
+- Clearly felt a significant improvement in operational speed once accustomed to the syntax.
+- Upgraded foundational skills solidly to aim towards fully automating the DevOps process on AWS.
 
 ---
 
-### Challenges
+### Challenges and Obstacles Faced:
 
-- Becoming familiar with AWS CLI syntax and parameters.
-- Remembering service-specific commands.
-- Ensuring IAM permissions are correctly configured before executing commands.
-- Identifying AWS resource IDs when working through the command line.
-
----
-
-### Solutions
-
-- Practice AWS CLI commands regularly.
-- Refer to the AWS CLI Command Reference when necessary.
-- Verify IAM permissions before performing operations.
-- Maintain a personal cheat sheet of commonly used AWS CLI commands.
+- The command syntax is quite long, especially in the EC2 module; typing just one character wrong or missing a space causes an error.
+- Faced initial difficulties when having to read and parse data from the lengthy JSON blocks returned by the CLI.
+- The EC2 creation operation requires high sequentiality: one must use CLI to obtain the Subnet ID, AMI ID, and Security Group ID before assembling them into an executable command.
+- Sometimes encountered an `Access Denied` error because the IAM User account used to issue the Access Key lacked sufficient permissions (Policy) to execute the task.
 
 ---
 
-### Plan for Next Week
+### Solutions and Lessons Learned:
 
-- Learn the fundamentals of AWS CloudFormation.
-- Explore Infrastructure as Code (IaC).
-- Deploy AWS resources using CloudFormation templates.
-- Practice managing CloudFormation stacks.
-- Prepare screenshots and complete the weekly practical report.
+- Frequently attach the `--help` flag after a command to read the built-in documentation, or look up the AWS CLI Command Reference page.
+- Pre-write long commands in a Note software (like Notepad, VS Code), and carefully review the ID parameters before copying and pasting them into the Terminal to run.
+- Form a habit of checking the identity with the `aws sts get-caller-identity` command to ensure the correct authorized profile is being used.
+- To get used to JSON, one can combine the `jq` tool or the `--query` feature of the AWS CLI to filter the output, making it neater and easier to read.

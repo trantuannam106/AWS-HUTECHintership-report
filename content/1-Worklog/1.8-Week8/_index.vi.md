@@ -1,153 +1,130 @@
 ---
-title: "Worklog Tuần 8"
-date: 2026-06-15
+title: "Báo cáo Thực hành Tuần 8"
+date: 2026-06-08
 weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
 
-### Mục tiêu tuần 8:
+### Mục tiêu trọng tâm tuần 8:
 
-- Tìm hiểu tổng quan về AWS Identity and Access Management (IAM).
-- Hiểu vai trò của IAM trong việc quản lý danh tính và phân quyền trên AWS.
-- Tìm hiểu cơ chế xác thực và bảo mật tài khoản với Multi-Factor Authentication (MFA).
-- Thực hành tạo và quản lý IAM User, Group, Role và Policy.
-- Tìm hiểu các nguyên tắc bảo mật và phân quyền theo Principle of Least Privilege.
-- Tìm hiểu tổng quan về Amazon Virtual Private Cloud (Amazon VPC).
-- Hiểu kiến trúc mạng của Amazon VPC và các thành phần cơ bản.
-- Thực hành tạo và cấu hình VPC, Subnet, Route Table và Internet Gateway.
-- Thực hành cấu hình Security Group và Network ACL.
-- Nâng cao kỹ năng quản lý bảo mật và hạ tầng mạng trên AWS.
+- Khám phá bức tranh toàn cảnh về dịch vụ AWS Identity and Access Management (IAM).
+- Nhận thức sâu sắc vai trò cốt lõi của IAM trong việc kiểm soát danh tính và phân bổ quyền hạn trên môi trường điện toán đám mây.
+- Triển khai các lớp bảo vệ tài khoản vững chắc thông qua cơ chế Xác thực đa yếu tố (MFA).
+- Trực tiếp thực hành quy trình quản trị danh tính: khởi tạo IAM User, phân bổ Group, thiết lập Role và gắn Policy.
+- Thấm nhuần và áp dụng triệt để nguyên tắc "Đặc quyền tối thiểu" (Principle of Least Privilege) trong bảo mật.
+- Nghiên cứu tổng quan về kiến trúc mạng riêng ảo Amazon Virtual Private Cloud (Amazon VPC).
+- Bóc tách và phân tích các node mạng cấu thành nên một hệ thống VPC hoàn chỉnh.
+- Tự tay xây dựng hạ tầng mạng từ con số không: cấu hình VPC, phân hoạch Subnet, thiết lập bảng định tuyến (Route Table) và mở cổng ra Internet (Internet Gateway).
+- Triển khai các chốt chặn an ninh mạng thông qua tường lửa Security Group và Network ACL.
+- Củng cố tư duy thiết kế hạ tầng mạng an toàn, biệt lập và tối ưu trên nền tảng AWS.
 
 ---
 
-### Các công việc cần triển khai trong tuần này:
+### Kế hoạch hành động chi tiết:
 
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| Thứ | Nội dung công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| 2 | - Đọc tổng quan workshop AWS IAM <br> - Tìm hiểu vai trò của IAM trong AWS <br> - Chuẩn bị môi trường thực hành | 15/06/2026 | 15/06/2026 | https://000009.awsstudygroup.com/ |
-| 3 | - Tìm hiểu IAM User, Group, Role và Policy <br> - Thực hành tạo User và Group <br> - Cấp quyền bằng Managed Policy | 16/06/2026 | 16/06/2026 | https://000009.awsstudygroup.com/ |
-| 4 | - Tìm hiểu Multi-Factor Authentication (MFA) <br> - Cấu hình MFA cho tài khoản <br> - Nghiên cứu các nguyên tắc bảo mật AWS | 17/06/2026 | 17/06/2026 | https://000009.awsstudygroup.com/ |
-| 5 | - Đọc tổng quan workshop Amazon VPC <br> - Tìm hiểu kiến trúc mạng VPC <br> - Làm quen với các thành phần mạng | 18/06/2026 | 18/06/2026 | https://000010.awsstudygroup.com/ |
-| 6 | - Tạo Virtual Private Cloud (VPC) <br> - Cấu hình Public và Private Subnet <br> - Thiết lập Internet Gateway và Route Table | 19/06/2026 | 19/06/2026 | https://000010.awsstudygroup.com/ |
-| 7 | - Cấu hình Security Group và Network ACL <br> - Kiểm tra kết nối giữa các tài nguyên <br> - Hoàn thiện cấu hình mạng | 20/06/2026 | 20/06/2026 | https://000010.awsstudygroup.com/ |
-| CN | - Kiểm tra các tài nguyên đã tạo <br> - Thực hiện Cleanup Resources <br> - Tổng kết kiến thức đã học trong tuần | 21/06/2026 | 21/06/2026 | https://000009.awsstudygroup.com/ <br> https://000010.awsstudygroup.com/ |
+| 2 | - Đọc tài liệu hướng dẫn bài lab AWS IAM <br> - Đánh giá chức năng của IAM trong hệ sinh thái AWS <br> - Chuẩn bị tài khoản và môi trường thực hành an toàn | 08/06/2026 | 08/06/2026 | https://000009.awsstudygroup.com/ |
+| 3 | - Phân biệt bản chất của các thực thể: IAM User, Group, Role và Policy <br> - Thao tác tạo mới người dùng và đưa vào nhóm tương ứng <br> - Cấp phát quyền bằng các chính sách có sẵn (Managed Policy) | 09/06/2026 | 09/06/2026 | https://000009.awsstudygroup.com/ |
+| 4 | - Nghiên cứu cơ chế bảo vệ tài khoản bằng xác thực đa yếu tố (MFA) <br> - Kích hoạt MFA cho cả người dùng Root và IAM User <br> - Tìm hiểu sâu các tiêu chuẩn bảo mật trên đám mây | 10/06/2026 | 10/06/2026 | https://000009.awsstudygroup.com/ |
+| 5 | - Chuyển sang chủ đề mạng ảo với Amazon VPC <br> - Phân tích sơ đồ kiến trúc và luồng dữ liệu trong mạng VPC <br> - Làm quen với các khái niệm mạng nền tảng | 11/06/2026 | 11/06/2026 | https://000010.awsstudygroup.com/ |
+| 6 | - Khởi tạo một Virtual Private Cloud độc lập <br> - Phân hoạch dải mạng thành Public Subnet (vùng công khai) và Private Subnet (vùng kín) <br> - Gắn Internet Gateway và điều hướng traffic qua Route Table | 12/06/2026 | 12/06/2026 | https://000010.awsstudygroup.com/ |
+| 7 | - Xây dựng các rào chắn bảo mật: Security Group và Network ACL <br> - Test thử luồng kết nối giữa các instance để xác minh cấu hình <br> - Tinh chỉnh và hoàn tất kiến trúc mạng | 13/06/2026 | 13/06/2026 | https://000010.awsstudygroup.com/ |
+| CN | - Rà soát lại toàn bộ danh sách tài nguyên đã deploy <br> - Tiến hành dọn dẹp (Cleanup) môi trường để tránh phát sinh hóa đơn <br> - Tổng hợp kiến thức, ghi chép lỗi và viết báo cáo tuần | 14/06/2026 | 14/06/2026 | https://000009.awsstudygroup.com/ <br> https://000010.awsstudygroup.com/ |
 
 ---
 
-### Kết quả đạt được tuần 8:
+### Tổng kết kết quả thu hoạch:
 
-#### Kiến thức
+#### Về mặt kiến thức
 
-**AWS Identity and Access Management (IAM)**
+**Quản trị danh tính AWS IAM**
+- Hiểu sâu sắc IAM là trung tâm kiểm soát toàn bộ quyền "ai" được phép làm "gì" trên tài khoản AWS.
+- Nắm vững vòng đời tạo lập và quản lý các nhóm thực thể: IAM User, Group, Role và Policy.
+- Khắc sâu cốt lõi của nguyên tắc Đặc quyền tối thiểu (Least Privilege) nhằm ngăn chặn rủi ro rò rỉ dữ liệu.
+- Phân định rõ ràng ranh giới giữa chính sách do AWS quản lý (AWS Managed Policy) và chính sách tự định nghĩa (Customer Managed Policy).
+- Nắm được phương pháp quản lý an toàn thông tin đăng nhập và Access Keys.
 
-- Hiểu IAM là dịch vụ quản lý danh tính và quyền truy cập trên AWS.
-- Biết cách tạo và quản lý IAM User, Group, Role và Policy.
-- Hiểu nguyên tắc phân quyền tối thiểu (Least Privilege).
-- Phân biệt AWS Managed Policy và Customer Managed Policy.
-- Hiểu cách quản lý thông tin xác thực và quyền truy cập.
+**An ninh tài khoản AWS**
+- Đánh giá cao vai trò của MFA như một "lớp khiên" thứ hai chống lại các cuộc tấn công chiếm đoạt tài khoản.
+- Nắm bắt thao tác đồng bộ thiết bị để cấu hình MFA.
+- Thấm nhuần quy tắc vàng trong bảo mật: Tuyệt đối không sử dụng tài khoản Root cho các tác vụ hàng ngày, thay vào đó phải tạo và sử dụng IAM User.
 
-**Bảo mật tài khoản AWS**
+**Kiến trúc mạng Amazon VPC**
+- Nắm bắt được cách VPC tạo ra một không gian mạng biệt lập, định nghĩa bằng phần mềm trên cloud.
+- Hiểu nguyên lý cấp phát dải IP (CIDR Block) và cách chia nhỏ chúng thành các Subnet phục vụ cho từng mục đích riêng biệt.
+- Thấy được tầm quan trọng của Internet Gateway trong việc mở cổng ra Internet và cách Route Table đóng vai trò "người chỉ đường" cho các gói tin.
+- Nhận diện sự khác biệt cốt lõi giữa Public Subnet (có đường ra Internet) và Private Subnet (hoàn toàn cách ly).
 
-- Hiểu vai trò của Multi-Factor Authentication (MFA).
-- Biết cách cấu hình MFA cho tài khoản AWS.
-- Hiểu các nguyên tắc bảo mật tài khoản và thông tin xác thực.
-- Biết cách bảo vệ tài khoản Root và IAM User.
-
-**Amazon Virtual Private Cloud (Amazon VPC)**
-
-- Hiểu kiến trúc và chức năng của Amazon VPC.
-- Nắm được khái niệm CIDR Block, Subnet và địa chỉ IP.
-- Hiểu vai trò của Internet Gateway và Route Table.
-- Phân biệt Public Subnet và Private Subnet.
-
-**Bảo mật mạng**
-
-- Hiểu chức năng của Security Group.
-- Hiểu cơ chế hoạt động của Network ACL.
-- Biết cách cấu hình các quy tắc Inbound và Outbound.
-- Hiểu nguyên tắc xây dựng hệ thống mạng an toàn trên AWS.
+**Bảo mật hạ tầng mạng**
+- Nắm vững cơ chế của Security Group: hoạt động như một tường lửa ảo có trạng thái (stateful) bảo vệ ở cấp độ EC2 Instance.
+- Hiểu nguyên lý của Network ACL: đóng vai trò gác cổng không trạng thái (stateless) ở cấp độ mạng Subnet.
+- Biết cách thiết lập các bộ quy tắc luồng dữ liệu vào (Inbound) và ra (Outbound) một cách chặt chẽ.
+- Hoàn thiện tư duy thiết kế hệ thống mạng an toàn nhiều lớp.
 
 ---
 
-#### Thực hành
+#### Về mặt thực hành trực quan
 
-##### Module 1 — AWS IAM
+**Module 1 — AWS IAM**
+- Đăng nhập thành công vào console của IAM.
+- Khởi tạo người dùng (User) và đưa vào các nhóm (Group) tương ứng.
+- Đính kèm quyền hạn thông qua Managed Policy.
+- Cấu hình thành công IAM Role cho các dịch vụ giả định.
+- Kích hoạt thành công bảo mật 2 lớp (MFA).
+- Đăng nhập thử bằng IAM User để kiểm thử ranh giới quyền hạn.
 
-- Truy cập dịch vụ IAM.
-- Tạo IAM User và Group.
-- Gán quyền bằng Managed Policy.
-- Tạo IAM Role.
-- Cấu hình Multi-Factor Authentication (MFA).
-- Kiểm tra quyền truy cập.
+**Module 2 — Bảo mật AWS**
+- Áp dụng các tiêu chuẩn bảo mật theo khuyến nghị của AWS.
+- Vô hiệu hóa hoặc xóa bỏ các Access Key không cần thiết, ứng dụng triệt để Least Privilege.
+- Xác minh lại cấu hình an toàn của tài khoản Root.
 
-##### Module 2 — AWS Security
+**Module 3 — Amazon VPC**
+- Khởi tạo thành công VPC với dải mạng CIDR tùy chỉnh.
+- Thiết lập hoàn chỉnh cấu trúc Public Subnet và Private Subnet.
+- Khởi tạo và đính kèm Internet Gateway vào VPC.
+- Định tuyến thành công traffic từ Public Subnet ra ngoài Internet thông qua Route Table.
 
-- Tìm hiểu các nguyên tắc bảo mật trên AWS.
-- Cấu hình phương thức xác thực an toàn.
-- Áp dụng nguyên tắc phân quyền tối thiểu.
-- Kiểm tra cấu hình bảo mật tài khoản.
+**Module 4 — Cấu hình Security Mạng**
+- Tạo và gắn Security Group cho phép các cổng giao tiếp cơ bản (SSH/HTTP).
+- Cấu hình Network ACL để chặn/cho phép các dải IP theo kịch bản.
+- Thực hiện ping test thành công để xác nhận mạng lưới thông suốt theo đúng thiết kế.
+- Xác minh tính hiệu quả của các tường lửa ảo.
 
-##### Module 3 — Amazon VPC
-
-- Tìm hiểu kiến trúc Amazon VPC.
-- Khởi tạo Virtual Private Cloud.
-- Tạo Public và Private Subnet.
-- Cấu hình Internet Gateway.
-- Thiết lập Route Table.
-
-##### Module 4 — Network Security
-
-- Cấu hình Security Group.
-- Thiết lập Network ACL.
-- Kiểm tra kết nối mạng.
-- Xác minh hoạt động của các thành phần mạng.
-
-##### Module 5 — Cleanup Resources
-
-- Kiểm tra toàn bộ tài nguyên đã tạo.
-- Xóa các tài nguyên không còn sử dụng.
-- Xác nhận hoàn tất quá trình dọn dẹp.
+**Module 5 — Giải phóng tài nguyên (Cleanup)**
+- Kiểm tra chéo toàn bộ VPC, Subnet, IGW, IAM User đã tạo trong bài thực hành.
+- Thực hiện xóa và gỡ bỏ an toàn từng thành phần.
+- Hoàn tất quá trình dọn dẹp, trả lại môi trường sạch cho tài khoản.
 
 ---
 
 ### Đánh giá kết quả tuần 8:
 
-- Hiểu vai trò của AWS IAM trong quản lý danh tính và phân quyền.
-- Tạo và quản lý thành công IAM User, Group, Role và Policy.
-- Cấu hình thành công Multi-Factor Authentication (MFA).
-- Hiểu các nguyên tắc bảo mật tài khoản AWS.
-- Tạo và cấu hình thành công Amazon VPC.
-- Thiết lập Public Subnet, Private Subnet, Route Table và Internet Gateway.
-- Cấu hình Security Group và Network ACL để bảo vệ hệ thống.
-- Nâng cao kỹ năng quản lý bảo mật và hạ tầng mạng trên nền tảng AWS.
+- Hoàn thành xuất sắc việc làm chủ công cụ IAM để quản lý quyền truy cập.
+- Thao tác mượt mà trong việc tạo lập và phân quyền cho User, Group, Role và Policy.
+- Kích hoạt thành công MFA, đảm bảo tài khoản ở mức an toàn cao nhất.
+- Tự tay thiết kế, cấu hình và vận hành hoàn chỉnh một hệ thống mạng Amazon VPC cơ bản.
+- Phân bổ chính xác các thành phần mạng: Public/Private Subnet, Route Table và IGW.
+- Cấu hình thành công mạng lưới bảo vệ đa tầng bằng Security Group và Network ACL.
+- Tự tin hơn hẳn trong việc hoạch định và triển khai hạ tầng an toàn trên AWS.
 
 ---
 
-### Khó khăn gặp phải:
+### Các trở ngại và thách thức đối mặt:
 
-- Khó phân biệt giữa IAM Role và IAM User trong một số trường hợp sử dụng.
-- Ban đầu còn nhầm lẫn giữa Managed Policy và Inline Policy.
-- Việc phân biệt Security Group và Network ACL còn chưa rõ ràng.
-- Mất thời gian để hiểu cách hoạt động của Route Table và CIDR Block.
-- Một số lỗi kết nối do cấu hình mạng chưa chính xác.
-
----
-
-### Hướng khắc phục:
-
-- Đọc kỹ tài liệu AWS Study Group và AWS Documentation.
-- Thực hành nhiều lần việc tạo User, Group, Role và Policy.
-- Vẽ sơ đồ kiến trúc VPC để dễ hình dung luồng kết nối.
-- Kiểm tra kỹ Route Table, Security Group và Network ACL trước khi kiểm thử.
-- Áp dụng nguyên tắc Least Privilege trong quá trình cấp quyền.
+- Ở giai đoạn đầu, rất dễ nhầm lẫn khái niệm giữa IAM Role (dùng cho dịch vụ/ủy quyền tạm thời) và IAM User (dùng cho con người).
+- Lúng túng khi phân biệt sự khác nhau giữa Managed Policy (chính sách độc lập) và Inline Policy (chính sách gắn cứng).
+- Khái niệm tường lửa "stateful" (Security Group) và "stateless" (Network ACL) còn hơi trừu tượng và khó nắm bắt.
+- Phải chật vật một thời gian để hiểu cách tính toán dải IP CIDR Block và logic định tuyến luồng dữ liệu của Route Table.
+- Gặp lỗi Timeout không thể truy cập instance do quên mở port Inbound trong Security Group hoặc điều hướng sai Route Table.
 
 ---
 
-### Định hướng tuần tiếp theo:
+### Phương án giải quyết và bài học rút ra:
 
-- Tìm hiểu AWS Command Line Interface (AWS CLI).
-- Cài đặt và cấu hình AWS CLI.
-- Thực hành quản lý tài nguyên AWS bằng dòng lệnh.
-- Làm việc với Amazon S3, SNS, IAM, VPC và EC2 thông qua AWS CLI.
-- Chuẩn bị hình ảnh minh chứng và hoàn thiện báo cáo thực hành tuần tiếp theo.
+- Đọc đi đọc lại các ví dụ (use-case) trong tài liệu của AWS để thấu hiểu bản chất sự khác biệt giữa Role và User.
+- Trực tiếp thao tác tạo cả hai loại Policy để thấy rõ sự khác biệt về tính linh hoạt và khả năng tái sử dụng.
+- Chủ động tự vẽ sơ đồ kiến trúc mạng ra giấy hoặc dùng công cụ (như draw.io) để nhìn rõ luồng đi của gói tin (từ IGW -> Route Table -> NACL -> Subnet -> SG -> Instance).
+- Hình thành thói quen đối chiếu kỹ lưỡng từng quy tắc Inbound/Outbound khi tiến hành gỡ lỗi mạng (Troubleshooting).
+- Kiên định áp dụng tư duy "chỉ mở những cổng thực sự cần thiết" thay vì chọn cách dễ dàng là mở All Traffic (0.0.0.0/0).

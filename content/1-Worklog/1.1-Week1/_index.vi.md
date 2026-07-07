@@ -149,7 +149,7 @@ pre: " <b> 1.1. </b> "
   - Delete function sau khi hoàn thành (clean up).
    ![Ảnh minh chứng: Xóa Lambda function](/images/1-Worklog/1.1-Week1/Delete_Lambda_function.png)
   - Hoàn thành nhiệm vụ bốn
-   ![Ảnh minh chứng: Hoàn thành nhiệm vụ 3](/images/1-Worklog/1.1-Week1/Finish_Fourth_Mission.png)
+   ![Ảnh minh chứng: Hoàn thành nhiệm vụ 4](/images/1-Worklog/1.1-Week1/Finish_Fourth_Mission.png)
 
 - **Task 5 — Create RDS Database (+$20):**
   - Tạo Aurora (PostgreSQL Compatible) database bằng Easy Create.

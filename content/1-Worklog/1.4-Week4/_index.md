@@ -24,46 +24,13 @@ Week 4 Objectives:
 
 | Day | Task Category | Start Date | End Date | References |
 | --- | --- | --- | --- | --- |
-| Mon | - Research introductory documentation on Amazon RDS. <br>
-
-<br> - Clarify concepts: RDS, OLTP systems, DB Instance, Endpoint. <br>
-
-<br> - List supported database engines: MySQL, PostgreSQL, MariaDB, SQL Server, Oracle, and Aurora. | 11/05/2026 | 11/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-| Tue | - Module 2.1: Create a VPC. <br>
-
-<br> - Setup a VPC network including both Public and Private Subnets. <br>
-
-<br> - Deploy across multiple Availability Zones to ensure high availability for RDS. | 12/05/2026 | 12/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-| Wed | - Module 2.2: Create EC2 Security Group. <br>
-
-<br> - Module 2.3: Create RDS Security Group. <br>
-
-<br> - Establish firewall rules (open ports) for EC2 and configure RDS to only allow incoming traffic from the EC2 Security Group. | 13/05/2026 | 13/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-| Thu | - Module 2.4: Create DB Subnet Group. <br>
-
-<br> - Module 3: Create EC2 Instance. <br>
-
-<br> - Provision an Amazon Linux virtual machine, attach a Key Pair, and establish a remote connection via SSH using MobaXterm. | 14/05/2026 | 14/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-| Fri | - Module 4: Create RDS Database Instance. <br>
-
-<br> - Proceed to create the database, select the engine, set up account credentials, and attach the corresponding VPC and Security Group. <br>
-
-<br> - Verify the Available status and retrieve connection details (Endpoint, Port). | 15/05/2026 | 15/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-| Sat | - Module 5: Application Deployment. <br>
-
-<br> - Download the AWS FCJ Management source code from the repository. <br>
-
-<br> - Setup the Node.js environment, npm libraries, and MySQL client. <br>
-
-<br> - Initialize the database, data tables (user), and run the application on port 5000. | 16/05/2026 | 16/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-| Sun | - Module 6: Backup and Restore. <br>
-
-<br> - Test the backup, snapshot, and RDS restoration features. <br>
-
-<br> - Module 7: Clean up resources. <br>
-
-<br> - Delete all resources (EC2, RDS, Snapshots, Security Groups, VPC, etc.) to avoid incurring additional charges. | 17/05/2026 | 17/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-
+| Monday | - Research introductory documentation on Amazon RDS. <br> - Clarify concepts: RDS, OLTP systems, DB Instance, Endpoint. <br> - List supported database engines: MySQL, PostgreSQL, MariaDB, SQL Server, Oracle, and Aurora. | 11/05/2026 | 11/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
+| Tuesday | - Module 2.1: Create a VPC. <br> - Setup a VPC network including both Public and Private Subnets. <br> - Deploy across multiple Availability Zones to ensure high availability for RDS. | 12/05/2026 | 12/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
+| Wednesday | - Module 2.2: Create EC2 Security Group. <br> - Module 2.3: Create RDS Security Group. <br> - Establish firewall rules (open ports) for EC2 and configure RDS to only allow incoming traffic from the EC2 Security Group. | 13/05/2026 | 13/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
+| Thursday | - Module 2.4: Create DB Subnet Group. <br> - Module 3: Create EC2 Instance. <br> - Provision an Amazon Linux virtual machine, attach a Key Pair, and establish a remote connection via SSH using MobaXterm. | 14/05/2026 | 14/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
+| Friday | - Module 4: Create RDS Database Instance. <br> - Proceed to create the database, select the engine, set up account credentials, and attach the corresponding VPC and Security Group. <br> - Verify the Available status and retrieve connection details (Endpoint, Port). | 15/05/2026 | 15/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
+| Saturday | - Module 5: Application Deployment. <br> - Download the AWS FCJ Management source code from the repository. <br> - Setup the Node.js environment, npm libraries, and MySQL client. <br> - Initialize the database, data tables (user), and run the application on port 5000. | 16/05/2026 | 16/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
+| Sunday | - Module 6: Backup and Restore. <br> - Test the backup, snapshot, and RDS restoration features. <br> - Module 7: Clean up resources. <br> - Delete all resources (EC2, RDS, Snapshots, Security Groups, VPC, etc.) to avoid incurring additional charges. | 17/05/2026 | 17/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
 ---
 
 ### Week 4 Achievements:

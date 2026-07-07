@@ -24,45 +24,13 @@ pre: "  1.4.  "
 
 | Thứ | Hạng mục công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Nghiên cứu tài liệu giới thiệu về Amazon RDS. <br>
-
-<br> - Làm rõ các khái niệm: RDS, hệ thống OLTP, DB Instance, Endpoint. <br>
-
-<br> - Liệt kê các engine được hỗ trợ: MySQL, PostgreSQL, MariaDB, SQL Server, Oracle và Aurora. | 11/05/2026 | 11/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-| 3 | - Module 2.1: Create a VPC. <br>
-
-<br> - Thiết lập mạng VPC bao gồm cả Public và Private Subnet. <br>
-
-<br> - Triển khai trên nhiều Availability Zone nhằm đảm bảo tính sẵn sàng cho RDS. | 12/05/2026 | 12/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-| 4 | - Module 2.2: Create EC2 Security Group. <br>
-
-<br> - Module 2.3: Create RDS Security Group. <br>
-
-<br> - Thiết lập các quy tắc tường lửa (mở port) cho EC2 và cấu hình RDS sao cho chỉ cho phép traffic đi vào từ Security Group của EC2. | 13/05/2026 | 13/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-| 5 | - Module 2.4: Create DB Subnet Group. <br>
-
-<br> - Module 3: Create EC2 Instance. <br>
-
-<br> - Khởi tạo máy ảo Amazon Linux, đính kèm Key Pair và thực hiện kết nối từ xa qua SSH bằng phần mềm MobaXterm. | 14/05/2026 | 14/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-| 6 | - Module 4: Create RDS Database Instance. <br>
-
-<br> - Tiến hành tạo database, lựa chọn engine, thiết lập tài khoản, mật khẩu, cũng như gắn VPC và Security Group tương ứng. <br>
-
-<br> - Xác nhận trạng thái Available và lấy thông tin kết nối (Endpoint, Port). | 15/05/2026 | 15/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-| 7 | - Module 5: Application Deployment. <br>
-
-<br> - Tải source code AWS FCJ Management từ kho lưu trữ. <br>
-
-<br> - Cài đặt môi trường Node.js, các thư viện npm và MySQL client. <br>
-
-<br> - Khởi tạo database, bảng dữ liệu (user) và khởi chạy ứng dụng trên cổng 5000. | 16/05/2026 | 16/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-| CN | - Module 6: Backup and Restore. <br>
-
-<br> - Thử nghiệm các tính năng sao lưu, tạo snapshot và khôi phục RDS. <br>
-
-<br> - Module 7: Clean up resources. <br>
-
-<br> - Xóa toàn bộ tài nguyên (EC2, RDS, Snapshot, Security Group, VPC,...) để không bị tính thêm phí. | 17/05/2026 | 17/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
+| 2 | - Nghiên cứu tài liệu giới thiệu về Amazon RDS. <br> - Làm rõ các khái niệm: RDS, hệ thống OLTP, DB Instance, Endpoint. <br> - Liệt kê các engine được hỗ trợ: MySQL, PostgreSQL, MariaDB, SQL Server, Oracle và Aurora. | 11/05/2026 | 11/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
+| 3 | - Module 2.1: Create a VPC. <br> - Thiết lập mạng VPC bao gồm cả Public và Private Subnet. <br> - Triển khai trên nhiều Availability Zone nhằm đảm bảo tính sẵn sàng cho RDS. | 12/05/2026 | 12/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
+| 4 | - Module 2.2: Create EC2 Security Group. <br> - Module 2.3: Create RDS Security Group. <br> - Thiết lập các quy tắc tường lửa (mở port) cho EC2 và cấu hình RDS sao cho chỉ cho phép traffic đi vào từ Security Group của EC2. | 13/05/2026 | 13/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
+| 5 | - Module 2.4: Create DB Subnet Group. <br> - Module 3: Create EC2 Instance. <br> - Khởi tạo máy ảo Amazon Linux, đính kèm Key Pair và thực hiện kết nối từ xa qua SSH bằng phần mềm MobaXterm. | 14/05/2026 | 14/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
+| 6 | - Module 4: Create RDS Database Instance. <br> - Tiến hành tạo database, lựa chọn engine, thiết lập tài khoản, mật khẩu, cũng như gắn VPC và Security Group tương ứng. <br> - Xác nhận trạng thái Available và lấy thông tin kết nối (Endpoint, Port). | 15/05/2026 | 15/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
+| 7 | - Module 5: Application Deployment. <br> - Tải source code AWS FCJ Management từ kho lưu trữ. <br> - Cài đặt môi trường Node.js, các thư viện npm và MySQL client. <br> - Khởi tạo database, bảng dữ liệu (user) và khởi chạy ứng dụng trên cổng 5000. | 16/05/2026 | 16/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
+| CN | - Module 6: Backup and Restore. <br> - Thử nghiệm các tính năng sao lưu, tạo snapshot và khôi phục RDS. <br> - Module 7: Clean up resources. <br> - Xóa toàn bộ tài nguyên (EC2, RDS, Snapshot, Security Group, VPC,...) để không bị tính thêm phí. | 17/05/2026 | 17/05/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
 
 ---
 

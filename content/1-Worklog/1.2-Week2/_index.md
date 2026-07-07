@@ -20,13 +20,13 @@ pre: " <b> 1.2. </b> "
 
 | Day | Task | Start Date | End Date | Source Material |
 | --- | --- | --- | --- | --- |
-| Mon | - Prepare AWS account, select `us-east-1` Region <br> - Read overview documentation on Amazon VPC and AWS Site-to-Site VPN <br> - Prepare Key Pair and connection environment | 27/04/2026 | 27/04/2026 | https://000003.awsstudygroup.com/vi/ |
-| Tue | - Set up core VPC infrastructure (CIDR `10.10.0.0/16`) <br> - Create 4 Subnets distributed across 2 Availability Zones (AZ 1a, 1b) <br> - Create and attach an Internet Gateway (IGW) to the VPC | 28/04/2026 | 28/04/2026 | https://000003.awsstudygroup.com/vi/ |
-| Wed | - Deploy a NAT Gateway in Public Subnet 1 using Zonal mode <br> - Allocate and associate an Elastic IP to the NAT Gateway <br> - Configure Route Tables for Public and Private Subnets | 29/04/2026 | 29/04/2026 | https://000003.awsstudygroup.com/vi/ |
-| Thu | - Launch Public and Private EC2 Instances (t3.micro, Amazon Linux 2023) <br> - Perform traditional connection using SSH Jump via Bastion Host <br> - Test Private Subnet network activity through the NAT Gateway using the internet ping command | 30/04/2026 | 30/04/2026 | https://000003.awsstudygroup.com/vi/ |
-| Fri | - Use the VPC Reachability Analyzer tool to test network connectivity <br> - Analyze data packet routing logic between the Public EC2 and Private EC2 | 01/05/2026 | 01/05/2026 | https://000003.awsstudygroup.com/vi/ |
-| Sat | - Create and configure an EC2 Instance Connect (EIC) Endpoint service in the Private Subnet <br> - Configure the Security Group and test direct connection to the Private EC2 without going through the public internet | 02/05/2026 | 02/05/2026 | https://000003.awsstudygroup.com/vi/ |
-| Sun | - Configure IAM Role and set up 3 VPC Interface Endpoints to run SSM Session Manager <br> - Practice direct Shell management connection via web browser <br> - Perform resource clean up to optimize system costs | 03/05/2026 | 03/05/2026 | https://000003.awsstudygroup.com/vi/ |
+| Monday | - Prepare AWS account, select `us-east-1` Region <br> - Read overview documentation on Amazon VPC and AWS Site-to-Site VPN <br> - Prepare Key Pair and connection environment | 27/04/2026 | 27/04/2026 | https://000003.awsstudygroup.com/vi/ |
+| Tuesday | - Set up core VPC infrastructure (CIDR `10.10.0.0/16`) <br> - Create 4 Subnets distributed across 2 Availability Zones (AZ 1a, 1b) <br> - Create and attach an Internet Gateway (IGW) to the VPC | 28/04/2026 | 28/04/2026 | https://000003.awsstudygroup.com/vi/ |
+| Wednesday | - Deploy a NAT Gateway in Public Subnet 1 using Zonal mode <br> - Allocate and associate an Elastic IP to the NAT Gateway <br> - Configure Route Tables for Public and Private Subnets | 29/04/2026 | 29/04/2026 | https://000003.awsstudygroup.com/vi/ |
+| Thursday | - Launch Public and Private EC2 Instances (t3.micro, Amazon Linux 2023) <br> - Perform traditional connection using SSH Jump via Bastion Host <br> - Test Private Subnet network activity through the NAT Gateway using the internet ping command | 30/04/2026 | 30/04/2026 | https://000003.awsstudygroup.com/vi/ |
+| Friday | - Use the VPC Reachability Analyzer tool to test network connectivity <br> - Analyze data packet routing logic between the Public EC2 and Private EC2 | 01/05/2026 | 01/05/2026 | https://000003.awsstudygroup.com/vi/ |
+| Saturday | - Create and configure an EC2 Instance Connect (EIC) Endpoint service in the Private Subnet <br> - Configure the Security Group and test direct connection to the Private EC2 without going through the public internet | 02/05/2026 | 02/05/2026 | https://000003.awsstudygroup.com/vi/ |
+| Sunday | - Configure IAM Role and set up 3 VPC Interface Endpoints to run SSM Session Manager <br> - Practice direct Shell management connection via web browser <br> - Perform resource clean up to optimize system costs | 03/05/2026 | 03/05/2026 | https://000003.awsstudygroup.com/vi/ |
 
 ---
 

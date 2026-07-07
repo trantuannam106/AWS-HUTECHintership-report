@@ -1,8 +1,3 @@
-Dưới đây là bản viết lại toàn bộ báo cáo Worklog Tuần 6 của bạn. Nội dung đã được thay đổi mốc thời gian bắt đầu từ ngày **25/05/2026**, đồng thời làm mới cấu trúc câu từ, sử dụng thuật ngữ tương đương để đảm bảo tính độc nhất, tự nhiên mà vẫn giữ nguyên đầy đủ nội dung kỹ thuật cốt lõi của bài lab.
-
----
-
-```markdown
 ---
 title: "Báo cáo Công việc Tuần 6"
 date: 2026-05-25

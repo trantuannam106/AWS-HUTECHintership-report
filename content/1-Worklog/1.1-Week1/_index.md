@@ -132,18 +132,23 @@ pre: " <b> 1.1. </b> "
 - **Task 2 — Amazon Bedrock Playground (+$20):**
  - Access the Bedrock Console, select the **Claude 3 Haiku** model.
 - Submit the use case details and test the prompt.
-  ![Screenshot: Access the Bedrock Console, select the Claude 3 Haiku model](/images/1-Worklog/1.1-Week1/Choose_Claude3_Haiku.png)
+  ![Proof Image: Access the Bedrock Console, select the Claude 3 Haiku model](/images/1-Worklog/1.1-Week1/Choose_Claude3_Haiku.png)
 - Complete the second mission.
-  ![Screenshot: Complete the second mission](/images/1-Worklog/1.1-Week1/Complete_Second_Mission.png)
+  ![Proof Image: Complete the second mission](/images/1-Worklog/1.1-Week1/Complete_Second_Mission.png)
 
 - **Task 3 — Set up AWS Budgets (+$20):**
   - Created a cost budget with email notifications.
- ![Screenshot: Budget created successfully](/images/1-Worklog/1.1-Week1/Create_Budget.png)
+   ![Proof Image: Budget created successfully](/images/1-Worklog/1.1-Week1/Create_Budget.png)
+  - Complete the third mission.
+   ![Proof Image: Thrid task completed](/images/1-Worklog/1.1-Week1/Finish_Third_Mission.png)
 
 - **Task 4 — Create Lambda Web App (+$20):**
   - Created Lambda function `http-function-url-tutorial` from a blueprint.
+   ![Proof Image: Create Lambda function ](/images/1-Worklog/1.1-Week1/Create_Lambda_function.png)
   - Deleted function after completion (cleanup).
-
+   ![Proof Image: Delete Lambda function](/images/1-Worklog/1.1-Week1/Delete_Lambda_function.png)
+ - Complete the fourth mission.
+   ![Proof Image: Fourth task completed](/images/1-Worklog/1.1-Week1/Finish_Fourth_Mission.png)
 - **Task 5 — Create RDS Database (+$20):**
   - Created Aurora (PostgreSQL Compatible) database using 'Easy Create'.
   - Deleted DB instance and cluster after completion (cleanup).

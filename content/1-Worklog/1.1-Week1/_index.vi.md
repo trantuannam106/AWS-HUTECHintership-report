@@ -140,14 +140,22 @@ pre: " <b> 1.1. </b> "
 - **Task 3 — Set up AWS Budgets (+$20):**
   - Tạo cost budget với cảnh báo qua email.
    ![Ảnh minh chứng: Tạo budget thành công](/images/1-Worklog/1.1-Week1/Create_Budget.png)
+  - Hoàn thành nhiệm vụ ba
+  ![Ảnh minh chứng: Hoàn thành nhiệm vụ 3](/images/1-Worklog/1.1-Week1/Finish_Third_Mission.png)
 
 - **Task 4 — Create Lambda Web App (+$20):**
   - Tạo Lambda function `http-function-url-tutorial` từ blueprint.
+   ![Ảnh minh chứng: Tạo Lambda function ](/images/1-Worklog/1.1-Week1/Create_Lambda_function.png)
   - Delete function sau khi hoàn thành (clean up).
+   ![Ảnh minh chứng: Xóa Lambda function](/images/1-Worklog/1.1-Week1/Delete_Lambda_function.png)
+  - Hoàn thành nhiệm vụ bốn
+   ![Ảnh minh chứng: Hoàn thành nhiệm vụ 3](/images/1-Worklog/1.1-Week1/Finish_Fourth_Mission.png)
 
 - **Task 5 — Create RDS Database (+$20):**
   - Tạo Aurora (PostgreSQL Compatible) database bằng Easy Create.
+
   - Xóa DB instance và cluster sau khi hoàn thành (clean up).
+
 
 ---
 

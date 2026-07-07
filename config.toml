@@ -1,6 +1,6 @@
 baseURL = "https://trantuannam106.github.io/AWS-HUTECHintership-report/"
 relativeURLs = false
-canonifyURLs = false
+canonifyURLs = true
 defaultContentLanguage = "en"
 
 # Change the default theme to be use when building the site with Hugo

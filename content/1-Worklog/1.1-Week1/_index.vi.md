@@ -139,6 +139,7 @@ pre: " <b> 1.1. </b> "
 
 - **Task 3 — Set up AWS Budgets (+$20):**
   - Tạo cost budget với cảnh báo qua email.
+   ![Ảnh minh chứng: Tạo budget tahnhf công](/aws-intership-report/images/1-Worklog/1.1-Week1/Create_Budget.png)
 
 - **Task 4 — Create Lambda Web App (+$20):**
   - Tạo Lambda function `http-function-url-tutorial` từ blueprint.

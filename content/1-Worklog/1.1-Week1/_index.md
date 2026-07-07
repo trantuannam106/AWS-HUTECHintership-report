@@ -138,6 +138,7 @@ pre: " <b> 1.1. </b> "
 
 - **Task 3 — Set up AWS Budgets (+$20):**
   - Created a cost budget with email notifications.
+  ![Screenshot: Budget created successfully](/aws-intership-report/images/1-Worklog/1.1-Week1/Create_Budget.png)
 
 - **Task 4 — Create Lambda Web App (+$20):**
   - Created Lambda function `http-function-url-tutorial` from a blueprint.

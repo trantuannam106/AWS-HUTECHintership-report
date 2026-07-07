@@ -118,5 +118,7 @@ Attending the **“FCAJ Community Day”** workshop proved to be an invaluable e
 
 #### Event Evidence Images
 - ![Event Participation Evidence Image](</images/4-EventParticipated/Event1/event1(0).jpg>)
+- ![Event Participation Evidence Image](</images/4-EventParticipated/Event1/event1(3).jpg>)
 - ![Event Participation Evidence Image](</images/4-EventParticipated/Event1/event1(1).jpg>)
+- ![Event Participation Evidence Image](</images/4-EventParticipated/Event1/event1(4).jpg>)
 > Overall, this workshop went far beyond imparting technical competencies on Prompt Engineering and AI-centric development methodologies; it effectively ignited professional drive, reinforced self-learning discipline, and provided a clear career compass for the next generation of software builders.

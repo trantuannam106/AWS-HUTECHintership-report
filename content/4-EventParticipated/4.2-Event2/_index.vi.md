@@ -105,5 +105,5 @@ pre: " <b> 4.2. </b> "
 #### Một số hình ảnh khi tham gia sự kiện
 
 ![Ảnh minh chứng: tham gia event](</images/4-EventParticipated/Event2/event2(0).jpg>)
-
+![Ảnh minh chứng: tham gia event](</images/4-EventParticipated/Event2/event2(1).jpg>)
 > Tổng thể, sự kiện không chỉ cung cấp những kiến thức kỹ thuật chuyên sâu về Prompt Engineering và mô hình phát triển phần mềm thời đại AI, mà quan trọng hơn hết là truyền ngọn lửa đam mê, kỷ luật tự học và định hình một tư duy nghề nghiệp đúng đắn cho thế hệ kỹ sư công nghệ tương lai.

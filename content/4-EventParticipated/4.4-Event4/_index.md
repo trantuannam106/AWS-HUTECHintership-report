@@ -113,5 +113,5 @@ Immersing myself in the **“FCAJ Community Day”** sessions held across the 26
 #### Event Participation Evidence Photo
 
 ![Event Participation Evidence Photo](</images/4-EventParticipated/Event4/event4(0).jpg>)
-
+![Event Participation Evidence Photo](</images/4-EventParticipated/Event4/event4(1).jpg>)
 > In summary, this June installment of Community Day succeeded in shifting my engineering horizon far beyond standard API scripting. It provided a permanent career foundation, bridging the gap between isolated code snippets and the robust, secure, and resilient infrastructure required by modern enterprises.

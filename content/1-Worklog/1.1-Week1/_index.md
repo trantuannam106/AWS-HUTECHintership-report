@@ -19,7 +19,7 @@ pre: " <b> 1.1. </b> "
 ### Tasks to be Implemented This Week:
 
 | Day | Task | Start Date | Completion Date | Documentation/Source |
-| :--- | :--- | :--- | :--- | :--- |
+| --- | --- | --- | --- | --- |
 | Monday | - Meet and greet FCJ members <br> - Read and note down regulations and rules at the internship unit | 2026-04-20 | 2026-04-20 | [Notion Group Description](https://www.notion.so/Group-description-TP-HCM-347df829a730809a8f63d39505644917) |
 | Tuesday | - Module 01-01: What is Cloud Computing? <br> - Module 01-02: What Makes AWS Different? <br> - Module 01-03: How to Start the Journey to the Cloud <br> - Module 01-04: AWS Global Infrastructure | 2026-04-21 | 2026-04-21 | [AWS Cloud Journey](https://cloudjourney.awsstudygroup.com/) |
 | Wednesday | - Module 01-05: AWS Service Management Tools <br> - Module 01-06: Cost Optimization on AWS and Working with AWS Support <br> - Module 01-07: Practice and Additional Research <br> - **Hands-on Practice:** <br>&emsp;+ Lab01-01: Create an AWS Account <br>&emsp;+ Lab01-02: Set up Virtual MFA Device <br>&emsp;+ Lab01-03: Create Admin Group and Admin User <br>&emsp;+ Lab01-04: Account Verification Support | 2026-04-22 | 2026-04-22 | [Lab Source 1](https://000001.awsstudygroup.com/) <br> [Lab Source 2](https://000002.awsstudygroup.com/) |

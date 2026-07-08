@@ -1,6 +1,6 @@
 ---
 title: "Lambda OAuth và Lambda Layer"
-date: 2026-07-08
+date: 2026-07-07
 weight: 2
 chapter: false
 pre: " <b> 5.4.2. </b> "

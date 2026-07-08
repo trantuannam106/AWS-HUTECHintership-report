@@ -1,9 +1,6 @@
-Dưới đây là bản dịch sang tiếng Anh với cấu trúc và link ảnh được giữ nguyên hoàn toàn so với bản gốc của bạn:
-
-```markdown
 ---
 title: "OAuth Lambda and Lambda Layer"
-date: 2026-07-08
+date: 2026-07-07
 weight: 2
 chapter: false
 pre: " <b> 5.4.2. </b> "

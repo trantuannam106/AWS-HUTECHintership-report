@@ -154,7 +154,7 @@ pre: " <b> 1.1. </b> "
   - Created Aurora (PostgreSQL Compatible) database using 'Easy Create'.
    ![Proof Image: Created Aurora database](/images/1-Worklog/1.1-Week1/Created_Aurora_database.png)
   - Deleted DB instance and cluster after completion (cleanup).
-   ![Proof Image: Deleted DB instance and cluster after completion](/images/1-Worklog/1.1-Week1/Deleted_DB.png)
+   ![Proof Image: Deleted DB instance and cluster after completion](/images/1-Worklog/1.1-Week1/Delete_DB.png)
  - Complete the fifth mission.
    ![Proof Image: Fifth task completed](/images/1-Worklog/1.1-Week1/Finish_Fifth_Mission.png)
 ---

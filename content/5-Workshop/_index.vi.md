@@ -24,5 +24,5 @@ Thông qua workshop này, người học sẽ hiểu được quy trình triển
 2. [Chuẩn bị môi trường](5.2-Prerequiste/)
 3. [Triển khai Backend Serverless trên AWS](5.3-Backend/)
 4. [Tích hợp Gmail OAuth](5.4-Gmail-OAuth/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
+5. [VPC Endpoint Policies (làm thêm)](5.5-Flutter-app/)
 6. [Dọn dẹp tài nguyên](5.6-Cleanup/)

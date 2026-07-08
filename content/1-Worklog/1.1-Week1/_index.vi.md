@@ -153,11 +153,11 @@ pre: " <b> 1.1. </b> "
 
 - **Task 5 — Create RDS Database (+$20):**
   - Tạo Aurora (PostgreSQL Compatible) database bằng Easy Create.
-
+   ![Ảnh minh chứng: Tạo Aurora](/images/1-Worklog/1.1-Week1/Created_Aurora_database.png)
   - Xóa DB instance và cluster sau khi hoàn thành (clean up).
-
+   ![Ảnh minh chứng: Xóa DB instance và cluster sau khi hoàn thành](/images/1-Worklog/1.1-Week1/Deleted_DB.png)
   - Hoàn thành nhiệm vụ năm.
-
+   ![Ảnh minh chứng: Hoàn thành nhiệm vụ 5](/images/1-Worklog/1.1-Week1/Finish_Fifth_Mission.png)
 ---
 
 #### Khó khăn và cách giải quyết

@@ -54,7 +54,7 @@ Bảng ước tính Free Tier hoàn thành trước cả khi hệ thống có tr
 
 ---
 
-### Đánh giá kết quả tuần 7:
+### Đánh giá kết quả tuần 10:
 
 - Hạ tầng tài liệu (Hugo song ngữ, quy ước ảnh, khung chương) sẵn sàng nhận nội dung từ mọi thành viên.
 - Sơ đồ kiến trúc chính thức được cả nhóm phê duyệt, trở thành ngôn ngữ chung khi trao đổi kỹ thuật.

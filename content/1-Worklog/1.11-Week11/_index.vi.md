@@ -54,7 +54,7 @@ Chương "Tích hợp OAuth Gmail" hoàn thành ngay trong tuần sự cố xả
 
 ---
 
-### Đánh giá kết quả tuần 8:
+### Đánh giá kết quả tuần 11:
 
 - Pipeline hoàn chỉnh với email thật được kiểm thử đạt sau sự cố — bao gồm xác minh đúng cấu trúc dữ liệu và cơ chế TTL.
 - Đóng vai trò phát hiện và cung cấp dữ kiện then chốt cho sự cố lớn nhất tuần của nhóm.

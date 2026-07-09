@@ -3,7 +3,7 @@ title: "Cognito Authentication and Gmail Connection via Deep Link"
 date: 2026-07-09
 weight: 2
 chapter: false
-pre: "  5.5.2.  "
+pre: " <b> 5.5.2. </b> "
 ---
 
 #### 1. Amplify Configuration for Cognito

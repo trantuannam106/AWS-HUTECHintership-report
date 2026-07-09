@@ -3,7 +3,7 @@ title: "Environment Setup and App Architecture"
 date: 2026-07-09
 weight: 1
 chapter: false
-pre: "  5.5.1.  "
+pre: " <b> 5.5.1. </b> "
 ---
 
 #### 1. Environment Verification

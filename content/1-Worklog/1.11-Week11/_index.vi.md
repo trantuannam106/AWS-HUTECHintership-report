@@ -6,58 +6,81 @@ chapter: false
 pre: " <b> 1.11. </b> "
 ---
 
-### Mục tiêu trọng tâm tuần 11:
+### Mục tiêu tuần 11:
 
-- Chuyển từ giai đoạn thiết kế sang giai đoạn **Xây dựng hệ thống (Build Project)**.
-- Triển khai toàn bộ hạ tầng lưu trữ và cấu hình (Storage & Config Layer).
-- Thiết lập hàng đợi tin nhắn bất đồng bộ với Amazon SQS.
-- Lập trình và triển khai các hàm AWS Lambda (Node.js) đóng vai trò Producer và Worker.
-- Cấu hình mạng lưới API Gateway (REST và WebSocket) để giao tiếp với Client.
-- Tích hợp bảo mật Amazon Cognito và phân quyền IAM chặt chẽ.
+Tuần này hệ thống bắt đầu chạm dữ liệu thật: luồng OAuth của bạn bảo mật hoàn thành, Worker của bạn backend bắt đầu đọc Gmail và gọi OpenAI. Vai trò của tôi chuyển từ "người dựng khung" sang "người dùng đầu tiên" — chạy kiểm thử end-to-end phía server bằng công cụ dòng lệnh, và chính trong vai này, tôi là người đầu tiên chạm mặt sự cố lớn nhất tuần của cả nhóm. Song song, tôi viết chương tài liệu nhiều nội dung kỹ thuật nhất: tích hợp OAuth Gmail.
+
+- Kiểm thử luồng OAuth end-to-end phía server: lấy token Cognito qua CLI, gọi endpoint init, hoàn tất consent, xác minh dữ liệu trong DynamoDB.
+- Kiểm thử pipeline hoàn chỉnh với email thật: gọi `/check-gmail`, giám sát SQS/Worker, xác minh kết quả tóm tắt.
+- Phát hiện và phối hợp truy vết sự cố Worker `403 Forbidden` — báo cáo triệu chứng chính xác cho bạn bảo mật xử lý.
+- Giám sát hàng đợi lỗi: theo dõi Dead-Letter Queue và alarm CloudWatch trong suốt quá trình kiểm thử.
+- Viết trọn chương tài liệu "Tích hợp OAuth Gmail" (mục cha + các mục con) từ ghi nhận sự cố của bạn bảo mật.
 
 ---
 
-### Kế hoạch hành động chi tiết:
+### Các công việc cần triển khai trong tuần này:
 
-| Thứ | Nội dung công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu tham khảo |
+| Thứ | Hạng mục công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| 2 | - Khởi tạo Amazon Cognito User Pool <br> - Cấu hình 6 bảng Amazon DynamoDB theo thiết kế <br> - Lưu API Keys vào SSM Parameter Store | 29/06/2026 | 29/06/2026 | AWS Console |
-| 3 | - Khởi tạo Amazon SQS (`inboxiq-main` và `inboxiq-dlq`) <br> - Thiết lập IAM Role (Least Privilege) cho các Lambda function | 30/06/2026 | 30/06/2026 | AWS IAM & SQS Docs |
-| 4 | - Viết mã nguồn (Node.js) cho Lambda Authorizer <br> - Viết mã nguồn Lambda Producer (nhận request, ném vào SQS) | 01/07/2026 | 01/07/2026 | AWS SDK for JavaScript v3 |
-| 5 | - Viết mã nguồn Lambda Worker (xử lý logic chính) <br> - Cấu hình SQS trigger kích hoạt Lambda Worker | 02/07/2026 | 02/07/2026 | Node.js / AWS SDK |
-| 6 | - Cấu hình Amazon API Gateway (REST) tích hợp với Lambda Producer <br> - Cấu hình API Gateway (WebSocket) tích hợp luồng trả kết quả | 03/07/2026 | 03/07/2026 | AWS API Gateway Docs |
-| 7 | - Thực hiện test kết nối nội bộ (Unit test) giữa API Gateway -> SQS -> Lambda <br> - Áp dụng cơ chế Global Caching trong Lambda | 04/07/2026 | 04/07/2026 | Postman / wscat |
-| CN | - Review lại log trên CloudWatch để kiểm tra lỗi <br> - Tối ưu hóa thời gian timeout của Lambda <br> - Viết báo cáo tuần 11 | 05/07/2026 | 05/07/2026 | AWS CloudWatch |
+| 2 | - Chuẩn bị bộ công cụ kiểm thử phía server trên Windows: lấy ID Token qua `aws cognito-idp initiate-auth`, gọi API bằng `curl.exe` (không dùng alias `curl` của PowerShell vì đó là `Invoke-WebRequest` với cú pháp khác hẳn). <br> - Xử lý lỗi PowerShell nuốt dấu ngoặc kép trong JSON inline: chuyển sang ghi JSON ra file `-Encoding ascii` rồi trỏ `file://`. | 29/06/2026 | 29/06/2026 | https://docs.aws.amazon.com/cli/ |
+| 3 | - Kiểm thử luồng OAuth: gọi `/auth/gmail/init` nhận consent URL, hoàn tất consent trên trình duyệt với tài khoản trong Test users, xác nhận trang callback báo thành công. <br> - Xác minh record trong bảng `inboxiq-gmail-connections`: đủ accessToken, refreshToken, gmailAddress, expiresAt. | 30/06/2026 | 30/06/2026 | Nội bộ dự án |
+| 4 | - Kiểm thử pipeline hoàn chỉnh: gọi `/check-gmail`, nhận `202 Accepted` kèm jobId. Nhưng sau thời gian chờ, bảng `inboxiq-email-summaries` trống — không có kết quả nào. <br> - Thu thập triệu chứng có hệ thống: metric Lambda báo `Errors = 0` nhưng `Messages Deleted` của SQS bằng 0, message bị retry mỗi 5 phút đúng chu kỳ visibility timeout. Báo cáo đầy đủ cho bạn backend và bạn bảo mật. | 01/07/2026 | 01/07/2026 | Nội bộ dự án |
+| 5 | - Hỗ trợ truy vết: cung cấp record DynamoDB cho bạn bảo mật đối chiếu — chính field `scope` thiếu `gmail.readonly` trong record tôi trích xuất là manh mối chốt hạ nguyên nhân (granular permissions). <br> - Gặp lỗi phụ khi trích dữ liệu: AWS CLI trên Windows không in được tiếng Việt (`charmap codec error`) kể cả với `chcp 65001` — chuyển sang xem qua DynamoDB Console. | 02/07/2026 | 02/07/2026 | Nội bộ dự án |
+| 6 | - Kiểm thử lại sau khi bạn bảo mật xử lý (re-consent lấy đủ scope): pipeline chạy trọn vẹn, email thật được tóm tắt đúng cấu trúc summary/category/priority/action kèm TTL. <br> - Giám sát DLQ trong lúc test: các message lỗi của đợt 403 đã dồn vào Dead-Letter Queue đúng thiết kế (sau 3 lần retry), alarm `inboxiq-dlq-messages` chuyển "In alarm" — xác nhận cơ chế cảnh báo hoạt động. Purge DLQ sau khi sự cố xử lý xong. | 03/07/2026 | 03/07/2026 | https://docs.aws.amazon.com/sqs/ |
+| 7 | - Viết chương tài liệu "Tích hợp OAuth Gmail": mục cha (vì sao cần mục riêng, sơ đồ luồng, điểm mấu chốt init có auth / callback không auth) và mục con về Lambda + Layer (từ ghi nhận của bạn bảo mật). | 04/07/2026 | 04/07/2026 | Nội bộ dự án |
+| CN | - Viết mục con "Kiểm thử end-to-end và xử lý sự cố": toàn bộ quy trình test bằng CLI, sự cố granular permissions, bảng tổng hợp các lỗi khác đã gặp trong tuần. <br> - Kiểm tra Billing + OpenAI dashboard: chi phí AWS vẫn 0, chi phí OpenAI ở mức không đáng kể. Viết báo cáo tuần. | 05/07/2026 | 05/07/2026 | Nội bộ dự án InboxIQ |
 
 ---
 
-### Tổng kết kết quả thu hoạch:
+### Kết quả đạt được tuần 10:
 
-#### Về mặt kiến thức & Vận hành
-- Nắm vững quy trình kết nối các dịch vụ AWS với nhau thông qua cơ chế Event-Driven (Sự kiện kích hoạt Sự kiện).
-- Hiểu được tầm quan trọng của việc gán IAM Role chính xác: Lambda Producer chỉ được quyền `sqs:SendMessage`, trong khi Lambda Worker cần quyền `sqs:ReceiveMessage` và `dynamodb:PutItem`.
-- Nắm được kỹ thuật tối ưu hóa Lambda: Lưu trữ các tham số từ SSM vào biến global ngoài hàm `handler()` để tận dụng tính năng tái sử dụng execution context (Warm start), giúp giảm số lần gọi API SSM gây nghẽn (throttling).
+#### 1. Vai trò "người dùng đầu tiên" — và giá trị của việc báo cáo triệu chứng chính xác
 
-#### Về mặt thực hành
-- Tạo thành công cụm Cognito User Pool phục vụ xác thực.
-- Deploy thành công 6 bảng DynamoDB với cơ chế tự hủy dữ liệu TTL (Time to Live) để tự động xóa log cũ sau 30 ngày, tiết kiệm dung lượng.
-- Code và deploy thành công cụm Lambda bằng Node.js.
-- Cấu hình thành công cơ chế `ReportBatchItemFailures` của SQS, giúp Lambda Worker chỉ xử lý lại đúng email bị lỗi thay vì phải chạy lại cả một mẻ (batch) tin nhắn.
-- Dùng công cụ `wscat` (trên terminal) để test lập kênh kết nối WebSocket qua API Gateway thành công.
+Sự cố `403 Forbidden` của tuần là bài học lớn nhất về vai trò kiểm thử. Tôi không phải người tìm ra nguyên nhân (đó là chuyên môn của bạn bảo mật), nhưng là người **phát hiện** và — quan trọng hơn — **báo cáo triệu chứng đủ chính xác để người khác truy vết được**: không chỉ nói "không có kết quả", mà chỉ ra bộ ba dữ kiện then chốt: Lambda `Errors = 0` (Worker không crash — nó bắt lỗi bên trong), `Messages Deleted = 0` (message không được xử lý xong), chu kỳ retry 5 phút khớp visibility timeout (SQS đang đẩy lại). Chính record DynamoDB tôi trích xuất — với field `scope` thiếu `gmail.readonly` — trở thành manh mối chốt hạ.
+
+Bài học nghề nghiệp: một báo cáo lỗi tốt là một nửa lời giải. "Hệ thống không chạy" là lời phàn nàn; "Worker không crash nhưng message không được xoá khỏi queue, và đây là dữ liệu thực tế" là đầu vào cho chẩn đoán.
+
+#### 2. Bộ công cụ kiểm thử trên Windows — những bẫy không có trong tài liệu nào
+
+Kiểm thử API trên PowerShell dạy tôi ba bẫy môi trường tốn thời gian bậc nhất: `curl` trên PowerShell là alias của `Invoke-WebRequest` (cú pháp khác hẳn, phải gõ `curl.exe` tường minh); tham số JSON inline bị nuốt dấu ngoặc kép (giải pháp: ghi ra file `-Encoding ascii` rồi trỏ `file://`); và AWS CLI bản Windows không in được tiếng Việt (`charmap codec error`) bất kể `chcp 65001` — dữ liệu có dấu phải xem qua DynamoDB Console. Cả ba được ghi thành mục "lưu ý môi trường" trong tài liệu để người sau không mất thời gian như tôi.
+
+#### 3. Xác nhận cơ chế chịu lỗi hoạt động đúng thiết kế — bằng một sự cố thật
+
+Sự cố 403 vô tình trở thành bài kiểm thử thực chiến cho toàn bộ cơ chế chịu lỗi mà bạn backend dựng: message lỗi được retry đúng 3 lần rồi chuyển vào Dead-Letter Queue thay vì kẹt mãi ở hàng đợi chính, và alarm `inboxiq-dlq-messages` chuyển trạng thái "In alarm" đúng lúc — nghĩa là nếu đây là môi trường thật, đội vận hành đã được cảnh báo. Ít có cách nào xác nhận thiết kế chịu lỗi thuyết phục hơn một sự cố thật diễn ra đúng kịch bản đã lường trước. Sau khi sự cố xử lý xong, tôi purge DLQ và ghi chú theo dõi alarm quay về trạng thái OK.
+
+#### 4. Chương tài liệu OAuth — viết khi sự việc còn nóng
+
+Chương "Tích hợp OAuth Gmail" hoàn thành ngay trong tuần sự cố xảy ra, với mục troubleshooting chi tiết đến từng metric — điều không thể có nếu viết hồi tưởng sau một tháng. Quy ước "ghi ngay trong tuần" thiết lập từ tuần trước phát huy đúng lúc: ghi nhận thô của bạn bảo mật (nguyên nhân, cách xử lý) cộng dữ liệu kiểm thử của tôi (triệu chứng, metric, record) ghép thành một mục tài liệu hoàn chỉnh có đủ hai góc nhìn.
 
 ---
 
-### Các trở ngại và thách thức đối mặt:
-- Lỗi CORS (Cross-Origin Resource Sharing) liên tục xuất hiện khi test REST API Gateway qua trình duyệt.
-- Quên không cấp quyền `execute-api:ManageConnections` cho Lambda Worker nên hàm này không thể push data ngược về API Gateway WebSocket, dẫn đến lỗi 403 Forbidden.
-- Lambda Worker bị Timeout do mặc định của AWS chỉ là 3 giây, trong khi việc gọi API OpenAI và Gmail tốn nhiều thời gian hơn.
+### Đánh giá kết quả tuần 8:
 
-### Phương án giải quyết và bài học rút ra:
-- Kích hoạt tính năng Enable CORS trên API Gateway và tinh chỉnh lại header trả về từ Lambda Producer (`Access-Control-Allow-Origin: '*'`).
-- Bổ sung ngay quyền IAM `execute-api:ManageConnections` vào Role của Lambda Worker.
-- Tăng cấu hình Timeout của Lambda Worker lên 5 phút (300 giây) để đảm bảo có đủ thời gian chờ OpenAI sinh dữ liệu tóm tắt email.
+- Pipeline hoàn chỉnh với email thật được kiểm thử đạt sau sự cố — bao gồm xác minh đúng cấu trúc dữ liệu và cơ chế TTL.
+- Đóng vai trò phát hiện và cung cấp dữ kiện then chốt cho sự cố lớn nhất tuần của nhóm.
+- Cơ chế chịu lỗi (DLQ, alarm) được xác nhận hoạt động đúng thiết kế qua sự cố thật.
+- Chương tài liệu OAuth Gmail hoàn thành với chất lượng troubleshooting cao nhờ viết ngay khi sự việc còn nóng.
 
-### Định hướng tuần tiếp theo:
-- Tích hợp ứng dụng Mobile (Flutter) với Backend AWS.
-- Xử lý luồng kết nối với External API: Gmail API (OAuth) và OpenAI API (GPT-4o-mini).
-- Kiểm thử toàn hệ thống (End-to-End Testing), gỡ lỗi (Fixing) và chuẩn bị dữ liệu báo cáo nghiệm thu thực tập FCAJ.
+---
+
+### Khó khăn gặp phải:
+
+- Ba bẫy môi trường Windows/PowerShell (curl alias, JSON escaping, charmap codec) ngốn thời gian đáng kể trước khi vào được việc kiểm thử thật.
+- Ranh giới vai trò trong sự cố 403 ban đầu chưa rõ: tôi phát hiện nhưng không đủ chuyên môn OAuth để truy vết, phải học cách "bàn giao triệu chứng" hiệu quả thay vì cố tự sửa hoặc chỉ báo chung chung.
+- Viết tài liệu kỹ thuật từ ghi nhận thô của người khác đòi hỏi hỏi lại nhiều vòng để không diễn giải sai bản chất kỹ thuật.
+
+---
+
+### Hướng khắc phục và Best Practices đúc kết được:
+
+- Chuẩn hoá "mẫu báo cáo lỗi" cho kiểm thử: hiện tượng, các metric liên quan, dữ liệu trích xuất, các bước tái hiện — áp dụng cho mọi sự cố về sau.
+- Ghi mọi bẫy môi trường vào một mục "lưu ý vận hành" dùng chung, tách khỏi nội dung kỹ thuật chính.
+- Khi viết tài liệu từ ghi nhận của người khác, gửi bản nháp cho chính người đó soát lại trước khi chốt — người sửa lỗi là người duy nhất xác nhận được bản chất đúng hay sai.
+
+---
+
+### Định hướng cho tuần tiếp theo:
+
+- Kiểm thử end-to-end trên thiết bị thật cùng cả nhóm khi app Flutter ghép vào hệ thống — dự kiến là tuần nhiều sự cố tích hợp nhất.
+- Viết chương tài liệu Flutter và chương dọn dẹp tài nguyên.
+- Tổng hợp số liệu chi phí toàn dự án và bảng tra cứu dịch vụ cho báo cáo cuối.

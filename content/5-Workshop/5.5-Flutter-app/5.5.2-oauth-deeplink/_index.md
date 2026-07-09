@@ -160,6 +160,8 @@ User clicks "Connect Gmail"
 
 The `meta refresh` still attempts to auto-redirect after 1 second (succeeding on many browsers/devices), while the fallback link guarantees a manual escape route if the browser blocks the operation.
 
+![Callback page with backup link: "Click here if it doesn't redirect automatically"](/images/5-Workshop/5.5-Flutter-app/callback-fallback-link.jpg)
+
 #### 6. Achieved Results After This Section
 
 * Cognito login operates stably on real devices, matching the `USER_PASSWORD_AUTH` flow configured on the actual App Client.

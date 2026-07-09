@@ -69,7 +69,7 @@ dependencies:
 flutter pub get
 ```
 
-![pubspec.yaml sau khi thêm đầy đủ dependencies](/images/5-Workshop/5.5-flutter-app/pubspec-dependencies.jpg)
+![pubspec.yaml sau khi thêm đầy đủ dependencies](/images/5-Workshop/5.5-Flutter-app/pubspec-dependencies.jpg)
 
 #### 4. Cấu trúc thư mục `lib/`
 
@@ -94,7 +94,7 @@ lib/
     └── summary_card.dart
 ```
 
-![Cấu trúc thư mục lib/ trong Android Studio](/images/5-Workshop/5.5-flutter-app/lib-folder-structure.jpg)
+![Cấu trúc thư mục lib/ trong Android Studio](/images/5-Workshop/5.5-Flutter-app/lib-folder-structure.jpg)
 
 #### 5. Quyết định kiến trúc: instance-based, không dùng static
 
@@ -142,7 +142,7 @@ Thêm intent-filter cho deep link (dùng ở bước OAuth Gmail, xem mục 5.5.
 **Không** thêm `android:autoVerify="true"` vào intent-filter này. Thuộc tính đó dùng cho App Links (yêu cầu domain thật với file xác minh `assetlinks.json` trên `https://`), không áp dụng cho custom scheme (`inboxiq://`). Có thêm vào, Android lint sẽ báo thiếu cấu hình host/scheme https — không cần thiết và gây nhiễu cảnh báo build.
 {{% /notice %}}
 
-![AndroidManifest.xml sau khi thêm permission và deep link intent-filter](/images/5-Workshop/5.5-flutter-app/android-manifest-deeplink.jpg)
+![AndroidManifest.xml sau khi thêm permission và deep link intent-filter](/images/5-Workshop/5.5-Flutter-app/android-manifest-deeplink.jpg)
 
 #### 7. Kết quả đạt được sau mục này
 

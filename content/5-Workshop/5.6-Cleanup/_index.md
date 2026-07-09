@@ -27,14 +27,14 @@ Are you sure you want to delete the folder inboxiq-backend in S3 which contains 
 `sam delete` automatically removes every resource declared in `template.yaml`: 8 Lambda functions, the REST API, the WebSocket API, 4 DynamoDB tables, the SQS queue (including its dead-letter queue), the Lambda Layer (all versions), and the related Lambda permissions.
 
 
-![Terminal showing sam delete confirmation](/images/5-Workshop/5.6-cleanup/cleanup-sam-delete-confirm.jpg)
+![Terminal showing sam delete confirmation](/images/5-Workshop/5.6-Cleanup/cleanup-sam-delete-confirm.jpg)
 
 #### 5.6.2 Verify in the CloudFormation Console after deletion
 
 Go to the **CloudFormation Console** → find the `inboxiq-backend` stack → confirm its status has changed to `DELETE_COMPLETE` (the stack disappears from the default list once deleted; enable "Show nested" or filter by status to still see it).
 
 
-![CloudFormation stack inboxiq-backend before deletion](/images/5-Workshop/5.6-cleanup/cleanup-cfn-stack-before.jpg)
+![CloudFormation stack inboxiq-backend before deletion](/images/5-Workshop/5.6-Cleanup/cleanup-cfn-stack-before.jpg)
 
 #### 5.6.3 Delete the Cognito User Pool
 
@@ -43,7 +43,7 @@ The User Pool was created manually in an earlier step (file 02) and is not part 
 1. Go to the **Cognito Console** → **User pools** → select the InboxIQ user pool.
 2. **Delete** (top-right of the pool overview page) → type the pool name to confirm → **Delete**.
 
-![Cognito User Pool before deletion](/images/5-Workshop/5.6-cleanup/cleanup-cognito-pool.jpg)
+![Cognito User Pool before deletion](/images/5-Workshop/5.6-Cleanup/cleanup-cognito-pool.jpg)
 
 #### 5.6.4 Delete the Secrets Manager secrets
 
@@ -63,7 +63,7 @@ aws secretsmanager delete-secret `
 By default, Secrets Manager keeps a secret in a "pending deletion" state for 7-30 days before permanently removing it (so an accidental deletion can still be recovered). To delete it immediately, add the `--force-delete-without-recovery` flag to each command — consider this carefully, as the action cannot be undone.
 {{% /notice %}}
 
-![Secrets Manager - secrets before deletion](/images/5-Workshop/5.6-cleanup/cleanup-secrets-manager.jpg)
+![Secrets Manager - secrets before deletion](/images/5-Workshop/5.6-Cleanup/cleanup-secrets-manager.jpg)
 
 #### 5.6.5 Delete the S3 bucket holding SAM deployment artifacts
 
@@ -72,7 +72,7 @@ By default, Secrets Manager keeps a secret in a "pending deletion" state for 7-3
 1. Go to the **S3 Console** → find the bucket with the prefix `aws-sam-cli-managed-default-samclisourcebucket-`.
 2. **Empty** the bucket first (S3 won't allow deleting a bucket that still contains objects) → then **Delete** the bucket.
 
-![List of S3 SAM artifact buckets before deletion](/images/5-Workshop/5.6-cleanup/cleanup-s3-bucket.jpg)
+![List of S3 SAM artifact buckets before deletion](/images/5-Workshop/5.6-Cleanup/cleanup-s3-bucket.jpg)
 
 #### 5.6.6 Check remaining CloudWatch Logs
 
@@ -81,7 +81,7 @@ Log groups are usually deleted automatically along with their Lambda function vi
 1. Go to the **CloudWatch Console** → **Log groups** → filter by `/aws/lambda/inboxiq-`.
 2. Select all → **Actions** → **Delete log group(s)**.
 
-![List of remaining CloudWatch Log groups](/images/5-Workshop/5.6-cleanup/cleanup-cloudwatch-logs.jpg)
+![List of remaining CloudWatch Log groups](/images/5-Workshop/5.6-Cleanup/cleanup-cloudwatch-logs.jpg)
 
 #### 5.6.7 Resource cleanup summary
 

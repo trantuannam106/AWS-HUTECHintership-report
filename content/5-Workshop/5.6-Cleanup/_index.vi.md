@@ -27,14 +27,14 @@ Are you sure you want to delete the folder inboxiq-backend in S3 which contains 
 `sam delete` sẽ tự động xoá toàn bộ resource nằm trong `template.yaml`: 8 Lambda function, REST API, WebSocket API, 4 bảng DynamoDB, SQS queue (kèm dead-letter queue), Lambda Layer (mọi version), và các Lambda permission liên quan.
 
 
-![Terminal hiện xác nhận sam delete](/images/5-Workshop/5.6-cleanup/cleanup-sam-delete-confirm.jpg)
+![Terminal hiện xác nhận sam delete](/images/5-Workshop/5.6-Cleanup/cleanup-sam-delete-confirm.jpg)
 
 #### 5.6.2 Kiểm tra CloudFormation Console sau khi xoá
 
 Vào **CloudFormation Console** → tìm stack `inboxiq-backend` → xác nhận trạng thái chuyển thành `DELETE_COMPLETE` (stack sẽ biến mất khỏi danh sách mặc định sau khi xoá xong, cần bật "Show nested" hoặc lọc theo trạng thái để thấy).
 
 
-![CloudFormation stack inboxiq-backend trước khi xoá](/images/5-Workshop/5.6-cleanup/cleanup-cfn-stack-before.jpg)
+![CloudFormation stack inboxiq-backend trước khi xoá](/images/5-Workshop/5.6-Cleanup/cleanup-cfn-stack-before.jpg)
 
 #### 5.6.3 Xoá Cognito User Pool
 
@@ -44,7 +44,7 @@ User Pool được tạo thủ công ở bước đầu (file 02), không nằm 
 2. **Delete** (góc trên bên phải trang tổng quan) → nhập tên user pool để xác nhận → **Delete**.
 
 
-![Cognito User Pool trước khi xoá](/images/5-Workshop/5.6-cleanup/cleanup-cognito-pool.jpg)
+![Cognito User Pool trước khi xoá](/images/5-Workshop/5.6-Cleanup/cleanup-cognito-pool.jpg)
 
 #### 5.6.4 Xoá các Secret trong Secrets Manager
 
@@ -64,7 +64,7 @@ aws secretsmanager delete-secret `
 Mặc định, Secrets Manager giữ secret ở trạng thái "chờ xoá" 7-30 ngày trước khi xoá vĩnh viễn (để có thể khôi phục nếu xoá nhầm). Nếu muốn xoá ngay lập tức, thêm cờ `--force-delete-without-recovery` cho từng lệnh — cân nhắc kỹ vì thao tác này không thể hoàn tác.
 {{% /notice %}}
 
-![Secrets Manager - các secret trước khi xoá](/images/5-Workshop/5.6-cleanup/cleanup-secrets-manager.jpg)
+![Secrets Manager - các secret trước khi xoá](/images/5-Workshop/5.6-Cleanup/cleanup-secrets-manager.jpg)
 
 #### 5.6.5 Xoá S3 bucket chứa artifact deploy của SAM
 
@@ -73,7 +73,7 @@ Mặc định, Secrets Manager giữ secret ở trạng thái "chờ xoá" 7-30 
 1. Vào **S3 Console** → tìm bucket có tiền tố `aws-sam-cli-managed-default-samclisourcebucket-`.
 2. **Empty** bucket trước (S3 không cho xoá bucket còn object) → sau đó **Delete** bucket.
 
-![Danh sách S3 bucket artifact SAM trước khi xoá](/images/5-Workshop/5.6-cleanup/cleanup-s3-bucket.jpg)
+![Danh sách S3 bucket artifact SAM trước khi xoá](/images/5-Workshop/5.6-Cleanup/cleanup-s3-bucket.jpg)
 
 #### 5.6.6 Kiểm tra lại CloudWatch Logs
 
@@ -83,7 +83,7 @@ Log group thường tự xoá cùng Lambda function khi qua `sam delete`. Nếu 
 2. Chọn tất cả → **Actions** → **Delete log group(s)**.
 
 
-![Danh sách CloudWatch Log groups còn sót lại](/images/5-Workshop/5.6-cleanup/cleanup-cloudwatch-logs.jpg)
+![Danh sách CloudWatch Log groups còn sót lại](/images/5-Workshop/5.6-Cleanup/cleanup-cloudwatch-logs.jpg)
 
 #### 5.6.7 Bảng tổng hợp tài nguyên cần dọn
 

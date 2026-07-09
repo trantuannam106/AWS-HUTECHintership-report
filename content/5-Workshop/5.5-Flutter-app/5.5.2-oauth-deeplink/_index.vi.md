@@ -43,7 +43,7 @@ const String amplifyConfig = '''{
 Playbook gốc dùng `authenticationFlowType: "USER_SRP_AUTH"`. Trong project thực tế, App Client trên Cognito **chỉ bật `USER_PASSWORD_AUTH`** (kiểm tra lại trong Cognito Console → App client → Authentication flows) — dùng nhầm `USER_SRP_AUTH` khiến `signIn()` luôn thất bại với lỗi flow không được hỗ trợ. Luôn đối chiếu đúng giá trị đã bật trên Console thay vì copy mặc định từ tài liệu.
 {{% /notice %}}
 
-![Cognito App Client — Authentication flows đang bật USER_PASSWORD_AUTH](/images/5-Workshop/5.5-flutter-app/cognito-auth-flow.jpg)
+![Cognito App Client — Authentication flows đang bật USER_PASSWORD_AUTH](/images/5-Workshop/5.5-Flutter-app/cognito-auth-flow.jpg)
 
 #### 2. AuthService — bọc toàn bộ thao tác Amplify Auth
 
@@ -99,7 +99,7 @@ Trên thiết bị thật, bàn phím ảo khi bật lên có thể che khuất 
 
 Một lỗi thực tế gặp khi test đăng nhập trên điện thoại: bàn phím ảo tự động thêm khoảng trắng ở cuối trường mật khẩu (tính năng gợi ý/sửa lỗi chính tả), khiến `signIn()` báo "Incorrect username or password" dù mật khẩu gõ đúng. Cách xử lý: tắt gợi ý bàn phím cho trường mật khẩu, hoặc `.trim()` giá trị trước khi gửi.
 
-![Màn Login chạy trên thiết bị Samsung S23 Ultra thật](/images/5-Workshop/5.5-flutter-app/login-screen-device.jpg)
+![Màn Login chạy trên thiết bị Samsung S23 Ultra thật](/images/5-Workshop/5.5-Flutter-app/login-screen-device.jpg)
 
 #### 4. Luồng OAuth Gmail phía client — REST init + mở trình duyệt + deep link callback
 
@@ -155,7 +155,7 @@ User bấm "Kết nối Gmail"
 
 `meta refresh` vẫn thử tự chuyển sau 1 giây (thành công trên nhiều trình duyệt/thiết bị), còn link dự phòng đảm bảo luôn có đường thoát thủ công nếu trình duyệt chặn.
 
-![Trang callback với link dự phòng "Bấm vào đây nếu không tự chuyển"](/images/5-Workshop/5.5-flutter-app/callback-fallback-link.jpg)
+![Trang callback với link dự phòng "Bấm vào đây nếu không tự chuyển"](/images/5-Workshop/5.5-Flutter-app/callback-fallback-link.jpg)
 
 #### 6. Kết quả đạt được sau mục này
 
@@ -163,4 +163,4 @@ User bấm "Kết nối Gmail"
 - Toàn bộ luồng OAuth Gmail chạy được từ app thật: bấm nút → trình duyệt mở consent → cấp quyền → tự động (hoặc bấm tay) quay lại app → UI cập nhật trạng thái đã kết nối
 - Xác nhận trên thiết bị Samsung S23 Ultra qua USB debugging — cột mốc khó nhất của toàn bộ phần Flutter
 
-![Home screen sau khi deep link OAuth hoàn tất, nút chuyển "Đã kết nối Gmail"](/images/5-Workshop/5.5-flutter-app/gmail-connected-home.jpg)
+![Home screen sau khi deep link OAuth hoàn tất, nút chuyển "Đã kết nối Gmail"](/images/5-Workshop/5.5-Flutter-app/gmail-connected-home.jpg)

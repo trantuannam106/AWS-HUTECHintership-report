@@ -16,15 +16,15 @@ pre: " <b> 5.5.3. </b> "
 
 Kiểm tra CloudWatch Logs của Lambda `inboxiq-ws-whoami` thấy log group **chưa từng tồn tại** — bằng chứng chắc chắn request chưa từng chạm tới Lambda, lỗi nằm ở tầng routing của API Gateway, không phải ở code.
 
-![Log group does not exist](/images/5-Workshop/5.5-flutter-app/whoami-log-group-not-exist.jpg)
+![Log group does not exist](/images/5-Workshop/5.5-Flutter-app/whoami-log-group-not-exist.jpg)
 
 **Nguyên nhân:** kiểm tra trong Console, resource `WsWhoamiFunction`/`WhoamiRoute`/`WhoamiIntegration` đều có trạng thái `CREATE_COMPLETE` trong CloudFormation stack — route thật sự đã được tạo. Nhưng vào **API Gateway → WebSocket API → Stages → prod → Deployment history**, stage vẫn đang active ở deployment **cũ hơn ngày tạo route** — nghĩa là CloudFormation tạo resource `AWS::ApiGatewayV2::Route` thành công, nhưng **không tự tạo deployment mới cho stage `prod`**, dù đã khai `DependsOn` giữa `AWS::ApiGatewayV2::Deployment` và route đó. `DependsOn` chỉ đảm bảo thứ tự tạo resource, không ép CloudFormation coi đó là "thay đổi" cần re-deploy.
 
-![Deployment history chỉ có 1 bản deploy cũ](/images/5-Workshop/5.5-flutter-app/deployment-history-stale.jpg)
+![Deployment history chỉ có 1 bản deploy cũ](/images/5-Workshop/5.5-Flutter-app/deployment-history-stale.jpg)
 
 **Cách xử lý:** vào API Gateway Console → chọn API WebSocket → **Deploy API** → chọn stage `prod` → xác nhận. Sau khi có deployment mới, route hoạt động ngay mà không cần sửa code hay deploy lại CloudFormation.
 
-![Deployment mới sau khi Deploy API thủ công](/images/5-Workshop/5.5-flutter-app/deployment-history-fixed.jpg)
+![Deployment mới sau khi Deploy API thủ công](/images/5-Workshop/5.5-Flutter-app/deployment-history-fixed.jpg)
 
 **Bài học:** với `AWS::ApiGatewayV2` quản lý bằng SAM/CloudFormation, thêm route mới không tự động đồng nghĩa route đó "sống" trên stage đang chạy. Cần xác minh qua Deployment history sau mỗi lần thay đổi route, hoặc cân nhắc thiết kế template để `Deployment` logical ID đổi theo nội dung route (ví dụ gắn hash) nhằm buộc CloudFormation tạo deployment mới mỗi lần.
 
@@ -80,7 +80,7 @@ WARN WebSocket push failed for gTg3TG75DQAYKABzSA==: GoneException UnknownError
 {"httpStatusCode":410, "requestId":"...", "attempts":1, "totalRetryDelay":0}
 ```
 
-![Log GoneException 410 khi push WebSocket](/images/5-Workshop/5.5-flutter-app/worker-gone-exception.jpg)
+![Log GoneException 410 khi push WebSocket](/images/5-Workshop/5.5-Flutter-app/worker-gone-exception.jpg)
 
 **Nguyên nhân:** đối chiếu timestamp giữa 2 log:
 
@@ -138,7 +138,7 @@ Flutter App → Cognito Auth → REST API → SQS → Worker
   → WebSocket push → Flutter App hiển thị SummaryCard
 ```
 
-![Danh sách email đã tóm tắt hiển thị trên app](/images/5-Workshop/5.5-flutter-app/summaries-displayed.jpg)
+![Danh sách email đã tóm tắt hiển thị trên app](/images/5-Workshop/5.5-Flutter-app/summaries-displayed.jpg)
 
 #### 7. Hạng mục còn lại, ghi nhận là công việc bảo trì trong tương lai
 

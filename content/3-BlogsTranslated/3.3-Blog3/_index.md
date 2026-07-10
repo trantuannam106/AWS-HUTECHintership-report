@@ -114,4 +114,9 @@ Example of an AI-proposed transformation plan (diff) to replace a synchronous AP
 + eventBridgeClient.putEvents(PutEventsRequest.builder().entries(eventEntry).build());
 
 ```
+
+## Screenshot of blog post:
+![Screenshot](/images/Blog3/blog3(3).jpg)
+
+## LinkBlog: 
 [Link blog](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2203947850370175/?rdid=7BOOKl3nPIX8iObk#)

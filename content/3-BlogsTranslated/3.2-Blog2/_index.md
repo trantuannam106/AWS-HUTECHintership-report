@@ -84,4 +84,8 @@ To get started and manually deploy CloudFront, you can follow these fundamental 
 
 The best part about CloudFront is that you can start from very simple use cases, such as delivering a few images from S3, and gradually scale up to serve static websites, APIs, video streams, or complex production systems. If your application needs to be faster, more stable, and highly optimized, CloudFront is definitely a puzzle piece you should implement right away!
 
+## Screenshot of blog post:
+![Screenshot](/images/3-BlogsTranslated/Blog2/blog2(1).jpg)
+
+## LinkBlog: 
 [Link blog](https://www.facebook.com/groups/awsstudygroupfcj/posts/2204079480357012/?notif_id=1783334265675874&notif_t=tagged_with_story&ref=notif)

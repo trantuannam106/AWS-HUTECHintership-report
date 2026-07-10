@@ -110,4 +110,4 @@ Qua quá trình thực hành triển khai mô hình truy cập Amazon S3 riêng 
 2. **Tuy duy bảo mật tích hợp**: VPC Endpoint không đơn thuần là một cấu hình network, nó giúp thu hẹp bề mặt tấn công (attack surface) bằng cách loại bỏ hoàn toàn nhu cầu mở kết nối public internet khi không cần thiết.
 3. **Sự phối hợp của nhiều dịch vụ**: Một hệ thống Cloud chuẩn chỉnh là sự giao thoa kiến thức giữa Network (Route table, Endpoint) và Security (IAM, Bucket Policy, Logging). Hiểu rõ request đi qua đâu và quyền được kiểm soát ở lớp nào chính là chìa khóa để vận hành hệ thống an toàn, tối ưu.
 
-[Link blog](https://www.facebook.com/groups/awsstudygroupfcj/posts/2201893240575636/?notif_id=1782978457405305&notif_t=tagged_with_story&ref=notif)
+## LinkBlog: [Link blog](https://www.facebook.com/groups/awsstudygroupfcj/posts/2201893240575636/?notif_id=1782978457405305&notif_t=tagged_with_story&ref=notif)

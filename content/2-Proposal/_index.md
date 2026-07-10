@@ -5,97 +5,95 @@ weight: 2
 chapter: false
 pre: "  2.  "
 ---
-
 # InboxIQ
 
 ## AI-powered email triage on Serverless AWS
 
-### 1. Executive Summary
+### 1. Project Overview
 
-InboxIQ is an intelligent virtual assistant designed to address the issue of email overload for modern users (students and office workers). The mobile application (built with Flutter) automatically connects to the Gmail API and leverages an OpenAI artificial intelligence model (GPT-4o-mini) to summarize content, categorize emails, and evaluate priority levels in real-time. The system runs entirely on a Serverless and Event-Driven architecture on the AWS platform (deployed in the us-east-1 region) to optimize asynchronous processing performance, ensure stringent security, and minimize operational costs within the framework of the First Cloud AI Journey (FCAJ) 2026 internship program.
+InboxIQ is a smart virtual assistant designed to solve email overload for modern users (students, office workers). The mobile application (Flutter) securely connects to Gmail via the OAuth 2.0 standard, utilizing an artificial intelligence model (GPT-4o-mini) to summarize content, categorize emails (work / personal / promo / notification), and assess the priority level of each email. The results are then pushed back to the app in real-time via WebSockets. The entire backend operates on AWS's Serverless Event-Driven architecture (Region `us-east-1`), built within the framework of the First Cloud AI Journey (FCAJ) 2026 internship program.
 
-### 2. Problem Statement
+### 2. Objectives
 
-*Current Problem* Modern users frequently face the challenge of receiving 50–100 emails daily, resulting in excessive time spent filtering information and an increased risk of missing critical messages. Existing email management solutions are often manual, lack deep semantic analysis capabilities, or rely on expensive third-party AI integrations that raise data privacy concerns due to centralized processing.
+* Build a complete end-to-end system: from a mobile application on real devices, through a serverless backend, to external AI/Gmail services — validated with real email data.
+* Apply an asynchronous architecture (Producer/Worker via SQS) to provide immediate responses to users while heavy processing runs in the background, combined with WebSocket push instead of polling.
+* Ensure multi-layer security: user authentication via Cognito (JWT), Gmail read authorization via OAuth 2.0 with minimum scopes, all credentials stored in Secrets Manager, and IAM Roles following the Least Privilege principle.
+* Operate the entire project within the AWS Free Tier limits, strictly controlling AI costs using hard limits.
+* Manage infrastructure entirely using Infrastructure as Code (AWS SAM) and document the complete process — including incidents and lessons learned — into a bilingual Hugo report.
 
-*Solution* InboxIQ addresses this by constructing an automated, distributed email processing system utilizing a Serverless Event-Driven architecture. Upon a user's request, the Flutter application interacts securely via AWS API Gateway (REST & WebSocket) authenticated by Amazon Cognito. Requests are pushed into an Amazon SQS queue to trigger an AWS Lambda Worker for asynchronous processing (reducing client-side load and optimizing backend resources). The Lambda Worker queries the Gmail OAuth token stored in DynamoDB, fetches unread emails via the Gmail API, sends them to the OpenAI API for generative processing (summarization and classification), saves the results back to DynamoDB (with a self-deleting TTL mechanism), and pushes the final output back to the client in real-time over WebSocket. Due to AWS Free Tier limitations on Amazon Bedrock permissions, the solution utilizes the OpenAI API but is designed with an AI Provider Abstraction layer to allow seamless migration to Bedrock in the future.
+### 3. Problem Statement
 
-*Benefits and Return on Investment (ROI)* The system saves up to 80% of the time spent reading and sorting daily emails through concise summaries and smart priority tagging. Adopting a 100% AWS Serverless model eliminates fixed hardware infrastructure costs entirely. Operational costs are extremely low (fitting comfortably within the AWS Free Tier for compute and storage), with only minimal token usage fees from the OpenAI API. The ROI in terms of user productivity and time saved is realized within the very first month of deployment.
+Modern users typically receive 50–100 emails daily, consuming significant time filtering information and making it easy to miss important emails. Existing solutions are either manual (keyword filters, manual labels) or expensive third-party AI services that pose privacy risks, as email data is centrally processed beyond the user's control.
 
-### 3. Solution Architecture
+The technical challenge consists of three main issues: (1) accessing the user's mailbox securely with explicit consent (OAuth, without storing Gmail passwords); (2) handling time-consuming AI processing (from seconds to tens of seconds) without blocking the mobile app; (3) returning results to the correct user, in the correct session, in real-time.
 
-The system is organized into 5 distinct functional layers following a Serverless Event-Driven model, ensuring isolated scalability and high fault tolerance:
+### 4. Solution Architecture
 
-```
-LAYER 1 · USER        → Users, Mobile App (Flutter)
-LAYER 2 · BACKEND     → Cognito, API Gateway (REST + WebSocket), Lambda (Producer + Worker)
-LAYER 3 · WORKFLOW     → SQS (Main Queue + Dead-Letter Queue), EventBridge Scheduler (optional)
-LAYER 4 · STORAGE      → DynamoDB (6 tables), Systems Manager Parameter Store
-LAYER 5 · MONITORING   → CloudWatch, X-Ray, IAM Role
-EXTERNAL SERVICES      → Gmail API, OpenAI API (Outside AWS Cloud)
+The system is organized into 5 separate functional layers based on the Serverless Event-Driven model:
 
 ```
+LAYER 1 · USER       → Users, Mobile App (Flutter)
+LAYER 2 · BACKEND    → Cognito, API Gateway (REST + WebSocket), Lambda (Producer + Worker + Authorizer)
+LAYER 3 · WORKFLOW   → SQS (Main Queue + Dead-Letter Queue), EventBridge Scheduler (optional)
+LAYER 4 · STORAGE    → DynamoDB (4 tables, TTL auto-cleanup), Secrets Manager
+LAYER 5 · MONITORING → CloudWatch, X-Ray, IAM Role
+EXTERNAL SERVICES    → Gmail API, OpenAI API (outside AWS Cloud)
 
-*AWS Services Utilized* - *Amazon Cognito*: Manages user identity, authentication, and secure JWT token issuance.
+```
 
-* *Amazon API Gateway*: Provides HTTP REST Endpoints for synchronous tasks and WebSocket Endpoints to maintain two-way real-time communication.
-* *AWS Lambda*: Implemented as independent compute functions (Lambda Authorizer, Lambda Producer for orchestration, and Lambda Worker for core processing).
-* *Amazon SQS*: Manages asynchronous message queues, including `inboxiq-main` (main processing queue featuring Partial Batch Response) and `inboxiq-dlq` (Dead-Letter Queue to isolate failed messages after 3 retries).
-* *Amazon DynamoDB*: A NoSQL database that stores user configurations, WebSocket session mappings, and cached email summaries.
-* *AWS Systems Manager Parameter Store*: Securely stores system configurations and OpenAI API Keys as encrypted strings (SecureString).
-* *Amazon EventBridge Scheduler*: Automatically triggers the email checking process periodically every 30 minutes.
-* *AWS CloudWatch & AWS X-Ray*: Gathers operational logs, tracks metrics, and provides end-to-end distributed tracing for Lambda functions.
+**Main processing flow:** The user clicks "Check Gmail" on the app → REST API (JWT authentication) → Lambda Producer packages the request with the `connectionId` and pushes it to SQS, returning `202 Accepted` immediately → Lambda Worker consumes the message, retrieves the Gmail token from DynamoDB (auto-refreshing if expired), calls the Gmail API to fetch unread emails, and calls GPT-4o-mini for parallel summarization → saves the results to DynamoDB (with a 30-day TTL) → pushes the results back to the app via API Gateway WebSocket.
 
-*Component Design* - *Mobile App (Flutter)*: Provides the user interface, connects to the WebSocket endpoint, triggers analysis requests, and displays real-time results.
+**AWS Services Used:**
 
-* *Orchestration Layer (Producer)*: Receives requests from API Gateway, validates them, encapsulates the data along with the `connectionId` into SQS, and immediately returns a `202 Accepted` status to the client.
-* *Processing Layer (Worker)*: Consumes messages from SQS, executes external integration API calls (Gmail API & OpenAI API), stores data in the database, and pushes the status directly back to the client via the corresponding WebSocket connection.
-* *Storage Layer*: Deserializes data into 6 specialized DynamoDB tables to optimize NoSQL query structures and data lifecycle management.
+* **Amazon Cognito:** Identity management, user authentication, and JWT issuance.
+* **Amazon API Gateway:** REST endpoint for synchronous tasks; WebSocket endpoint (`$connect`, `$disconnect`, `whoami` routes) for a two-way real-time channel, authenticated by a Lambda Authorizer.
+* **AWS Lambda:** Independent processing functions — Authorizer, Producer, Worker, WebSocket lifecycle functions, and OAuth flows (init/callback), sharing common logic via Lambda Layers.
+* **Amazon SQS:** `inboxiq-main` queue (Partial Batch Response — only retrying failed messages) and a Dead-Letter Queue isolating failed messages after 3 retries, accompanied by CloudWatch Alarms for alerts.
+* **Amazon DynamoDB:** 4 specialized tables (Gmail connections, email summaries, WebSocket sessions, processing jobs) in On-Demand mode, using TTL for data lifecycle management.
+* **AWS Secrets Manager:** Securely stores the OpenAI API key and Google OAuth Client Secret, read with caching at the Lambda global scope.
+* **Amazon EventBridge Scheduler** (optional): Schedules periodic email checks every 30 minutes.
+* **CloudWatch & X-Ray:** End-to-end logging, metrics, alarms, and tracing.
 
-### 4. Technical Implementation
+Due to the program's account limitations regarding Amazon Bedrock access, the solution opted for the OpenAI API, designed to abstract the AI provider so it can easily be migrated to Bedrock in the future.
 
-*Implementation Phases* The project is divided into 4 main phases, aligned with the FCAJ 2026 internship reporting schedule:
+### 5. Timeline
 
-1. *Context Research & Architecture Drafting*: Evaluate the email overload problem, build the 5-layer system design document, select OpenAI as the alternative AI provider, and complete architecture review rounds with system mentors (January).
-2. *Cost Estimation & Budget Guardrails*: Set up the AWS account, configure AWS Budgets to prevent exceeding the Free Tier limits, and set a hard cap spending limit on the OpenAI Platform (January).
-3. *Infrastructure Provisioning & Core Backend Development*: Create storage resources (DynamoDB, SSM, SQS), configure API Gateway endpoints, set up IAM Roles following the Principle of Least Privilege, write Lambda function source code, and implement global scope caching to prevent API throttling (February).
-4. *Flutter Integration, Testing & Deployment*: Implement the OAuth callback flow to retrieve Gmail tokens, develop the Flutter UI, perform end-to-end dataflow testing via X-Ray, and finalize the internship report (March).
+The project is implemented over 3 weeks with 4 members, assigned to specialized areas (backend/architecture, Flutter, OAuth/security, documentation/testing/costing):
 
-*Technical Requirements* - *Client Application*: Developed using the Flutter Mobile SDK, integrating the Amplify/Cognito SDK for user authentication, and utilizing the `web_socket_channel` package to maintain real-time communication.
+* **Week 1 — Foundation:** Finalize architecture and assignments; set up the storage layer (DynamoDB, SQS + DLQ) and identity layer (Cognito, IAM Roles, Secrets Manager); write Lambda Producer/Worker, integrate OpenAI; initialize the Google Cloud project and OAuth consent screen; set up the Hugo documentation repo, and establish cost monitoring discipline.
+* **Week 2 — Core Integration:** Complete the Gmail OAuth flow (Lambda init/callback, Lambda Layer for token refresh); deploy API Gateway WebSocket with Authorizer and `whoami` route; integrate real Gmail into the Worker; build the Flutter client side (Cognito auth, OAuth deep links, WebSocket service); test the pipeline with real emails.
+* **Week 3 — Final Integration and Polish:** End-to-end testing on real Android devices, handling integration issues; optimize the Worker (parallel processing, element-level fault tolerance); finalize the Material 3 UI; conduct a security review; compile documentation, cost metrics, and resource cleanup guides.
 
-* *Backend Infrastructure*: All Lambda source code is written in Node.js. The Worker function is configured with a maximum execution timeout of 5 minutes and must enable the SQS `ReportBatchItemFailures` property to handle partial failures within a batch. All sensitive data at rest must be encrypted using default AWS KMS keys.
+### 6. Budget
 
-### 5. Roadmap & Milestones
+The infrastructure is designed using the On-Demand model to fully leverage the AWS Free Tier:
 
-* *January (Initiation)*: Design the architecture, finalize dataflow diagrams, register AWS/OpenAI accounts, and complete budget safety configurations (AWS Budgets).
-* *February (Core Development)*: Complete the provisioning of 6 DynamoDB tables, configure API Gateway (REST & WebSocket with Authorizer), deploy the Lambda Producer and Worker code, and successfully integrate SQS with a functional DLQ mechanism.
-* *March (Integration & Finalization)*: Implement the Gmail OAuth connection flow from the Flutter app. Successfully integrate OpenAI API calls. Conduct comprehensive end-to-end testing, capture all AWS Console configuration screenshots, and compile the final FCAJ internship report.
+| Category | Estimated Monthly Cost | Notes |
+| --- | --- | --- |
+| AWS Lambda | $0.00 | Within the 1 million requests/month limit |
+| Amazon SQS & API Gateway | ~$0.00 | MVP request volume is well below the Free Tier limit |
+| Amazon DynamoDB | $0.00 | On-Demand mode, small data footprint |
+| Secrets Manager, CloudWatch, X-Ray | ~$0.00 | Trial usage tier; secret caching reduces API calls |
+| OpenAI API (GPT-4o-mini) | ~$1.00 – $2.00 | Test volume of 50–100 emails/day; capped at 10 emails/call |
 
-### 6. Budget Estimation
+Financial risk control mechanisms: AWS Budgets alerts via email at specific cost milestones; a hard limit of **$5.00/month** on the OpenAI Platform; restricting `maxResults = 10` emails per processing run to prevent sudden cost spikes when a mailbox has too many unread emails.
 
-The infrastructure is strictly optimized under an On-Demand model to fully exploit the AWS Free Tier, minimizing the risk of unexpected costs during the internship.
+### 7. Risks
 
-*AWS Infrastructure Costs (Estimated Monthly)* - AWS Lambda: $0.00 (Within the 1 million free requests/month allocation).
+**Risk Matrix:**
 
-* Amazon SQS & API Gateway: ~$0.00 (MVP testing volume is well below Free Tier thresholds).
-* Amazon DynamoDB: $0.00 (Configured under On-Demand mode for automatic scaling).
-* AWS Systems Manager & AWS X-Ray: $0.00.
+| Risk | Impact | Probability |
+| --- | --- | --- |
+| Gmail OAuth token expires or lacks scopes (user doesn't grant full permissions on the consent screen) | High | Medium |
+| WebSocket connection drops silently, preventing results from reaching the app | High | Medium |
+| Throttling from OpenAI or Secrets Manager during bursts of calls | Medium | Low |
+| AWS/OpenAI costs spiraling out of control | High | Low |
+| App can only be used with accounts on the Test users list (consent screen in Testing mode) | Medium | Certain (known limitation) |
 
-*External Service Integration Costs* - OpenAI API (GPT-4o-mini): ~$1.00 - $2.00/month (Based on a testing workload of roughly 50-100 emails/day). The maximum monthly spending limit (Hard Limit) is strictly locked at **$5.00/month** on the platform to prevent financial risks.
+**Mitigation Strategies:**
 
-### 7. Risk Assessment
-
-*Risk Matrix* - Gmail OAuth Token expiration or disconnection: High Impact, Medium Probability.
-
-* API Throttling from OpenAI or AWS SSM: Medium Impact, Low Probability.
-* Unexpected AWS infrastructure costs: High Impact, Low Probability.
-
-*Mitigation Strategies* - Token Disconnection: Build a dedicated token status table, validate token validity prior to processing, and implement an automated refresh token flow.
-
-* Throttling: Cache secure API keys within the Global Scope of the Lambda functions to avoid repetitive queries to the Parameter Store on every single request. Enable SQS Partial Batch Response to retry only failed email messages instead of re-processing the entire batch.
-* Budget Risks: Set up AWS Budgets to automatically send email notifications when costs hit $5, $10, and $20, and configure a Budget Action to revoke IAM User permissions if the total cost reaches $50.
-
-### 8. Expected Outcomes
-
-*Technical Improvements*: Successfully build a complete asynchronous event-driven backend system that handles high-throughput data streams smoothly without freezing the mobile UI, thanks to the real-time WebSocket response model.
-*Long-term Value*: Provide a foundational blueprint that can be repurposed for other serverless natural language processing (NLP) applications, while serving as practical, hands-on evidence (via Console screenshots) for an outstanding FCAJ internship report.
+* **Gmail Token:** Store token state in DynamoDB, check validity before each call, auto-refresh via a shared Lambda Layer; verify the actual `scope` field received in the token response instead of assuming the consent flow was fully approved.
+* **WebSocket:** The client verifies the `connectionId` at the point of use (not trusting cached values) and auto-reconnects when a drop is detected; on the Worker side, wrap the push call in its own error handling so a push failure doesn't crash the entire processing batch.
+* **Throttling:** Cache API keys at the Lambda global scope; process emails in parallel with element-level fault tolerance (one failed email won't crash the batch); use SQS Partial Batch Response to retry only the specific failed messages.
+* **Costs:** Multiple AWS Budgets alert milestones; OpenAI hard limits; cap on the number of emails per processing run; weekly review of the Billing Dashboard.
+* **Test users limitation:** Accept this as the project scope (the Google verification process for Gmail scopes exceeds the internship timeframe), document it clearly in the Limitations section of the report along with the process for adding test accounts when a demo is needed.

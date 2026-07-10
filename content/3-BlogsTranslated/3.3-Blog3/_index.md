@@ -20,7 +20,7 @@ The core change in the modernization process is the shift from a massive monolit
 **The modernization solution architecture can be visualized as follows:**
 **The modernization solution architecture can be visualized as follows:**
 
-![Figure 1. Architectural shift from Monolithic to Microservices combined with Event-driven and Serverless](/images/Blog3/blog3(0).jpg)
+![Figure 1. Architectural shift from Monolithic to Microservices combined with Event-driven and Serverless](/images/3-BlogsTranslated/Blog3/blog3(0).jpg)
 
 > *Figure 1. Architectural shift from Monolithic to Microservices combined with Event-driven and Serverless.*
 
@@ -54,7 +54,7 @@ When determining the monolithic decoupling strategy, consider:
 
 ## Domain-Driven Design (DDD)
 
-![5-step application modernization workflow](/images/Blog3/blog3(1).jpg)
+![5-step application modernization workflow](/images/3-BlogsTranslated/Blog3/blog3(1).jpg)
 
 A common mistake is starting with the question: "Should we use Lambda, ECS, or Kubernetes?". In reality, the first question must be: "What business operations is the system serving?". DDD helps technical and business teams use a ubiquitous language. Through *event storming* sessions, you can identify: - Important business events and participating actors.
 
@@ -92,7 +92,7 @@ Solves the problem of communication between components. If microservices call ea
 
 Although it cannot completely replace Software Architects, GenAI acts as a high-speed assistant to help solve complex data and source code migration problems.
 
-![GenAI assistance through Amazon Q Developer and AWS Transform](/images/Blog3/blog3(2).jpg)
+![GenAI assistance through Amazon Q Developer and AWS Transform](/images/3-BlogsTranslated/Blog3/blog3(2).jpg)
 
 * **Amazon Q Developer**: Analyzes legacy codebases, suggests module decoupling, generates technical documentation, proposes test cases, and assists with refactoring (e.g., upgrading Java versions, explaining dependencies).
 * **AWS Transform**: An agentic AI service supporting large-scale modernization for heavy workloads such as Windows, mainframes, or VMware.
@@ -116,7 +116,7 @@ Example of an AI-proposed transformation plan (diff) to replace a synchronous AP
 ```
 
 ## Screenshot of blog post:
-![Screenshot](/images/Blog3/blog3(3).jpg)
+![Screenshot](/images/3-BlogsTranslated/Blog3/blog3(3).jpg)
 
 ## LinkBlog: 
 [Link blog](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2203947850370175/?rdid=7BOOKl3nPIX8iObk#)

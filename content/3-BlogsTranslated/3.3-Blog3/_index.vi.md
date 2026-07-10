@@ -20,7 +20,7 @@ Thay đổi cốt lõi trong tiến trình hiện đại hóa là việc dịch 
 **Kiến trúc giải pháp hiện đại hóa có thể được hình dung như sau:**
 **Kiến trúc giải pháp hiện đại hóa có thể được hình dung như sau:**
 
-![Hình 1. Sự dịch chuyển kiến trúc từ Monolithic sang Microservices kết hợp Event-driven và Serverless](/images/Blog3/blog3(0).jpg)
+![Hình 1. Sự dịch chuyển kiến trúc từ Monolithic sang Microservices kết hợp Event-driven và Serverless](/images/3-BlogsTranslated/Blog3/blog3(0).jpg)
 
 > *Hình 1. Sự dịch chuyển kiến trúc từ Monolithic sang Microservices kết hợp Event-driven và Serverless.*
 
@@ -54,7 +54,7 @@ Khi xác định chiến lược bóc tách monolithic, cần cân nhắc:
 
 ## Domain-Driven Design (DDD)
 
-![Quy trình hiện đại hóa ứng dụng 5 bước](/images/Blog3/blog3(1).jpg)
+![Quy trình hiện đại hóa ứng dụng 5 bước](/images/3-BlogsTranslated/Blog3/blog3(1).jpg)
 
 Một sai lầm phổ biến là bắt đầu bằng câu hỏi: “Nên dùng Lambda, ECS hay Kubernetes?”. Thực tế, câu hỏi đầu tiên phải là: “Hệ thống đang phục vụ nghiệp vụ gì?”. DDD giúp nhóm kỹ thuật và nghiệp vụ sử dụng một ngôn ngữ chung. Thông qua các buổi *event storming*, bạn có thể xác định: - Những sự kiện nghiệp vụ quan trọng và các actor tham gia.
 
@@ -92,7 +92,7 @@ Giải quyết bài toán giao tiếp giữa các thành phần. Nếu các micr
 
 Dù không thể thay thế hoàn toàn Kiến trúc sư phần mềm, GenAI đóng vai trò như một trợ lý siêu tốc giúp giải quyết các bài toán di chuyển dữ liệu và mã nguồn phức tạp.
 
-![Sự hỗ trợ của GenAI thông qua Amazon Q Developer và AWS Transform](/images/Blog3/blog3(2).jpg)
+![Sự hỗ trợ của GenAI thông qua Amazon Q Developer và AWS Transform](/images/3-BlogsTranslated/Blog3/blog3(2).jpg)
 
 * **Amazon Q Developer**: Phân tích codebase cũ, gợi ý cách bóc tách module, tạo tài liệu kỹ thuật, đề xuất test case và hỗ trợ refactor (ví dụ: nâng cấp phiên bản Java, giải thích dependency).
 * **AWS Transform**: Dịch vụ agentic AI hỗ trợ hiện đại hóa ở quy mô lớn đối với các workload nặng như Windows, mainframe hay VMware.
@@ -116,7 +116,7 @@ Ví dụ về một bản kế hoạch chuyển đổi (diff) do AI đề xuất
 ```
 
 ## Ảnh chụp màn hình bài blog:
-![Ảnh chụp màn hình](/images/Blog3/blog3(3).jpg)
+![Ảnh chụp màn hình](/images/3-BlogsTranslated/Blog3/blog3(3).jpg)
 
 ## LinkBlog: 
 [Link blog](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2203947850370175/?rdid=7BOOKl3nPIX8iObk#)

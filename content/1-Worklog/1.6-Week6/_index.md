@@ -176,9 +176,3 @@ pre: " <b> 1.6. </b> "
 - Approach anomalous cost detection solutions using machine learning with **AWS Cost Anomaly Detection**.
 - Understand the centralized financial management model for a chain of multiple accounts through the **AWS Organizations** service.
 - Maintain and practice the habit of checking the Billing Dashboard periodically to enhance FinOps (cloud cost optimization) mindset.
-
----
-
-### 💡 A small tip for you to avoid duplication (plagiarism):
-1. **Proof images (`📸 Proof...`):** This is the part that proves your own work. Rename the screenshots using your own consistent structure, for example: `week6_budgets_01.png`, `week6_cost_budget_actual.png`, etc.
-2. **Amount limit:** In the sections mentioning "enter the monthly spending limit," when doing the actual lab, enter an odd or specific number of your choice (e.g., `10 USD`, `15 USD`) and put that specific number into the report instead of writing generally to create a unique touch for your report.

@@ -72,15 +72,12 @@ pre: " <b> 1.5. </b> "
 - Dựng cụm DB Subnet Group làm bệ đỡ khởi chạy hệ thống cơ sở dữ liệu RDS MySQL Instance chuẩn Production hỗ trợ Multi-AZ.
 - SSH vào máy chủ EC2 mồi, cài đặt Git, MariaDB client, đăng nhập xuyên dải mạng vào RDS endpoint để nạp cấu trúc bảng và dữ liệu mẫu cho bảng `user`.
 
-- 📸 ![Ảnh minh chứng: Hệ thống cơ sở dữ liệu RDS MySQL đã tạo thành công ở trạng thái Available](/aws-intership-report/images/1-Worklog/1.5-Week5/rds-mysql-available.png)
 
 **Module 3 & 4 — Vận hành Web Server, đóng gói AMI và tạo Cân bằng tải:**
 - Triển khai môi trường Node.js 20, kéo code từ GitHub, cấu hình file biến môi trường `.env` kết nối trực tiếp với Endpoint của RDS Database.
 - Cài đặt trình quản lý PM2 global để duy trì ứng dụng chạy nền ở port 5000, đồng thời chạy lệnh bảo hiểm `pm2 startup` và `pm2 save` để tự khởi động lại app khi máy chủ reboot.
 - Chụp ảnh trạng thái EC2 thành `FCJ-Management-AMI`, xây dựng Launch Template `FCJ-Management-template` chuẩn hóa toàn bộ phần cứng và mạng.
 - Thiết lập Target Group `FCJ-Management-TG` (Port 5000) và triển khai bộ cân bằng tải Application Load Balancer `FCJ-Management-LB` dạng Internet-facing.
-
-- 📸 ![Ảnh minh chứng: Giao diện ứng dụng FCJ Management load thành công và CRUD mượt mà qua DNS của Load Balancer](/aws-intership-report/images/1-Worklog/1.5-Week5/alb-dns-crud-success.png)
 
 **Module 6 & 7 — Thực hành cấu hình và kiểm thử các giải pháp Auto Scaling:**
 - Khởi tạo Auto Scaling Group `FCJ-Management-ASG` gắn vào khuôn Launch Template với quy mô giới hạn (Min: 1, Desired: 1, Max: 3) và bật ELB Health Checks.
@@ -89,7 +86,6 @@ pre: " <b> 1.5. </b> "
 - Viết chính sách **Dynamic Scaling** (Target Tracking) dựa trên chỉ số `ALB Request Count Per Target` ở ngưỡng 500 request để kiểm tra tự co giãn động.
 - Dùng cấu hình AWS CLI nạp tệp mock data JSON (CPU và instance metrics) lên CloudWatch, tạo lập **Predictive Scaling Policy** dựa trên custom metric pair và đọc đồ thị dự báo thông minh của AI.
 
-- 📸 ![Ảnh minh chứng: Biểu đồ Load và Capacity thể hiện năng lực dự đoán tải đón đầu tương lai của Predictive Scaling](/aws-intership-report/images/1-Worklog/1.5-Week5/asg-predictive-metrics-chart.png)
 
 **Module 8 — Quy trình dọn dẹp hệ thống (Clean up):**
 - Thực hiện tháo dỡ tài nguyên bài bản theo đúng thứ tự: Xóa ASG -> Gỡ bỏ ALB -> Xóa Target Group -> Xóa Launch Template -> Deregister AMI -> Terminate máy EC2 mồi -> Xóa RDS Database và DB Subnet Group để tránh phát sinh chi phí.

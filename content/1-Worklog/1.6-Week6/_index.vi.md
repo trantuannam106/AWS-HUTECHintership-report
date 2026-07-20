@@ -101,10 +101,7 @@ pre: " <b> 1.6. </b> "
 - Áp dụng mẫu `Monthly cost budget`, điền các thông tin định danh và số tiền hạn mức theo tài liệu lab.
 - Chỉ định email đích nhận thông báo và hoàn tất quy trình bằng lệnh `Create budget`.
 - Xác minh sự xuất hiện của ngân sách trên danh bạ và mở tab Budget history để khảo sát giao diện lịch sử.
-- 📸 *Minh chứng: Truy cập thành công AWS Billing and Cost Management.*
-- 📸 *Minh chứng: Thao tác thiết lập với Use a template.*
-- 📸 *Minh chứng: Khai báo thông tin hạn mức trên mẫu Monthly cost budget.*
-- 📸 *Minh chứng: Ngân sách đầu tiên hiển thị trạng thái hoạt động.*
+
 
 **Module 2 — Thiết lập Cost Budget tùy chỉnh nâng cao**
 - Tại mục Budgets, kích hoạt tiến trình tạo mới và chuyển đổi sang chế độ thiết lập nâng cao `Customize`.
@@ -115,10 +112,7 @@ pre: " <b> 1.6. </b> "
 - Thu hẹp hoặc mở rộng phạm vi áp dụng tại mục Budget scope với lựa chọn `All AWS services` kết hợp cùng `Unblended costs`.
 - Thiết lập quy tắc báo động (`Add an alert threshold`) ở mức mong muốn (ví dụ 80% chi phí thực tế) và điền địa chỉ email quản trị.
 - Rà soát lại tổng thể các thông số tại trang Summary trước khi nhấn nút xác nhận khởi tạo hệ thống.
-- 📸 *Minh chứng: Chọn Customize và chọn loại hình Cost budget.*
-- 📸 *Minh chứng: Thiết lập chi tiết chu kỳ, phương thức Fixed và phạm vi Unblended costs.*
-- 📸 *Minh chứng: Cấu hình các nấc cảnh báo phần trăm và khai báo Email.*
-- 📸 *Minh chứng: Cost Budget tùy chỉnh hiển thị thành công ngoài danh sách.*
+
 
 **Module 3 — Khởi tạo Usage Budget theo dõi dung lượng tiêu thụ**
 - Thực hiện các bước tạo ngân sách tùy chỉnh (`Customize`) nhưng lựa chọn phân loại là `Usage budget`.
@@ -128,10 +122,7 @@ pre: " <b> 1.6. </b> "
 - Cài đặt thời gian giám sát, chọn kiểu hạn mức thích hợp và điền số giờ tối đa mà dịch vụ Load Balancer được phép chạy trong chu kỳ.
 - Chuyển tiếp sang mục cấu hình Alert, thiết lập mức phần trăm cảnh báo dựa trên dung lượng tiêu thụ thực tế và nhập thông tin email nhận thư.
 - Hoàn tất khởi tạo và tiến hành rà soát chỉ số `Budget health` để đánh giá mức độ tiêu thụ hiện hành của Load Balancer.
-- 📸 *Minh chứng: Chọn phân loại Usage budget trên giao diện khởi tạo.*
-- 📸 *Minh chứng: Thao tác lọc và chỉ định nhóm dịch vụ EC2: ELB - Running Hours.*
-- 📸 *Minh chứng: Nhập giới hạn số giờ vận hành và cấu hình Email alert.*
-- 📸 *Minh chứng: Hệ thống ghi nhận Usage Budget mới trong trạng thái kiểm tra.*
+
 
 **Module 4 & 5 — Nghiên cứu Reservation & Savings Plans Budget dưới dạng mô phỏng**
 - Tiến hành thực hiện các bước khởi tạo tùy chỉnh dành riêng cho `Reservation budget` và `Savings Plans budget`.
@@ -140,8 +131,7 @@ pre: " <b> 1.6. </b> "
 - Điền thông tin email nhận cảnh báo hiệu suất tại phần thiết lập Alert setting.
 - Nhấn tạo để trải nghiệm quy trình thiết lập chuẩn doanh nghiệp.
 - *Lưu ý quan trọng ghi nhận trong lab:* Do đặc thù tài khoản cá nhân/thực hành, sinh viên thực hiện thao tác ở mức độ tìm hiểu giao diện và cấu hình mô phỏng, không thực hiện mua gói cam kết thật để tránh phát sinh hóa đơn tài chính ngoài ý muốn.
-- 📸 *Minh chứng: Giao diện thiết lập cấu hình Reservation budget mô phỏng.*
-- 📸 *Minh chứng: Giao diện cấu hình chỉ số cho Savings Plans budget.*
+
 
 **Module 6 — Giải phóng môi trường thực hành (Clean Up)**
 - Truy cập vào danh mục quản lý tập trung các Budgets trong AWS Billing.
@@ -149,9 +139,7 @@ pre: " <b> 1.6. </b> "
 - Mở menu điều hướng `Actions` nằm ở góc trên bên phải và chọn lệnh `Delete`.
 - Xác nhận lại quyết định xóa tại cửa sổ thông báo pop-up để hệ thống gỡ bỏ hoàn toàn cấu hình.
 - Thực hiện tương tự cho đến khi danh sách trở lại trạng thái ban đầu, đảm bảo không còn các quy tắc gửi mail thừa thãi.
-- 📸 *Minh chứng: Bảng tổng hợp các Budget hiện có trước khi xóa.*
-- 📸 *Minh chứng: Hộp thoại xác nhận hành động Delete Budget.*
-- 📸 *Minh chứng: Giao diện sạch sẽ sau khi hoàn tất quá trình dọn dẹp.*
+
 
 ---
 

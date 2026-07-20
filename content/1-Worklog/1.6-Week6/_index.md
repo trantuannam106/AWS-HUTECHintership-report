@@ -101,10 +101,7 @@ pre: " <b> 1.6. </b> "
 - Applied the `Monthly cost budget` template, filled in the identification info and limit amount according to the lab guide.
 - Specified the target email to receive notifications and completed the process with the `Create budget` command.
 - Verified the budget's appearance on the directory and opened the Budget history tab to survey the history interface.
-- 📸 *Proof: Successfully accessed AWS Billing and Cost Management.*
-- 📸 *Proof: Setup operation with Use a template.*
-- 📸 *Proof: Declared limit info on the Monthly cost budget template.*
-- 📸 *Proof: The first budget displaying active status.*
+
 
 **Module 2 — Advanced Custom Cost Budget Setup**
 - In the Budgets section, activated the creation process and switched to the advanced `Customize` mode.
@@ -115,10 +112,7 @@ pre: " <b> 1.6. </b> "
 - Narrowed or expanded the application scope in the Budget scope section by selecting `All AWS services` combined with `Unblended costs`.
 - Set the alert rule (`Add an alert threshold`) at the desired level (e.g., 80% of actual cost) and entered the admin email address.
 - Reviewed all parameters on the Summary page before confirming system initialization.
-- 📸 *Proof: Selected Customize and Cost budget type.*
-- 📸 *Proof: Detailed setup of period, Fixed method, and Unblended costs scope.*
-- 📸 *Proof: Configured percentage alert tiers and declared Email.*
-- 📸 *Proof: Custom Cost Budget successfully displayed in the list.*
+
 
 **Module 3 — Create Usage Budget to Monitor Consumption Capacity**
 - Followed the custom budget creation steps (`Customize`) but selected the `Usage budget` classification.
@@ -128,10 +122,7 @@ pre: " <b> 1.6. </b> "
 - Set the monitoring timeframe, chose the appropriate limit type, and entered the maximum number of hours the Load Balancer is allowed to run during the cycle.
 - Moved to the Alert configuration section, set the alert percentage level based on actual consumption capacity, and entered the receiving email information.
 - Completed the initialization and proceeded to review the `Budget health` indicator to assess the Load Balancer's current consumption level.
-- 📸 *Proof: Selected Usage budget classification on the initialization interface.*
-- 📸 *Proof: Filtered and specified the EC2: ELB - Running Hours service group.*
-- 📸 *Proof: Entered the operating hours limit and configured the Email alert.*
-- 📸 *Proof: The system recorded the new Usage Budget in checking status.*
+
 
 **Module 4 & 5 — Research Reservation & Savings Plans Budgets via Simulation**
 - Executed the custom initialization steps specifically for `Reservation budget` and `Savings Plans budget`.
@@ -140,8 +131,7 @@ pre: " <b> 1.6. </b> "
 - Filled in the email information to receive performance alerts in the Alert setting section.
 - Clicked create to experience the enterprise-standard setup process.
 - *Important note recorded in the lab:* Due to the nature of a personal/practice account, students only performed operations at the level of exploring the interface and simulated configuration, and did not execute actual commitment purchases to avoid unexpected financial bills.
-- 📸 *Proof: Simulated Reservation budget configuration interface.*
-- 📸 *Proof: Savings Plans budget metric configuration interface.*
+
 
 **Module 6 — Clean Up the Practical Environment**
 - Accessed the centralized Budgets management directory in AWS Billing.
@@ -149,9 +139,7 @@ pre: " <b> 1.6. </b> "
 - Opened the `Actions` navigation menu located in the top right corner and selected the `Delete` command.
 - Confirmed the deletion decision at the pop-up notification window for the system to completely remove the configuration.
 - Repeated the same for the rest until the list returned to its initial state, ensuring no redundant mailing rules remained.
-- 📸 *Proof: Summary table of existing Budgets before deletion.*
-- 📸 *Proof: Delete Budget action confirmation dialog.*
-- 📸 *Proof: Clean interface after completing the cleanup process.*
+
 
 ---
 

@@ -72,7 +72,6 @@ pre: " <b> 1.5. </b> "
 - Built a DB Subnet Group as a launchpad for a Production-ready, Multi-AZ RDS MySQL Instance.
 - SSH'd into the initial EC2 server, installed Git and MariaDB client, and securely connected to the RDS endpoint to initialize table structures and seed data into the `user` table.
 
-- 📸 ![Proof Image: RDS MySQL Database System successfully created in Available status](/aws-intership-report/images/1-Worklog/1.5-Week5/rds-mysql-available.png)
 
 **Module 3 & 4 — Web Server Operation, AMI Packaging, and Load Balancing:**
 - Deployed Node.js 20 environment, cloned code from GitHub, and configured the `.env` file to connect directly with the RDS Database Endpoint.
@@ -80,16 +79,12 @@ pre: " <b> 1.5. </b> "
 - Snapshotted the EC2 state into `FCJ-Management-AMI` and built the `FCJ-Management-template` Launch Template to standardize hardware and networking.
 - Configured the `FCJ-Management-TG` Target Group (Port 5000) and deployed an Internet-facing Application Load Balancer named `FCJ-Management-LB`.
 
-- 📸 ![Proof Image: FCJ Management app interface loaded successfully with smooth CRUD operations via ALB's DNS](/aws-intership-report/images/1-Worklog/1.5-Week5/alb-dns-crud-success.png)
-
 **Module 6 & 7 — Auto Scaling Configuration and Testing:**
 - Initialized `FCJ-Management-ASG` attached to the Launch Template with capacity limits (Min: 1, Desired: 1, Max: 3) and enabled ELB Health Checks.
 - Fired high-intensity load testing tools at the ALB's DNS link, executed **Manual Scaling** by dropping Desired capacity to 0 to watch the ASG automatically terminate instances.
 - Scheduled a **Scheduled Action** named `Rush hour` (timezone `Asia/Ho_Chi_Minh`) to scale up servers, verifying precise execution logs in the Activity tab.
 - Wrote a **Dynamic Scaling** (Target Tracking) policy based on the `ALB Request Count Per Target` at a 500-request threshold to verify autonomous scaling.
 - Used AWS CLI to push mock JSON data (CPU and instance metrics) to CloudWatch, created a **Predictive Scaling Policy** using a custom metric pair, and analyzed the AI's intelligent forecast graph.
-
-- 📸 ![Proof Image: Load and Capacity charts showcasing Predictive Scaling's ability to anticipate future load](/aws-intership-report/images/1-Worklog/1.5-Week5/asg-predictive-metrics-chart.png)
 
 **Module 8 — System Cleanup Process:**
 - Systematically dismantled resources in the correct order: Delete ASG -> Remove ALB -> Delete Target Group -> Delete Launch Template -> Deregister AMI -> Terminate initial EC2 -> Delete RDS Database and DB Subnet Group to prevent hidden charges.

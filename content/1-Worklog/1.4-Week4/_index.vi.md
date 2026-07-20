@@ -129,8 +129,6 @@ pre: "  1.4.  "
 * Read Replica
 
 
-* 📸 *Ảnh minh chứng: Giao diện phần Introduction của khóa học Amazon RDS.*
-
 **Module 2.1 — Create a VPC**
 
 * Thiết lập không gian mạng ảo (VPC) phục vụ cho lab RDS.
@@ -139,8 +137,7 @@ pre: "  1.4.  "
 * Cấu hình private subnet dành riêng cho database RDS.
 * Lựa chọn 2 vùng Availability Zone khác nhau để tăng tính chống chịu lỗi.
 * Bật tính năng tự động cấp phát IP public (auto-assign public IPv4) cho subnet phù hợp.
-* 📸 *Ảnh minh chứng: Khởi tạo VPC thành công.*
-* 📸 *Ảnh minh chứng: Danh sách Public và Private subnet.*
+
 
 **Module 2.2 — Create EC2 Security Group**
 
@@ -154,8 +151,6 @@ pre: "  1.4.  "
 
 * Siết chặt bảo mật bằng cách chỉ cho phép SSH từ địa chỉ IP của máy cá nhân.
 * Lưu trữ lại ID của Security Group này để sử dụng ở các bước sau.
-* 📸 *Ảnh minh chứng: Hoàn tất tạo EC2 Security Group.*
-* 📸 *Ảnh minh chứng: Chi tiết các Inbound rules đã cấu hình.*
 
 **Module 2.3 — Create RDS Security Group**
 
@@ -163,8 +158,7 @@ pre: "  1.4.  "
 * Tạo quy tắc Inbound cho phép cổng `3306` (dành cho MySQL/Aurora) hoạt động.
 * Ở mục Source, chỉ định nhận traffic từ EC2 Security Group đã tạo ở trên, tuyệt đối không chọn Anywhere.
 * Xác nhận RDS Security Group đã được đặt đúng vào mạng VPC của bài lab.
-* 📸 *Ảnh minh chứng: Hoàn thành cấu hình RDS Security Group.*
-* 📸 *Ảnh minh chứng: Quy tắc giới hạn kết nối chỉ từ EC2.*
+
 
 **Module 2.4 — Create DB Subnet Group**
 
@@ -174,8 +168,7 @@ pre: "  1.4.  "
 * Lựa chọn các subnet thuộc tối thiểu 2 Availability Zone khác biệt.
 * Đảm bảo chỉ add các private subnet để tăng cường an ninh cho database.
 * Xác minh lại thông tin sau khi hệ thống báo tạo thành công.
-* 📸 *Ảnh minh chứng: Giao diện DB Subnet Group sau khi tạo.*
-* 📸 *Ảnh minh chứng: Danh sách các subnet con bên trong Subnet Group.*
+
 
 **Module 3 — Create EC2 Instance**
 
@@ -187,8 +180,7 @@ pre: "  1.4.  "
 * Kích hoạt instance và chờ đến khi trạng thái báo `running`.
 * Sử dụng MobaXterm để kết nối vào máy chủ.
 * Kiểm tra dấu nhắc lệnh (terminal) xác nhận đăng nhập thành công.
-* 📸 *Ảnh minh chứng: Trạng thái EC2 hiển thị là running.*
-* 📸 *Ảnh minh chứng: Cửa sổ terminal SSH thành công.*
+
 
 **Module 4 — Create RDS Database Instance**
 
@@ -202,9 +194,7 @@ pre: "  1.4.  "
 * Bắt đầu quá trình tạo database.
 * Đợi đến khi trạng thái chuyển từ `Creating` qua `Available`.
 * Ghi lại các thông tin: Endpoint, Port và Username.
-* 📸 *Ảnh minh chứng: Tiến trình tạo RDS Database đang diễn ra.*
-* 📸 *Ảnh minh chứng: Database đã chuyển sang trạng thái Available.*
-* 📸 *Ảnh minh chứng: Bảng chi tiết chứa Endpoint và Port.*
+
 
 **Module 5 — Application Deployment**
 

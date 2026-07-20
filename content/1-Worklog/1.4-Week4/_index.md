@@ -128,8 +128,6 @@ Week 4 Objectives:
 * Read Replica
 
 
-* 📸 *Screenshot: The Introduction interface of the Amazon RDS course.*
-
 **Module 2.1 — Create a VPC**
 
 * Established a virtual private network (VPC) for the RDS lab.
@@ -138,8 +136,7 @@ Week 4 Objectives:
 * Configured a private subnet specifically for the RDS database.
 * Selected 2 different Availability Zones to enhance fault tolerance.
 * Enabled auto-assign public IPv4 for the appropriate subnet.
-* 📸 *Screenshot: Successfully initialized VPC.*
-* 📸 *Screenshot: List of Public and Private subnets.*
+
 
 **Module 2.2 — Create EC2 Security Group**
 
@@ -153,8 +150,7 @@ Week 4 Objectives:
 
 * Tightened security by only allowing SSH from the personal machine's IP address.
 * Saved this Security Group ID for use in subsequent steps.
-* 📸 *Screenshot: Completed EC2 Security Group creation.*
-* 📸 *Screenshot: Details of the configured Inbound rules.*
+
 
 **Module 2.3 — Create RDS Security Group**
 
@@ -162,8 +158,6 @@ Week 4 Objectives:
 * Created an Inbound rule to allow port `3306` (for MySQL/Aurora).
 * In the Source section, specified to only accept traffic from the previously created EC2 Security Group, strictly avoiding the "Anywhere" option.
 * Verified that the RDS Security Group was placed into the correct lab VPC.
-* 📸 *Screenshot: Completed RDS Security Group configuration.*
-* 📸 *Screenshot: Rule restricting connections only from EC2.*
 
 **Module 2.4 — Create DB Subnet Group**
 
@@ -173,8 +167,7 @@ Week 4 Objectives:
 * Selected subnets belonging to at least 2 distinct Availability Zones.
 * Ensured only private subnets were added to enhance database security.
 * Verified the information after the system reported successful creation.
-* 📸 *Screenshot: DB Subnet Group interface after creation.*
-* 📸 *Screenshot: List of child subnets inside the Subnet Group.*
+
 
 **Module 3 — Create EC2 Instance**
 
@@ -186,8 +179,7 @@ Week 4 Objectives:
 * Activated the instance and waited for the status to show `running`.
 * Used MobaXterm to connect to the server.
 * Checked the command prompt (terminal) to confirm successful login.
-* 📸 *Screenshot: EC2 status showing as running.*
-* 📸 *Screenshot: Successful SSH terminal window.*
+
 
 **Module 4 — Create RDS Database Instance**
 
@@ -201,9 +193,7 @@ Week 4 Objectives:
 * Started the database creation process.
 * Waited until the status transitioned from `Creating` to `Available`.
 * Recorded the information: Endpoint, Port, and Username.
-* 📸 *Screenshot: RDS Database creation process in progress.*
-* 📸 *Screenshot: Database transitioned to Available status.*
-* 📸 *Screenshot: Details panel containing Endpoint and Port.*
+
 
 **Module 5 — Application Deployment**
 
